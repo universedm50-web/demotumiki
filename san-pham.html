@@ -1,0 +1,1338 @@
+﻿<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản phẩm – TEST | Thiết bị, Phần mềm & Vật tư Đào tạo Kỹ thuật</title>
+  <meta name="description" content="Danh mục sản phẩm TEST: thiết bị đào tạo, phần mềm mô phỏng, vật tư thực hành cho phòng lab kỹ thuật – CNC, Cơ điện tử, Bán dẫn, Ô tô, Hàn.">
+  <meta name="keywords" content="thiết bị đào tạo, phần mềm mô phỏng, vật tư thực hành, phòng lab kỹ thuật">
+  <meta property="og:title" content="Sản phẩm – TEST | Thiết bị Đào tạo Kỹ thuật">
+  <meta property="og:description" content="Danh mục sản phẩm thiết bị, phần mềm mô phỏng và vật tư thực hành chất lượng cao của TEST.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Back-to-top ── */
+    .back-to-top {
+      position: fixed;
+      right: 24px; bottom: 100px;
+      width: 44px; height: 44px;
+      background: var(--grad-primary);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px;
+      box-shadow: var(--shadow-md);
+      z-index: 800;
+      opacity: 0; transform: translateY(20px);
+      pointer-events: none;
+      transition: all var(--transition-base);
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+
+    /* ── Page Hero (inner pages) ── */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #07111F 0%, #0A1628 50%, #0D1B2E 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(30,111,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(30,111,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(30,111,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 720px;
+    }
+    .page-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(30,111,255,0.12);
+      border: 1px solid rgba(30,111,255,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: var(--color-primary, #1E6FFF);
+      margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .page-hero-badge span.dot {
+      width: 6px; height: 6px;
+      background: var(--color-primary, #1E6FFF);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .page-hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin: 0 0 16px;
+    }
+    .page-hero h1 span.accent { color: var(--color-primary, #1E6FFF); }
+    .page-hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--color-primary, #1E6FFF); }
+    .breadcrumb .sep { color: rgba(255,255,255,0.25); }
+
+    /* ── Product Filter Bar ── */
+    .product-filter-section {
+      padding: 40px 0 0;
+      position: sticky; top: 72px;
+      z-index: 100;
+      background: rgba(7,17,31,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .product-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+    }
+    .filter-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: 'Inter', sans-serif;
+      margin-right: 4px;
+    }
+    .filter-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.875rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .filter-btn:hover {
+      border-color: rgba(30,111,255,0.4);
+      color: #fff;
+      background: rgba(30,111,255,0.08);
+    }
+    .filter-btn.active {
+      background: var(--color-primary, #1E6FFF);
+      border-color: var(--color-primary, #1E6FFF);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(30,111,255,0.3);
+    }
+    .filter-count {
+      font-size: 0.72rem;
+      background: rgba(255,255,255,0.15);
+      padding: 1px 6px;
+      border-radius: 100px;
+      font-weight: 600;
+    }
+    .filter-btn.active .filter-count { background: rgba(255,255,255,0.25); }
+
+    /* ── Product Grid Section ── */
+    .products-section {
+      padding: 60px 0 80px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+    .product-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover {
+      border-color: rgba(30,111,255,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(30,111,255,0.1);
+    }
+    .product-card[data-category] {
+      transition: opacity 0.3s ease, transform 0.3s ease, all 0.3s ease;
+    }
+    .product-card.hidden {
+      display: none;
+    }
+    .product-card-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card-img .img-placeholder {
+      height: 200px;
+      border-radius: 0;
+    }
+    .product-cat-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      z-index: 2;
+    }
+    .product-card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .product-code {
+      font-size: 0.72rem;
+      font-family: 'Inter', monospace;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .product-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .product-name-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      margin: 0;
+    }
+    .product-card-actions {
+      display: flex; gap: 8px; margin-top: auto; padding-top: 12px;
+    }
+    .product-card-actions .btn {
+      flex: 1; justify-content: center; font-size: 0.82rem;
+    }
+
+    /* ── Product Detail Section ── */
+    .product-detail-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, rgba(7,17,31,0) 0%, rgba(10,22,40,0.5) 100%);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .product-detail-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .product-detail-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Gallery */
+    .product-gallery { display: flex; flex-direction: column; gap: 12px; }
+    .product-gallery-main .img-placeholder { height: 320px; border-radius: 12px; }
+    .product-gallery-thumbs {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    }
+    .product-gallery-thumb {
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .product-gallery-thumb:hover, .product-gallery-thumb.active {
+      border-color: var(--color-primary, #1E6FFF);
+    }
+    .product-gallery-thumb .img-placeholder { height: 70px; border-radius: 0; }
+
+    /* Info panel */
+    .product-info-panel { display: flex; flex-direction: column; gap: 24px; }
+    .product-detail-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 4px;
+    }
+    .product-detail-meta {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      align-items: center;
+    }
+    .product-detail-meta .badge { font-size: 0.78rem; }
+
+    /* Spec table */
+    .spec-table { width: 100%; border-collapse: collapse; }
+    .spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .spec-table tr:last-child { border-bottom: none; }
+    .spec-table td {
+      padding: 10px 12px;
+      font-size: 0.875rem;
+      vertical-align: top;
+    }
+    .spec-table td:first-child {
+      color: rgba(255,255,255,0.45);
+      font-weight: 600;
+      width: 40%;
+      font-family: 'Inter', sans-serif;
+    }
+    .spec-table td:last-child { color: rgba(255,255,255,0.85); }
+    .spec-table-wrap {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Accordion */
+    .accordion { display: flex; flex-direction: column; gap: 4px; }
+    .accordion-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .accordion-trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px;
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.85);
+      font-family: 'Sora', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      text-align: left;
+    }
+    .accordion-trigger:hover { color: var(--color-primary, #1E6FFF); }
+    .accordion-trigger svg {
+      width: 16px; height: 16px; flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: rgba(255,255,255,0.4);
+    }
+    .accordion-trigger.open svg { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .accordion-body.open { max-height: 500px; }
+    .accordion-body-inner {
+      padding: 0 16px 16px;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+    .accordion-body-inner ul {
+      margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;
+    }
+
+    /* Sticky product CTA */
+    .product-sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(7,17,31,0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(30,111,255,0.2);
+      padding: 16px 0;
+      z-index: 700;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .product-sticky-cta.visible { transform: translateY(0); }
+    .product-sticky-cta-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .product-sticky-cta-label {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .product-sticky-cta-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .product-sticky-cta-actions { display: flex; gap: 12px; }
+
+    /* Results count */
+    .products-results-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .results-count {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+      font-family: 'Inter', sans-serif;
+    }
+    .results-count strong { color: rgba(255,255,255,0.8); }
+
+    @keyframes error-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    .error-shake { animation: error-shake 0.4s ease; border-color: var(--color-danger) !important; }
+  </style>
+</head>
+<body data-page="products">
+
+<!-- ================================================================
+     HEADER & NAVIGATION
+     ================================================================ -->
+<header class="site-header at-top" id="site-header">
+  <div class="container container--wide">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="header-logo">
+        <div class="logo-mark">T</div>
+        <div class="logo-text">
+          <span class="logo-name">TEST</span>
+          <span class="logo-tagline">Technical Training</span>
+        </div>
+      </a>
+
+      <!-- Main Nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span data-i18n="nav_home">Trang chủ</span>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <a href="giai-phap.html" class="nav-link">
+            <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <div class="mega-section-title" data-i18n="nav_solutions">Giải pháp đào tạo</div>
+              <a href="giai-phap.html#mechatronics" class="dropdown-link">
+                <div class="dropdown-link__icon">⚙️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_mechatronics">Cơ điện tử</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_mechatronics_sub">Robot công nghiệp, PLC/SCADA</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#cnc" class="dropdown-link">
+                <div class="dropdown-link__icon">🔩</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_cnc">Gia công CNC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_cnc_sub">Tiện, Phay, EDM, CAD/CAM</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#auto" class="dropdown-link">
+                <div class="dropdown-link__icon">🚗</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_auto">Ô tô & Xe điện</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_auto_sub">Chẩn đoán, Động cơ điện, EV</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#semiconductor" class="dropdown-link">
+                <div class="dropdown-link__icon">🔬</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_semi">Bán dẫn - Vi mạch</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_semi_sub">IC Design, Đóng gói, VR/XR</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#welding" class="dropdown-link">
+                <div class="dropdown-link__icon">🔥</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_weld">Hàn công nghiệp</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_weld_sub">MIG/MAG, TIG, Hàn robot</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#hvac" class="dropdown-link">
+                <div class="dropdown-link__icon">❄️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_hvac">Điện lạnh & HVAC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_hvac_sub">Điều hòa, Lạnh công nghiệp</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sản phẩm (active) -->
+        <div class="nav-item">
+          <a href="san-pham.html" class="nav-link active">
+            <span data-i18n="nav_products">Sản phẩm</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <a href="san-pham.html?cat=equipment" class="dropdown-link">
+                <div class="dropdown-link__icon">🖥️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_equip">Thiết bị đào tạo</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_equip_sub">Mô hình, Bench, Panel</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=software" class="dropdown-link">
+                <div class="dropdown-link__icon">💻</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_software">Phần mềm mô phỏng</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_software_sub">CAD/CAM/CAE, EDA, VR</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=materials" class="dropdown-link">
+                <div class="dropdown-link__icon">🔧</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_materials">Vật tư thực hành</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_materials_sub">Linh kiện, PCB, mẫu thử</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="khoa-hoc.html" class="nav-link">
+            <span data-i18n="nav_courses">Khóa học</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="du-an.html" class="nav-link">
+            <span data-i18n="nav_projects">Dự án tiêu biểu</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="lien-he.html" class="nav-link">
+            <span data-i18n="nav_contact">Liên hệ</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button class="btn-search" data-search-open aria-label="Tìm kiếm" id="btn-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="vn" id="lang-vn">VN</button>
+          <button class="lang-btn" data-lang="en" id="lang-en">EN</button>
+        </div>
+        <a href="#" class="btn-header-cta" data-modal-open="modal-consult" id="header-cta">
+          <span data-i18n="btn_consult">Nhận tư vấn</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-item">
+    <a href="index.html" class="mobile-nav-link"><span data-i18n="nav_home">Trang chủ</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-solutions">
+      <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="mobile-sub" id="mob-solutions">
+      <a href="giai-phap.html#mechatronics" class="mobile-sub-link">⚙️ Cơ điện tử</a>
+      <a href="giai-phap.html#cnc" class="mobile-sub-link">🔩 Gia công CNC</a>
+      <a href="giai-phap.html#auto" class="mobile-sub-link">🚗 Ô tô & Xe điện</a>
+      <a href="giai-phap.html#semiconductor" class="mobile-sub-link">🔬 Bán dẫn - Vi mạch</a>
+      <a href="giai-phap.html#welding" class="mobile-sub-link">🔥 Hàn công nghiệp</a>
+      <a href="giai-phap.html#hvac" class="mobile-sub-link">❄️ Điện lạnh & HVAC</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="san-pham.html" class="mobile-nav-link"><span data-i18n="nav_products">Sản phẩm</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="khoa-hoc.html" class="mobile-nav-link"><span data-i18n="nav_courses">Khóa học</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="du-an.html" class="mobile-nav-link"><span data-i18n="nav_projects">Dự án tiêu biểu</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="lien-he.html" class="mobile-nav-link"><span data-i18n="nav_contact">Liên hệ</span></a>
+  </div>
+  <div class="mobile-nav-footer">
+    <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-consult" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_consult">Nhận tư vấn</span>
+    </a>
+    <a href="#" class="btn btn--outline btn--lg" data-modal-open="modal-quote" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_quote">Yêu cầu báo giá</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-inner">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="search" class="search-input" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+      <button class="search-close" data-search-close aria-label="Đóng tìm kiếm">✕</button>
+    </div>
+    <div class="search-hints">
+      <span style="font-size:0.75rem;color:var(--color-text-muted)">Gợi ý:</span>
+      <span class="search-hint">Robot PLC</span>
+      <span class="search-hint">Cadence Virtuoso</span>
+      <span class="search-hint">Mô hình CNC</span>
+      <span class="search-hint">EV Training Kit</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PAGE HERO
+     ================================================================ -->
+<section class="page-hero" id="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html" data-i18n="nav_home">Trang chủ</a>
+        <span class="sep">›</span>
+        <span data-i18n="nav_products">Sản phẩm</span>
+      </div>
+      <div class="page-hero-badge">
+        <span class="dot"></span>
+        <span data-i18n="products_hero_badge">Danh mục sản phẩm B2B</span>
+      </div>
+      <h1 data-i18n="products_hero_title">
+        Thiết bị & Phần mềm<br>
+        <span class="accent">Đào tạo Kỹ thuật</span>
+      </h1>
+      <p class="page-hero-desc" data-i18n="products_hero_desc">
+        Danh mục đầy đủ thiết bị đào tạo, phần mềm mô phỏng và vật tư thực hành chất lượng cao —
+        được thiết kế chuyên biệt cho môi trường B2B giáo dục và doanh nghiệp kỹ thuật.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FILTER BAR
+     ================================================================ -->
+<div class="product-filter-section" id="product-filter-section">
+  <div class="container">
+    <div class="product-filter-bar" id="product-filter-bar" role="group" aria-label="Lọc sản phẩm theo danh mục">
+      <span class="filter-label" data-i18n="filter_label">Lọc:</span>
+      <button class="filter-btn active" data-filter="all" id="filter-all">
+        <span data-i18n="filter_all">Tất cả</span>
+        <span class="filter-count" id="count-all">9</span>
+      </button>
+      <button class="filter-btn" data-filter="equipment" id="filter-equipment">
+        🖥️ <span data-i18n="filter_equipment">Thiết bị</span>
+        <span class="filter-count" id="count-equipment">4</span>
+      </button>
+      <button class="filter-btn" data-filter="software" id="filter-software">
+        💻 <span data-i18n="filter_software">Phần mềm</span>
+        <span class="filter-count" id="count-software">3</span>
+      </button>
+      <button class="filter-btn" data-filter="materials" id="filter-materials">
+        🔧 <span data-i18n="filter_materials">Vật tư</span>
+        <span class="filter-count" id="count-materials">2</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PRODUCTS SECTION
+     ================================================================ -->
+<section class="products-section" id="products-section">
+  <div class="container">
+
+    <div class="products-results-bar">
+      <p class="results-count">Hiển thị <strong id="visible-count">9</strong> / 9 sản phẩm</p>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;">Sắp xếp:</span>
+        <select id="sort-select" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);padding:6px 12px;border-radius:8px;font-size:0.8rem;font-family:'Inter',sans-serif;">
+          <option>Mặc định</option>
+          <option>Mới nhất</option>
+          <option>Tên A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+
+      <!-- ── PRODUCT 1: Robot PLC Bench (equipment) ── -->
+      <article class="product-card" data-category="equipment" id="prod-1">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge badge--primary">🖥️ Thiết bị</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-EQ-PLC-001</div>
+          <h3 class="product-name" data-i18n="prod1_name">Bench Đào tạo PLC Siemens S7-1500</h3>
+          <p class="product-name-en"><em>Siemens S7-1500 PLC Training Bench</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-1-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Bench Đào tạo PLC Siemens S7-1500" id="prod-1-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 2: Robot Arm (equipment) ── -->
+      <article class="product-card" data-category="equipment" id="prod-2">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge badge--primary">🖥️ Thiết bị</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-EQ-ROB-002</div>
+          <h3 class="product-name" data-i18n="prod2_name">Cánh tay Robot 6 bậc tự do FANUC</h3>
+          <p class="product-name-en"><em>FANUC 6-DOF Industrial Robot Arm</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-2-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Cánh tay Robot 6 bậc tự do FANUC" id="prod-2-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 3: CNC Simulator (equipment) ── -->
+      <article class="product-card" data-category="equipment" id="prod-3">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-cnc.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge badge--primary">🖥️ Thiết bị</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-EQ-CNC-003</div>
+          <h3 class="product-name" data-i18n="prod3_name">Máy phay CNC 3 trục đào tạo DMG MORI</h3>
+          <p class="product-name-en"><em>DMG MORI 3-Axis CNC Milling Training Machine</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-3-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Máy phay CNC 3 trục đào tạo DMG MORI" id="prod-3-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 4: EV Training Kit (equipment) ── -->
+      <article class="product-card" data-category="equipment" id="prod-4">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-auto.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge badge--primary">🖥️ Thiết bị</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-EQ-EV-004</div>
+          <h3 class="product-name" data-i18n="prod4_name">Hệ thống đào tạo Xe điện (EV) toàn phần</h3>
+          <p class="product-name-en"><em>Full Electric Vehicle (EV) Training System</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-4-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Hệ thống đào tạo Xe điện (EV) toàn phần" id="prod-4-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 5: Cadence Virtuoso (software) ── -->
+      <article class="product-card" data-category="software" id="prod-5" style="border-color:rgba(245,158,11,0.15);">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px;--placeholder-accent:rgba(245,158,11,0.15); background-image: url('assets/images/hero-visual.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge" style="display:flex;gap:4px;">
+            <span class="badge badge--accent">⭐ Nổi bật</span>
+            <span class="badge" style="background:rgba(100,100,200,0.2);color:rgba(200,180,255,0.9);border:1px solid rgba(200,180,255,0.15);">💻 Phần mềm</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-SW-EDA-005</div>
+          <h3 class="product-name" data-i18n="prod5_name">Phần mềm EDA Cadence Virtuoso (License Giáo dục)</h3>
+          <p class="product-name-en"><em>Cadence Virtuoso EDA Software — Academic License</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-5-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--accent btn--sm" data-modal-open="modal-quote" data-quote-product="Phần mềm EDA Cadence Virtuoso" id="prod-5-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 6: CAD/CAM Mastercam (software) ── -->
+      <article class="product-card" data-category="software" id="prod-6">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-cnc.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge" style="background:rgba(100,100,200,0.2);color:rgba(200,180,255,0.9);border:1px solid rgba(200,180,255,0.15);">💻 Phần mềm</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-SW-CAM-006</div>
+          <h3 class="product-name" data-i18n="prod6_name">Phần mềm CAD/CAM Mastercam (Multi-Seat)</h3>
+          <p class="product-name-en"><em>Mastercam CAD/CAM Software — Multi-Seat License</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-6-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Phần mềm CAD/CAM Mastercam" id="prod-6-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 7: VR Semiconductor (software) ── -->
+      <article class="product-card" data-category="software" id="prod-7">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-semiconductor.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge" style="background:rgba(100,100,200,0.2);color:rgba(200,180,255,0.9);border:1px solid rgba(200,180,255,0.15);">💻 Phần mềm</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-SW-VR-007</div>
+          <h3 class="product-name" data-i18n="prod7_name">Phần mềm VR/XR Phòng sạch Bán dẫn</h3>
+          <p class="product-name-en"><em>VR/XR Semiconductor Cleanroom Simulation</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-7-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Phần mềm VR/XR Phòng sạch Bán dẫn" id="prod-7-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 8: PCB Kit (materials) ── -->
+      <article class="product-card" data-category="materials" id="prod-8">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge" style="background:rgba(16,185,129,0.15);color:rgba(52,211,153,0.9);border:1px solid rgba(16,185,129,0.2);">🔧 Vật tư</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-MT-PCB-008</div>
+          <h3 class="product-name" data-i18n="prod8_name">Bộ kit thực hành thiết kế & gia công PCB</h3>
+          <p class="product-name-en"><em>PCB Design & Fabrication Practice Kit</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-8-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Bộ kit thực hành thiết kế & gia công PCB" id="prod-8-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT 9: Welding Consumables (materials) ── -->
+      <article class="product-card" data-category="materials" id="prod-9">
+        <div class="product-card-img">
+          <div class="img-placeholder" style="height:200px; background-image: url('assets/images/lab-welding.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          <div class="product-cat-badge">
+            <span class="badge" style="background:rgba(16,185,129,0.15);color:rgba(52,211,153,0.9);border:1px solid rgba(16,185,129,0.2);">🔧 Vật tư</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-code">TST-MT-WLD-009</div>
+          <h3 class="product-name" data-i18n="prod9_name">Gói vật tư thực hành Hàn MIG/MAG & TIG</h3>
+          <p class="product-name-en"><em>MIG/MAG & TIG Welding Consumables Practice Pack</em></p>
+          <div class="product-card-actions">
+            <a href="#product-detail" class="btn btn--outline btn--sm" id="prod-9-detail">Xem chi tiết</a>
+            <a href="#" class="btn btn--primary btn--sm" data-modal-open="modal-quote" data-quote-product="Gói vật tư thực hành Hàn MIG/MAG & TIG" id="prod-9-quote">Báo giá</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.product-grid -->
+  </div>
+</section>
+
+<!-- ================================================================
+     PRODUCT DETAIL SECTION
+     ================================================================ -->
+<section class="product-detail-section" id="product-detail">
+  <div class="container">
+    <div class="product-detail-header" data-aos="fade-up">
+      <div class="section-label" style="justify-content:center;">Chi tiết sản phẩm tiêu biểu</div>
+      <h2 class="section-title">
+        Bench Đào tạo PLC<br>
+        <span class="accent">Siemens S7-1500 — TST-EQ-PLC-001</span>
+      </h2>
+    </div>
+
+    <div class="product-detail-grid">
+      <!-- Left: Gallery -->
+      <div class="product-gallery" data-aos="fade-right">
+        <div class="product-gallery-main">
+          <div class="img-placeholder" style="height:320px;border-radius:12px; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+        </div>
+        <div class="product-gallery-thumbs">
+          <div class="product-gallery-thumb active" id="thumb-1" tabindex="0" role="button" aria-label="Ảnh 1">
+            <div class="img-placeholder" style="height:70px;border-radius:0; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          </div>
+          <div class="product-gallery-thumb" id="thumb-2" tabindex="0" role="button" aria-label="Ảnh 2">
+            <div class="img-placeholder" style="height:70px;border-radius:0; background-image: url('assets/images/hero-visual.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          </div>
+          <div class="product-gallery-thumb" id="thumb-3" tabindex="0" role="button" aria-label="Ảnh 3">
+            <div class="img-placeholder" style="height:70px;border-radius:0; background-image: url('assets/images/lab-auto.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          </div>
+          <div class="product-gallery-thumb" id="thumb-4" tabindex="0" role="button" aria-label="Ảnh 4">
+            <div class="img-placeholder" style="height:70px;border-radius:0; background-image: url('assets/images/hero-visual.jpg'); background-size: cover; background-position: center; border: none;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Info panel -->
+      <div class="product-info-panel" data-aos="fade-left">
+        <div>
+          <div class="product-detail-meta" style="margin-bottom:12px;">
+            <span class="badge badge--primary">🖥️ Thiết bị</span>
+            <span class="badge badge--success">✅ Còn hàng</span>
+            <span class="badge badge--accent">🏆 Best Seller</span>
+          </div>
+          <h2 class="product-detail-name">Bench Đào tạo PLC Siemens S7-1500</h2>
+          <p style="font-family:'Inter',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.55);font-style:italic;margin:4px 0 16px;">Siemens S7-1500 PLC Training Bench · TST-EQ-PLC-001</p>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.65);line-height:1.7;margin:0 0 20px;">
+            Bộ bench thực hành toàn diện tích hợp CPU S7-1500, màn hình HMI KTP900, các module I/O số và tương tự,
+            mô hình cảm biến công nghiệp và khay dây kết nối an toàn. Được thiết kế theo tiêu chuẩn
+            đào tạo Siemens SITRAIN.
+          </p>
+        </div>
+
+        <!-- Spec table -->
+        <div>
+          <h4 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;text-transform:uppercase;letter-spacing:0.05em;">Thông số kỹ thuật cơ bản</h4>
+          <div class="spec-table-wrap">
+            <table class="spec-table" aria-label="Thông số kỹ thuật sản phẩm">
+              <tbody>
+                <tr><td>CPU</td><td>Siemens S7-1500 CPU 1515-2 PN</td></tr>
+                <tr><td>HMI</td><td>KTP900 Basic 9" Color Touch</td></tr>
+                <tr><td>Đầu vào số</td><td>32 DI (24V DC)</td></tr>
+                <tr><td>Đầu ra số</td><td>32 DO (24V DC / 0.5A)</td></tr>
+                <tr><td>Đầu vào tương tự</td><td>8 AI (0–10V / 4–20mA)</td></tr>
+                <tr><td>Truyền thông</td><td>PROFINET, PROFIBUS, Modbus TCP</td></tr>
+                <tr><td>Phần mềm lập trình</td><td>TIA Portal V18 (License)</td></tr>
+                <tr><td>Kích thước bench</td><td>1400 × 800 × 1800 mm</td></tr>
+                <tr><td>Nguồn điện</td><td>220V AC / 50Hz</td></tr>
+                <tr><td>Tiêu chuẩn an toàn</td><td>CE, IEC 61131-3</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Accordion: Applications -->
+        <div class="accordion" id="accordion-product">
+          <div class="accordion-item">
+            <button class="accordion-trigger" id="acc-app-btn" aria-expanded="false" aria-controls="acc-app-body">
+              <span>🎯 Ứng dụng & Lĩnh vực đào tạo</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="accordion-body" id="acc-app-body" role="region" aria-labelledby="acc-app-btn">
+              <div class="accordion-body-inner">
+                <ul>
+                  <li>Lập trình PLC theo chuẩn IEC 61131-3 (LAD, FBD, SCL, ST)</li>
+                  <li>Thiết kế và vận hành màn hình HMI</li>
+                  <li>Kết nối mạng truyền thông PROFINET / Modbus TCP</li>
+                  <li>Điều khiển biến tần Siemens G120</li>
+                  <li>Tích hợp hệ thống SCADA WinCC</li>
+                  <li>An toàn máy móc theo IEC 62061</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" id="acc-spec-btn" aria-expanded="false" aria-controls="acc-spec-body">
+              <span>📋 Thông số đầy đủ & Phụ kiện đi kèm</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="accordion-body" id="acc-spec-body" role="region" aria-labelledby="acc-spec-btn">
+              <div class="accordion-body-inner">
+                <ul>
+                  <li>Biến tần Siemens G120 (0.75 kW)</li>
+                  <li>Motor 3 pha 0.75 kW có encoder</li>
+                  <li>Cảm biến: quang, tiệm cận, nhiệt độ PT100</li>
+                  <li>Bộ nguồn LOGO! Power 24V/10A</li>
+                  <li>Tủ điện chuẩn IP54 có khóa</li>
+                  <li>Tài liệu hướng dẫn thực hành 30 bài</li>
+                  <li>Bảo hành 24 tháng tại Việt Nam</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" id="acc-install-btn" aria-expanded="false" aria-controls="acc-install-body">
+              <span>🚀 Dịch vụ lắp đặt & Hỗ trợ</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="accordion-body" id="acc-install-body" role="region" aria-labelledby="acc-install-btn">
+              <div class="accordion-body-inner">
+                <p>TEST cung cấp dịch vụ toàn gói bao gồm:</p>
+                <ul>
+                  <li>Vận chuyển & lắp đặt tại phòng lab</li>
+                  <li>Kết nối điện & kiểm tra vận hành</li>
+                  <li>Đào tạo sử dụng cho kỹ thuật viên (8 giờ)</li>
+                  <li>Hỗ trợ kỹ thuật hotline 8h–17h trong 24 tháng</li>
+                  <li>Cung cấp phụ tùng thay thế theo yêu cầu</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-quote" data-quote-product="Bench Đào tạo PLC Siemens S7-1500" id="detail-quote-btn" style="flex:1;justify-content:center;">
+            💰 Yêu cầu báo giá
+          </a>
+          <a href="#" class="btn btn--ghost btn--lg" data-modal-open="modal-consult" id="detail-consult-btn" style="justify-content:center;">
+            💬 Tư vấn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="header-logo" style="display:inline-flex;margin-bottom:var(--space-4);">
+          <div class="logo-mark">T</div>
+          <div class="logo-text">
+            <span class="logo-name">TEST</span>
+            <span class="logo-tagline">Technical Training</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc" data-i18n="footer_desc">Chuyên gia hàng đầu về thiết bị đào tạo kỹ thuật và giải pháp phòng lab thực hành tại Việt Nam.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">💼</a>
+          <a href="#" class="footer-social" aria-label="YouTube">▶️</a>
+          <a href="#" class="footer-social" aria-label="Zalo">💬</a>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_solutions">Giải pháp</div>
+        <div class="footer-links">
+          <a href="giai-phap.html#mechatronics" class="footer-link">⚙️ Cơ điện tử</a>
+          <a href="giai-phap.html#cnc" class="footer-link">🔩 Gia công CNC</a>
+          <a href="giai-phap.html#auto" class="footer-link">🚗 Ô tô & Xe điện</a>
+          <a href="giai-phap.html#semiconductor" class="footer-link">🔬 Bán dẫn - Vi mạch</a>
+          <a href="giai-phap.html#welding" class="footer-link">🔥 Hàn công nghiệp</a>
+          <a href="giai-phap.html#hvac" class="footer-link">❄️ Điện lạnh & HVAC</a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_products">Sản phẩm</div>
+        <div class="footer-links">
+          <a href="san-pham.html?cat=equipment" class="footer-link">🖥️ Thiết bị đào tạo</a>
+          <a href="san-pham.html?cat=software" class="footer-link">💻 Phần mềm mô phỏng</a>
+          <a href="san-pham.html?cat=materials" class="footer-link">🔧 Vật tư thực hành</a>
+          <a href="khoa-hoc.html" class="footer-link">📚 Khóa học</a>
+          <a href="du-an.html" class="footer-link">🏆 Dự án tiêu biểu</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title" data-i18n="nav_contact">Liên hệ</div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="footer_address">Hà Nội, Việt Nam</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72..."/></svg>
+          <span>1800 TEST (Miễn phí)</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@test.com.vn</span>
+        </div>
+        <div style="margin-top:var(--space-4);">
+          <a href="#" class="btn btn--accent btn--sm" data-modal-open="modal-consult">💬 Nhận tư vấn ngay</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-i18n="footer_copyright">© 2025 TEST Corporation. Tất cả quyền được bảo lưu.</span>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link" data-i18n="footer_privacy">Chính sách bảo mật</a>
+        <a href="#" class="footer-bottom-link" data-i18n="footer_terms">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+     STICKY CTA
+     ================================================================ -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-quick-contacts">
+    <a href="tel:1800TEST" class="quick-contact-btn quick-contact-btn--phone" title="Gọi ngay" aria-label="Gọi điện">📞</a>
+    <a href="#" class="quick-contact-btn quick-contact-btn--zalo" title="Zalo" aria-label="Zalo">💬</a>
+  </div>
+  <a href="#" class="sticky-cta-btn" data-modal-open="modal-quote" id="sticky-quote-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+    <span data-i18n="btn_quote">Yêu cầu báo giá</span>
+  </a>
+</div>
+
+<!-- ================================================================
+     PRODUCT STICKY CTA (bottom bar on product detail scroll)
+     ================================================================ -->
+<div class="product-sticky-cta" id="product-sticky-cta">
+  <div class="container">
+    <div class="product-sticky-cta-inner">
+      <div>
+        <div class="product-sticky-cta-label">Bench PLC Siemens S7-1500</div>
+        <div class="product-sticky-cta-sub">TST-EQ-PLC-001 · Còn hàng · Bảo hành 24T</div>
+      </div>
+      <div class="product-sticky-cta-actions">
+        <a href="#" class="btn btn--ghost btn--sm" data-modal-open="modal-consult" id="psticky-consult">💬 Tư vấn</a>
+        <a href="#" class="btn btn--primary" data-modal-open="modal-quote" data-quote-product="Bench Đào tạo PLC Siemens S7-1500" id="psticky-quote">💰 Yêu cầu báo giá</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="back-to-top" id="back-to-top" aria-label="Về đầu trang">↑</button>
+
+<!-- ================================================================
+     OVERLAY BACKDROP
+     ================================================================ -->
+<div class="overlay-backdrop" id="overlay-backdrop"></div>
+
+<!-- MODAL: CONSULT -->
+<div class="modal" id="modal-consult" role="dialog" aria-modal="true" aria-labelledby="modal-consult-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-consult-title" data-i18n="popup_consult_title">Đăng ký nhận tư vấn</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-consult" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="consult-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="consult-name" type="text" required placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="consult-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="consult-phone" type="tel" required data-phone placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-email" data-i18n="form_email">Email công ty <span class="required">*</span></label>
+        <input class="form-control" id="consult-email" type="email" required placeholder="example@truong.edu.vn">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-org" data-i18n="form_org">Đơn vị / Trường học</label>
+        <input class="form-control" id="consult-org" type="text" placeholder="Trường ĐH Bách Khoa...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-need" data-i18n="form_need">Nhu cầu cụ thể</label>
+        <textarea class="form-control" id="consult-need" rows="3" placeholder="Mô tả yêu cầu của bạn..."></textarea>
+      </div>
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false" aria-label="Xác nhận tôi không phải robot"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <p class="form-hint" data-i18n="form_privacy">Thông tin của bạn được bảo mật tuyệt đối.</p>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" data-i18n="form_submit_consult">Gửi yêu cầu tư vấn</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: QUOTE -->
+<div class="modal" id="modal-quote" role="dialog" aria-modal="true" aria-labelledby="modal-quote-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-quote-title" data-i18n="popup_quote_title">Yêu cầu báo giá</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-quote" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="quote-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="quote-name" type="text" required placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="quote-phone" type="tel" required data-phone placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-email" data-i18n="form_email">Email <span class="required">*</span></label>
+        <input class="form-control" id="quote-email" type="email" required placeholder="example@company.com">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-product" data-i18n="form_product">Sản phẩm quan tâm</label>
+        <input class="form-control" id="quote-product" type="text" data-product-field placeholder="Tên sản phẩm...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-need" data-i18n="form_need">Yêu cầu cụ thể</label>
+        <textarea class="form-control" id="quote-need" rows="3" placeholder="Số lượng, cấu hình, thời gian cần..."></textarea>
+      </div>
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--accent btn--lg" style="width:100%;" data-i18n="form_submit_quote">Gửi yêu cầu báo giá</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================================================================
+     SCRIPTS
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/header.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/main.js"></script>
+<script>
+/* ── Product filter logic ── */
+(function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.product-card[data-category]');
+  const visibleCountEl = document.getElementById('visible-count');
+
+  function setFilter(category) {
+    filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === category));
+    let count = 0;
+    productCards.forEach(card => {
+      const show = category === 'all' || card.dataset.category === category;
+      card.classList.toggle('hidden', !show);
+      if (show) count++;
+    });
+    if (visibleCountEl) visibleCountEl.textContent = count;
+  }
+
+  // Init from URL param
+  const urlCat = new URLSearchParams(window.location.search).get('cat');
+  if (urlCat) setFilter(urlCat);
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+  });
+
+  /* ── Accordion logic ── */
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', function() {
+      const body = document.getElementById(this.getAttribute('aria-controls'));
+      const isOpen = this.classList.contains('open');
+      // Close all in same accordion
+      const acc = this.closest('.accordion');
+      if (acc) {
+        acc.querySelectorAll('.accordion-trigger').forEach(t => {
+          t.classList.remove('open');
+          t.setAttribute('aria-expanded', 'false');
+        });
+        acc.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+      }
+      if (!isOpen) {
+        this.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+        body.classList.add('open');
+      }
+    });
+  });
+
+  /* ── Gallery thumbs ── */
+  document.querySelectorAll('.product-gallery-thumb').forEach(thumb => {
+    thumb.addEventListener('click', function() {
+      document.querySelectorAll('.product-gallery-thumb').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+    thumb.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') thumb.click(); });
+  });
+
+  /* ── Product sticky CTA ── */
+  const productStickyCta = document.getElementById('product-sticky-cta');
+  const detailSection = document.getElementById('product-detail');
+  if (productStickyCta && detailSection) {
+    const obs = new IntersectionObserver(([entry]) => {
+      productStickyCta.classList.toggle('visible', entry.isIntersecting);
+    }, { threshold: 0.1 });
+    obs.observe(detailSection);
+  }
+
+  /* ── Quote modal product pre-fill ── */
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('[data-modal-open="modal-quote"][data-quote-product]');
+    if (btn) {
+      const productField = document.getElementById('quote-product');
+      if (productField) productField.value = btn.dataset.quoteProduct;
+    }
+  });
+
+  /* ── Back to top ── */
+  const btt = document.getElementById('back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1097 @@
+﻿<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ – TEST | Tư vấn &amp; Hỗ trợ Giải pháp Phòng Lab</title>
+  <meta name="description" content="Liên hệ TEST để nhận tư vấn miễn phí về giải pháp phòng lab kỹ thuật, báo giá thiết bị đào tạo và hợp tác đối tác. Văn phòng Hà Nội và TP.HCM.">
+  <meta name="keywords" content="liên hệ TEST, tư vấn phòng lab, báo giá thiết bị đào tạo, hỗ trợ kỹ thuật">
+  <meta property="og:title" content="Liên hệ – TEST">
+  <meta property="og:description" content="Đội ngũ chuyên gia TEST sẵn sàng tư vấn 24/7 cho mọi nhu cầu thiết bị đào tạo kỹ thuật">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Back-to-top ── */
+    .back-to-top {
+      position: fixed;
+      right: 24px; bottom: 100px;
+      width: 44px; height: 44px;
+      background: var(--grad-primary);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px;
+      box-shadow: var(--shadow-md);
+      z-index: 800;
+      opacity: 0; transform: translateY(20px);
+      pointer-events: none;
+      transition: all var(--transition-base);
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+
+    /* ── Error shake ── */
+    @keyframes error-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    .error-shake { animation: error-shake 0.4s ease; border-color: var(--color-danger) !important; }
+
+    /* ── Page Hero ── */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #050E1A 0%, #07111F 50%, #0A1628 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 40% 50%, rgba(30,111,255,0.12) 0%, transparent 70%);
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(30,111,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(30,111,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .page-hero-content { position: relative; z-index: 2; }
+    .page-hero-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .page-hero-breadcrumb a { color: var(--color-text-muted); text-decoration: none; transition: color 0.2s; }
+    .page-hero-breadcrumb a:hover { color: var(--color-primary); }
+    .page-hero-breadcrumb span { color: var(--color-primary); }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
+    }
+    .page-hero h1 .accent { color: var(--color-primary); }
+    .page-hero-desc {
+      font-size: 1.05rem;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── Contact Section ── */
+    .contact-section { padding: var(--space-20) 0; }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: var(--space-12);
+      align-items: start;
+    }
+    @media (max-width: 1024px) { .contact-layout { grid-template-columns: 1fr; } }
+
+    /* Left Column */
+    .contact-info-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+    }
+    .contact-info-header {
+      padding: var(--space-6);
+      background: linear-gradient(135deg, rgba(30,111,255,0.15) 0%, rgba(30,111,255,0.05) 100%);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-info-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 800;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+    .contact-info-header p { font-size: 0.875rem; color: var(--color-text-muted); }
+
+    .contact-office {
+      padding: var(--space-5) var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-office-title {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--color-primary);
+      margin-bottom: var(--space-3);
+    }
+    .contact-detail-row {
+      display: flex; gap: var(--space-3); align-items: flex-start;
+      margin-bottom: var(--space-3);
+    }
+    .contact-detail-row:last-child { margin-bottom: 0; }
+    .contact-detail-icon {
+      width: 36px; height: 36px;
+      background: rgba(30,111,255,0.1);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .contact-detail-content { flex: 1; }
+    .contact-detail-label {
+      font-size: 0.75rem; color: var(--color-text-muted);
+      font-weight: 500; margin-bottom: 2px;
+    }
+    .contact-detail-value {
+      font-size: 0.9rem; color: var(--color-text-primary);
+      font-weight: 600; line-height: 1.4;
+    }
+    .contact-detail-value a { color: var(--color-primary); text-decoration: none; }
+    .contact-detail-value a:hover { text-decoration: underline; }
+
+    /* Map Placeholder */
+    .map-placeholder {
+      height: 200px;
+      background: rgba(30,111,255,0.06);
+      border: 1px dashed rgba(30,111,255,0.25);
+      border-radius: var(--radius-lg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px; color: var(--color-text-muted);
+      font-size: 0.875rem; cursor: pointer;
+      transition: background 0.2s;
+      margin: var(--space-4) var(--space-6);
+    }
+    .map-placeholder:hover { background: rgba(30,111,255,0.1); }
+    .map-placeholder-icon { font-size: 2rem; }
+
+    /* Social Links */
+    .contact-socials {
+      padding: var(--space-5) var(--space-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .contact-socials-title {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .contact-social-links {
+      display: flex; gap: var(--space-3); flex-wrap: wrap;
+    }
+    .contact-social-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem; color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .contact-social-link:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: rgba(30,111,255,0.08);
+    }
+
+    /* Right Column – Contact Form */
+    .contact-form-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+    }
+    .contact-form-header {
+      padding: var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-form-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 800;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+    .contact-form-header p { font-size: 0.875rem; color: var(--color-text-muted); }
+    .contact-form-body { padding: var(--space-6); }
+
+    /* ── FAQ Accordion ── */
+    .faq-section {
+      padding: var(--space-20) 0;
+      background: linear-gradient(180deg, rgba(7,17,31,0) 0%, rgba(5,14,26,0.8) 100%);
+      position: relative;
+    }
+    .faq-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(30,111,255,0.3), transparent);
+    }
+    .faq-layout {
+      display: grid; grid-template-columns: 300px 1fr;
+      gap: var(--space-12); align-items: start;
+    }
+    @media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; } }
+    .faq-left { position: sticky; top: 100px; }
+    .faq-left-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem; font-weight: 800;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      line-height: 1.2;
+    }
+    .faq-left-title .accent { color: var(--color-primary); }
+    .faq-left-desc { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .faq-left-cta { margin-top: var(--space-6); }
+
+    .accordion-group { display: flex; flex-direction: column; gap: var(--space-3); }
+    .accordion-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .accordion-item:hover, .accordion-item.open { border-color: rgba(30,111,255,0.35); }
+    .accordion-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-5) var(--space-6);
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 0.95rem; font-weight: 600;
+      color: var(--color-text-primary);
+      text-align: left; gap: var(--space-4);
+    }
+    .accordion-btn:hover { color: var(--color-primary); }
+    .accordion-btn-icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      background: rgba(30,111,255,0.1);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: transform 0.3s;
+    }
+    .accordion-item.open .accordion-btn-icon { transform: rotate(45deg); background: rgba(30,111,255,0.2); }
+    .accordion-content {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0 var(--space-6);
+    }
+    .accordion-item.open .accordion-content { max-height: 500px; padding-bottom: var(--space-5); }
+    .accordion-text {
+      font-size: 0.875rem; color: var(--color-text-secondary);
+      line-height: 1.75;
+    }
+    .accordion-text ul { padding-left: 16px; margin-top: var(--space-2); }
+    .accordion-text li { margin-bottom: 6px; }
+  </style>
+</head>
+<body data-page="contact">
+
+<!-- ================================================================
+     HEADER & NAVIGATION
+     ================================================================ -->
+<header class="site-header at-top" id="site-header">
+  <div class="container container--wide">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="header-logo">
+        <div class="logo-mark">T</div>
+        <div class="logo-text">
+          <span class="logo-name">TEST</span>
+          <span class="logo-tagline">Technical Training</span>
+        </div>
+      </a>
+
+      <!-- Main Nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span data-i18n="nav_home">Trang chủ</span>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <a href="giai-phap.html" class="nav-link">
+            <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <div class="mega-section-title" data-i18n="nav_solutions">Giải pháp đào tạo</div>
+              <a href="giai-phap.html#mechatronics" class="dropdown-link">
+                <div class="dropdown-link__icon">⚙️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_mechatronics">Cơ điện tử</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_mechatronics_sub">Robot công nghiệp, PLC/SCADA</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#cnc" class="dropdown-link">
+                <div class="dropdown-link__icon">🔩</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_cnc">Gia công CNC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_cnc_sub">Tiện, Phay, EDM, CAD/CAM</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#auto" class="dropdown-link">
+                <div class="dropdown-link__icon">🚗</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_auto">Ô tô &amp; Xe điện</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_auto_sub">Chẩn đoán, Động cơ điện, EV</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#semiconductor" class="dropdown-link">
+                <div class="dropdown-link__icon">🔬</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_semi">Bán dẫn - Vi mạch</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_semi_sub">IC Design, Đóng gói, VR/XR</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#welding" class="dropdown-link">
+                <div class="dropdown-link__icon">🔥</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_weld">Hàn công nghiệp</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_weld_sub">MIG/MAG, TIG, Hàn robot</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#hvac" class="dropdown-link">
+                <div class="dropdown-link__icon">❄️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_hvac">Điện lạnh &amp; HVAC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_hvac_sub">Điều hòa, Lạnh công nghiệp</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="san-pham.html" class="nav-link">
+            <span data-i18n="nav_products">Sản phẩm</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <a href="san-pham.html?cat=equipment" class="dropdown-link">
+                <div class="dropdown-link__icon">🖥️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_equip">Thiết bị đào tạo</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_equip_sub">Mô hình, Bench, Panel</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=software" class="dropdown-link">
+                <div class="dropdown-link__icon">💻</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_software">Phần mềm mô phỏng</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_software_sub">CAD/CAM/CAE, EDA, VR</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=materials" class="dropdown-link">
+                <div class="dropdown-link__icon">🔧</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_materials">Vật tư thực hành</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_materials_sub">Linh kiện, PCB, mẫu thử</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="khoa-hoc.html" class="nav-link">
+            <span data-i18n="nav_courses">Khóa học</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="du-an.html" class="nav-link">
+            <span data-i18n="nav_projects">Dự án tiêu biểu</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="lien-he.html" class="nav-link active">
+            <span data-i18n="nav_contact">Liên hệ</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button class="btn-search" data-search-open aria-label="Tìm kiếm" id="btn-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="vn" id="lang-vn">VN</button>
+          <button class="lang-btn" data-lang="en" id="lang-en">EN</button>
+        </div>
+        <a href="#" class="btn-header-cta" data-modal-open="modal-consult" id="header-cta">
+          <span data-i18n="btn_consult">Nhận tư vấn</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-item">
+    <a href="index.html" class="mobile-nav-link"><span data-i18n="nav_home">Trang chủ</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-solutions">
+      <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="mobile-sub" id="mob-solutions">
+      <a href="giai-phap.html#mechatronics" class="mobile-sub-link">⚙️ Cơ điện tử</a>
+      <a href="giai-phap.html#cnc" class="mobile-sub-link">🔩 Gia công CNC</a>
+      <a href="giai-phap.html#auto" class="mobile-sub-link">🚗 Ô tô &amp; Xe điện</a>
+      <a href="giai-phap.html#semiconductor" class="mobile-sub-link">🔬 Bán dẫn - Vi mạch</a>
+      <a href="giai-phap.html#welding" class="mobile-sub-link">🔥 Hàn công nghiệp</a>
+      <a href="giai-phap.html#hvac" class="mobile-sub-link">❄️ Điện lạnh &amp; HVAC</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="san-pham.html" class="mobile-nav-link"><span data-i18n="nav_products">Sản phẩm</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="khoa-hoc.html" class="mobile-nav-link"><span data-i18n="nav_courses">Khóa học</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="du-an.html" class="mobile-nav-link"><span data-i18n="nav_projects">Dự án tiêu biểu</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="lien-he.html" class="mobile-nav-link"><span data-i18n="nav_contact">Liên hệ</span></a>
+  </div>
+  <div class="mobile-nav-footer">
+    <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-consult" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_consult">Nhận tư vấn</span>
+    </a>
+    <a href="#" class="btn btn--outline btn--lg" data-modal-open="modal-quote" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_quote">Yêu cầu báo giá</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-inner">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="search" class="search-input" id="search-input" data-i18n-ph="nav_search_placeholder" placeholder="Tìm kiếm giải pháp, sản phẩm...">
+      <button class="search-close" data-search-close aria-label="Đóng tìm kiếm">✕</button>
+    </div>
+    <div class="search-hints">
+      <span style="font-size:0.75rem;color:var(--color-text-muted)" data-i18n="nav_search_hints">Gợi ý:</span>
+      <span class="search-hint" data-i18n="nav_hint_semi">Bán dẫn vi mạch</span>
+      <span class="search-hint" data-i18n="nav_hint_cnc">Thiết bị CNC</span>
+      <span class="search-hint" data-i18n="nav_hint_lab">Thiết kế phòng lab</span>
+      <span class="search-hint" data-i18n="nav_hint_train">Đào tạo giảng viên</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PAGE HERO
+     ================================================================ -->
+<section class="page-hero" id="page-hero">
+  <div class="container page-hero-content">
+    <div class="page-hero-breadcrumb" data-aos="fade-up">
+      <a href="index.html" data-i18n="nav_home">Trang chủ</a>
+      <span>›</span>
+      <span data-i18n="nav_contact">Liên hệ</span>
+    </div>
+    <div class="section-label" data-aos="fade-up" data-aos-delay="50" data-i18n="nav_contact">Liên hệ với chúng tôi</div>
+    <h1 data-aos="fade-up" data-aos-delay="100">
+      Chúng tôi luôn<br><span class="accent">sẵn sàng lắng nghe</span>
+    </h1>
+    <p class="page-hero-desc" data-aos="fade-up" data-aos-delay="150" data-i18n="contact_hero_desc">
+      Từ tư vấn thiết kế phòng lab đến báo giá thiết bị — đội ngũ chuyên gia TEST phản hồi trong vòng 2 giờ làm việc. Hãy để lại thông tin và chúng tôi sẽ chủ động liên hệ bạn.
+    </p>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONTACT SECTION (2-column layout)
+     ================================================================ -->
+<section class="contact-section" id="contact-main">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- ── LEFT COLUMN: Contact Info ── -->
+      <div data-aos="fade-right">
+        <div class="contact-info-card">
+          <div class="contact-info-header">
+            <h2>📍 Thông tin liên hệ</h2>
+            <p>Hai văn phòng phục vụ toàn quốc</p>
+          </div>
+
+          <!-- Hà Nội Office -->
+          <div class="contact-office">
+            <div class="contact-office-title">🏢 Văn phòng Hà Nội (Trụ sở chính)</div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">📍</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Địa chỉ</div>
+                <div class="contact-detail-value">Tầng 12, Tòa nhà TEST Tower<br>123 Đường Duy Tân, Cầu Giấy, Hà Nội</div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">📞</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Điện thoại</div>
+                <div class="contact-detail-value"><a href="tel:18001234">1800 TEST</a> (Miễn phí)</div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">✉️</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value"><a href="mailto:hanoi@test.com.vn">hanoi@test.com.vn</a></div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">🕐</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Giờ làm việc</div>
+                <div class="contact-detail-value">T2 – T6: 08:00 – 17:30<br>T7: 08:00 – 12:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder HN -->
+          <div class="map-placeholder" id="map-hanoi" role="img" aria-label="Bản đồ văn phòng Hà Nội">
+            <div class="map-placeholder-icon">🗺️</div>
+            <span style="font-weight:600;color:var(--color-text-primary);">Bản đồ – Hà Nội</span>
+            <span style="font-size:0.8rem;">123 Duy Tân, Cầu Giấy</span>
+          </div>
+
+          <!-- TP.HCM Office -->
+          <div class="contact-office" style="border-top:1px solid var(--color-border);">
+            <div class="contact-office-title">🏢 Văn phòng TP. Hồ Chí Minh</div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">📍</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Địa chỉ</div>
+                <div class="contact-detail-value">Tầng 8, Pearl Plaza<br>561A Điện Biên Phủ, Bình Thạnh, TP.HCM</div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">📞</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Điện thoại</div>
+                <div class="contact-detail-value"><a href="tel:02812345678">028 1234 5678</a></div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">✉️</div>
+              <div class="contact-detail-content">
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value"><a href="mailto:hcm@test.com.vn">hcm@test.com.vn</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder HCM -->
+          <div class="map-placeholder" id="map-hcm" role="img" aria-label="Bản đồ văn phòng TP.HCM">
+            <div class="map-placeholder-icon">🗺️</div>
+            <span style="font-weight:600;color:var(--color-text-primary);">Bản đồ – TP. Hồ Chí Minh</span>
+            <span style="font-size:0.8rem;">561A Điện Biên Phủ, Bình Thạnh</span>
+          </div>
+
+          <!-- Social Media -->
+          <div class="contact-socials">
+            <div class="contact-socials-title">Theo dõi chúng tôi</div>
+            <div class="contact-social-links">
+              <a href="#" class="contact-social-link" id="social-fb" aria-label="Facebook TEST">📘 Facebook</a>
+              <a href="#" class="contact-social-link" id="social-li" aria-label="LinkedIn TEST">💼 LinkedIn</a>
+              <a href="#" class="contact-social-link" id="social-yt" aria-label="YouTube TEST">▶️ YouTube</a>
+              <a href="#" class="contact-social-link" id="social-zalo" aria-label="Zalo TEST">💬 Zalo OA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT COLUMN: Contact Form ── -->
+      <div data-aos="fade-left" data-aos-delay="100">
+        <div class="contact-form-card">
+          <div class="contact-form-header">
+            <h2>📩 Gửi yêu cầu cho chúng tôi</h2>
+            <p>Chúng tôi phản hồi trong vòng 2 giờ làm việc</p>
+          </div>
+          <div class="contact-form-body">
+            <form data-form id="form-contact" novalidate>
+
+              <!-- Row: Name + Phone -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name" data-i18n="form_name">
+                    Họ và tên <span class="required">*</span>
+                  </label>
+                  <input class="form-control" id="contact-name" type="text" required
+                         placeholder="Nguyễn Văn A" data-i18n-ph="form_name_placeholder">
+                  <span class="form-error">Vui lòng nhập họ tên</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-phone" data-i18n="form_phone">
+                    Số điện thoại <span class="required">*</span>
+                  </label>
+                  <input class="form-control" id="contact-phone" type="tel" required data-phone
+                         placeholder="0912 345 678" data-i18n-ph="form_phone_placeholder">
+                  <span class="form-error">Số điện thoại không hợp lệ</span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="form-label" for="contact-email" data-i18n="form_email">
+                  Email <span class="required">*</span>
+                </label>
+                <input class="form-control" id="contact-email" type="email" required
+                       placeholder="ten@donvi.edu.vn" data-i18n-ph="form_email_placeholder">
+                <span class="form-error">Email không hợp lệ</span>
+              </div>
+
+              <!-- Đơn vị -->
+              <div class="form-group">
+                <label class="form-label" for="contact-org" data-i18n="form_org">Đơn vị / Tổ chức</label>
+                <input class="form-control" id="contact-org" type="text"
+                       placeholder="Trường ĐH, Cao đẳng, Doanh nghiệp..." data-i18n-ph="form_org_placeholder">
+              </div>
+
+              <!-- Chủ đề dropdown -->
+              <div class="form-group">
+                <label class="form-label" for="contact-topic">Chọn chủ đề <span class="required">*</span></label>
+                <select class="form-control" id="contact-topic" required>
+                  <option value="" disabled selected>— Chọn chủ đề liên hệ —</option>
+                  <option value="consult">💡 Tư vấn giải pháp phòng lab</option>
+                  <option value="quote">💰 Báo giá sản phẩm / thiết bị</option>
+                  <option value="partner">🤝 Hợp tác đối tác</option>
+                  <option value="support">🔧 Hỗ trợ kỹ thuật</option>
+                  <option value="other">📋 Khác</option>
+                </select>
+                <span class="form-error">Vui lòng chọn chủ đề</span>
+              </div>
+
+              <!-- Nội dung -->
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Nội dung tin nhắn <span class="required">*</span></label>
+                <textarea class="form-control" id="contact-message" rows="5" required
+                          placeholder="Mô tả chi tiết nhu cầu, quy mô, lĩnh vực và thời gian dự kiến triển khai..."></textarea>
+                <span class="form-error">Vui lòng nhập nội dung</span>
+              </div>
+
+              <!-- Captcha -->
+              <div class="form-group">
+                <div class="captcha-placeholder">
+                  <div class="captcha-checkbox" id="contact-captcha" tabindex="0"
+                       role="checkbox" aria-checked="false" aria-label="Xác nhận tôi không phải robot"></div>
+                  <span data-i18n="captcha_label">Tôi không phải robot</span>
+                  <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+                </div>
+              </div>
+
+              <p class="form-hint" data-i18n="form_privacy" style="margin-bottom:var(--space-4);">
+                🔐 Thông tin của bạn được bảo mật tuyệt đối theo chính sách GDPR.
+              </p>
+
+              <!-- Submit -->
+              <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" id="contact-submit-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                <span>Gửi yêu cầu ngay</span>
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ SECTION
+     ================================================================ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+
+    <div class="faq-layout">
+
+      <!-- Left Sidebar -->
+      <div class="faq-left" data-aos="fade-right">
+        <div class="section-label" data-i18n="faq_label">Câu hỏi thường gặp</div>
+        <h2 class="faq-left-title">
+          Bạn đang<br><span class="accent">thắc mắc</span><br>điều gì?
+        </h2>
+        <p class="faq-left-desc">
+          Dưới đây là những câu hỏi thường gặp nhất từ các trường ĐH, CĐ và doanh nghiệp khi tìm hiểu về giải pháp của TEST. Không tìm thấy câu trả lời? Hãy liên hệ trực tiếp với chúng tôi.
+        </p>
+        <div class="faq-left-cta">
+          <a href="#contact-main" class="btn btn--outline" id="faq-contact-btn">💬 Đặt câu hỏi trực tiếp</a>
+        </div>
+      </div>
+
+      <!-- Accordion List -->
+      <div data-aos="fade-left" data-aos-delay="100">
+        <div class="accordion-group" id="faq-accordion">
+
+          <!-- FAQ 1 -->
+          <div class="accordion-item open" id="faq-item-1">
+            <button class="accordion-btn" aria-expanded="true" aria-controls="faq-answer-1" id="faq-btn-1">
+              <span>TEST cung cấp những loại thiết bị đào tạo kỹ thuật nào?</span>
+              <div class="accordion-btn-icon">+</div>
+            </button>
+            <div class="accordion-content" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
+              <div class="accordion-text">
+                <p>TEST cung cấp đầy đủ thiết bị cho 6 lĩnh vực kỹ thuật chính:</p>
+                <ul>
+                  <li><strong>Cơ điện tử:</strong> Robot công nghiệp (KUKA, Yaskawa, ABB), PLC/SCADA, băng chuyền thông minh</li>
+                  <li><strong>Gia công CNC:</strong> Máy tiện, phay CNC 3–5 trục, EDM, phần mềm CAD/CAM</li>
+                  <li><strong>Ô tô – EV:</strong> Xe điện cutaway, bộ pin, bộ sạc, thiết bị chẩn đoán</li>
+                  <li><strong>Bán dẫn:</strong> Phòng sạch mô phỏng, EDA tools, VR wafer inspection</li>
+                  <li><strong>Hàn công nghiệp:</strong> Robot hàn, máy MIG/MAG/TIG, thiết bị mô phỏng hàn</li>
+                  <li><strong>HVAC:</strong> Mô hình điều hòa, chiller công nghiệp, hệ thống BMS</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item" id="faq-item-2">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">
+              <span>Thời gian từ ký hợp đồng đến khánh thành phòng lab là bao lâu?</span>
+              <div class="accordion-btn-icon">+</div>
+            </button>
+            <div class="accordion-content" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
+              <div class="accordion-text">
+                <p>Thời gian triển khai phụ thuộc vào quy mô dự án:</p>
+                <ul>
+                  <li><strong>Phòng lab nhỏ (1–2 lĩnh vực, &lt;20 thiết bị):</strong> 2–3 tháng</li>
+                  <li><strong>Phòng lab trung bình (3–5 lĩnh vực):</strong> 4–6 tháng</li>
+                  <li><strong>Trung tâm đào tạo quy mô lớn:</strong> 8–12 tháng</li>
+                </ul>
+                <p>Quy trình gồm 4 bước: Khảo sát → Thiết kế &amp; Duyệt → Lắp đặt → Nghiệm thu &amp; Đào tạo vận hành.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item" id="faq-item-3">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">
+              <span>TEST có hỗ trợ chương trình đào tạo cho giảng viên không?</span>
+              <div class="accordion-btn-icon">+</div>
+            </button>
+            <div class="accordion-content" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
+              <div class="accordion-text">
+                <p>Có. TEST cung cấp chương trình <strong>Train-the-Trainer</strong> đặc biệt cho giảng viên các trường dạy nghề và ĐH kỹ thuật, bao gồm:</p>
+                <ul>
+                  <li>Đào tạo vận hành thiết bị thực tế (30–80 giờ tùy lĩnh vực)</li>
+                  <li>Cung cấp giáo án, bài lab có sẵn theo tiêu chuẩn quốc tế</li>
+                  <li>Cấp chứng chỉ được công nhận bởi nhà sản xuất thiết bị</li>
+                  <li>Hỗ trợ trực tuyến 12 tháng sau đào tạo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item" id="faq-item-4">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">
+              <span>Chính sách bảo hành và bảo trì thiết bị như thế nào?</span>
+              <div class="accordion-btn-icon">+</div>
+            </button>
+            <div class="accordion-content" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
+              <div class="accordion-text">
+                <p>TEST cung cấp chính sách hậu mãi toàn diện:</p>
+                <ul>
+                  <li><strong>Bảo hành:</strong> 12–24 tháng tùy thiết bị (theo chính sách nhà sản xuất)</li>
+                  <li><strong>Bảo trì định kỳ:</strong> 2 lần/năm trong suốt thời gian hợp đồng</li>
+                  <li><strong>Hỗ trợ kỹ thuật:</strong> Hotline 24/7, phản hồi trong 4 giờ</li>
+                  <li><strong>Phụ tùng thay thế:</strong> Kho phụ tùng tại Hà Nội &amp; TP.HCM sẵn sàng 24/7</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="accordion-item" id="faq-item-5">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="faq-answer-5" id="faq-btn-5">
+              <span>TEST có hỗ trợ vay vốn hoặc thanh toán theo tiến độ không?</span>
+              <div class="accordion-btn-icon">+</div>
+            </button>
+            <div class="accordion-content" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
+              <div class="accordion-text">
+                <p>TEST linh hoạt hỗ trợ nhiều hình thức thanh toán phù hợp với cơ sở giáo dục và doanh nghiệp:</p>
+                <ul>
+                  <li><strong>Thanh toán theo tiến độ:</strong> Chia 3–4 đợt theo mốc dự án</li>
+                  <li><strong>Hợp đồng thuê-mua:</strong> Dùng thiết bị ngay, trả dần trong 24–36 tháng</li>
+                  <li><strong>Hỗ trợ tiếp cận nguồn vốn:</strong> Kết nối các ngân hàng đối tác ưu đãi lãi suất thấp cho giáo dục</li>
+                  <li><strong>Gói chia sẻ chi phí:</strong> Dành cho các trường CĐ nghề khu vực khó khăn</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="accordion-item" id="faq-item-6">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="faq-answer-6" id="faq-btn-6">
+              <span>Làm thế nào để bắt đầu dự án phòng lab với TEST?</span>
+              <div class="accordion-btn-icon">+</div>
+            </button>
+            <div class="accordion-content" id="faq-answer-6" role="region" aria-labelledby="faq-btn-6">
+              <div class="accordion-text">
+                <p>Chỉ cần 3 bước đơn giản để khởi động dự án với TEST:</p>
+                <ul>
+                  <li><strong>1. Liên hệ tư vấn:</strong> Điền form trên trang này hoặc gọi hotline 1800 TEST — hoàn toàn miễn phí</li>
+                  <li><strong>2. Họp khảo sát:</strong> Chuyên gia TEST đến trực tiếp đánh giá không gian và nhu cầu trong 1–2 ngày làm việc</li>
+                  <li><strong>3. Nhận đề xuất:</strong> TEST trình bày phương án thiết kế và báo giá chi tiết trong 5 ngày làm việc</li>
+                </ul>
+                <p>Toàn bộ quá trình tư vấn ban đầu không tốn bất kỳ chi phí nào.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="header-logo" style="display:inline-flex;margin-bottom:var(--space-4);">
+          <div class="logo-mark">T</div>
+          <div class="logo-text">
+            <span class="logo-name">TEST</span>
+            <span class="logo-tagline">Technical Training</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc" data-i18n="footer_desc">Chuyên gia hàng đầu về thiết bị đào tạo kỹ thuật và giải pháp phòng lab thực hành tại Việt Nam.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">💼</a>
+          <a href="#" class="footer-social" aria-label="YouTube">▶️</a>
+          <a href="#" class="footer-social" aria-label="Zalo">💬</a>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_solutions">Giải pháp</div>
+        <div class="footer-links">
+          <a href="giai-phap.html#mechatronics" class="footer-link">⚙️ Cơ điện tử</a>
+          <a href="giai-phap.html#cnc" class="footer-link">🔩 Gia công CNC</a>
+          <a href="giai-phap.html#auto" class="footer-link">🚗 Ô tô &amp; Xe điện</a>
+          <a href="giai-phap.html#semiconductor" class="footer-link">🔬 Bán dẫn - Vi mạch</a>
+          <a href="giai-phap.html#welding" class="footer-link">🔥 Hàn công nghiệp</a>
+          <a href="giai-phap.html#hvac" class="footer-link">❄️ Điện lạnh &amp; HVAC</a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_products">Sản phẩm</div>
+        <div class="footer-links">
+          <a href="san-pham.html?cat=equipment" class="footer-link">🖥️ Thiết bị đào tạo</a>
+          <a href="san-pham.html?cat=software" class="footer-link">💻 Phần mềm mô phỏng</a>
+          <a href="san-pham.html?cat=materials" class="footer-link">🔧 Vật tư thực hành</a>
+          <a href="khoa-hoc.html" class="footer-link">📚 Khóa học</a>
+          <a href="du-an.html" class="footer-link">🏆 Dự án tiêu biểu</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title" data-i18n="nav_contact">Liên hệ</div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Hà Nội &amp; TP. Hồ Chí Minh</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72..."/></svg>
+          <span>1800 TEST (Miễn phí)</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@test.com.vn</span>
+        </div>
+        <div style="margin-top:var(--space-4);">
+          <a href="#" class="btn btn--accent btn--sm" data-modal-open="modal-consult">💬 Nhận tư vấn ngay</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-i18n="footer_copyright">© 2025 TEST Corporation. Tất cả quyền được bảo lưu.</span>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link" data-i18n="footer_privacy">Chính sách bảo mật</a>
+        <a href="#" class="footer-bottom-link" data-i18n="footer_terms">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-quick-contacts">
+    <a href="tel:1800TEST" class="quick-contact-btn quick-contact-btn--phone" title="Gọi ngay" aria-label="Gọi điện">📞</a>
+    <a href="#" class="quick-contact-btn quick-contact-btn--zalo" title="Zalo" aria-label="Zalo">💬</a>
+  </div>
+  <a href="#" class="sticky-cta-btn" data-modal-open="modal-consult" id="sticky-consult-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span data-i18n="btn_consult">Nhận tư vấn</span>
+  </a>
+</div>
+
+<button class="back-to-top" id="back-to-top" aria-label="Về đầu trang">↑</button>
+
+<!-- ================================================================
+     MODAL: CONSULT
+     ================================================================ -->
+<div class="overlay-backdrop" id="overlay-backdrop"></div>
+<div class="modal" id="modal-consult" role="dialog" aria-modal="true" aria-labelledby="modal-consult-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-consult-title" data-i18n="popup_consult_title">Đăng ký nhận tư vấn</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-consult" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="consult-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="consult-name" type="text" required data-i18n-ph="form_name_placeholder" placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="consult-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="consult-phone" type="tel" required data-phone data-i18n-ph="form_phone_placeholder" placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-email" data-i18n="form_email">Email công ty <span class="required">*</span></label>
+        <input class="form-control" id="consult-email" type="email" required data-i18n-ph="form_email_placeholder" placeholder="example@truong.edu.vn">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-org" data-i18n="form_org">Đơn vị / Trường học</label>
+        <input class="form-control" id="consult-org" type="text" data-i18n-ph="form_org_placeholder" placeholder="Trường ĐH Bách Khoa...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-need" data-i18n="form_need">Nhu cầu cụ thể</label>
+        <textarea class="form-control" id="consult-need" rows="3" data-i18n-ph="form_need_placeholder" placeholder="Mô tả yêu cầu của bạn..."></textarea>
+      </div>
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false" aria-label="Xác nhận tôi không phải robot"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <p class="form-hint" data-i18n="form_privacy">Thông tin của bạn được bảo mật tuyệt đối.</p>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" data-i18n="form_submit_consult">Gửi yêu cầu tư vấn</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: QUOTE -->
+<div class="modal" id="modal-quote" role="dialog" aria-modal="true" aria-labelledby="modal-quote-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-quote-title" data-i18n="popup_quote_title">Yêu cầu báo giá</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-quote" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="quote-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="quote-name" type="text" required placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="quote-phone" type="tel" required data-phone placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-email" data-i18n="form_email">Email <span class="required">*</span></label>
+        <input class="form-control" id="quote-email" type="email" required placeholder="example@company.com">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-product" data-i18n="form_product">Sản phẩm quan tâm</label>
+        <input class="form-control" id="quote-product" type="text" data-product-field placeholder="Tên sản phẩm...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-need" data-i18n="form_need">Yêu cầu cụ thể</label>
+        <textarea class="form-control" id="quote-need" rows="3" placeholder="Số lượng, cấu hình, thời gian cần..."></textarea>
+      </div>
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--accent btn--lg" style="width:100%;" data-i18n="form_submit_quote">Gửi yêu cầu báo giá</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================================================================
+     SCRIPTS
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/header.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Back to top
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // FAQ Accordion
+  document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle clicked
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+</body>
+</html>

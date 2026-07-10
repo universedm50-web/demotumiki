@@ -1,0 +1,2662 @@
+﻿<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giải pháp Đào tạo – TEST | Cơ điện tử, CNC, Ô tô, Bán dẫn, Hàn, HVAC</title>
+  <meta name="description" content="Khám phá 6 giải pháp đào tạo chuyên sâu của TEST: Cơ điện tử, Gia công CNC, Ô tô & Xe điện, Bán dẫn Vi mạch, Hàn công nghiệp và Điện lạnh HVAC. Thiết kế phòng lab chuẩn quốc tế.">
+  <meta name="keywords" content="giải pháp đào tạo, phòng lab cơ điện tử, CNC, bán dẫn vi mạch, ô tô xe điện, hàn công nghiệp, HVAC">
+  <meta property="og:title" content="Giải pháp Đào tạo – TEST Technical Training">
+  <meta property="og:description" content="6 giải pháp đào tạo kỹ thuật toàn diện: từ thiết kế phòng lab đến triển khai chương trình chuẩn quốc tế.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Back-to-top ── */
+    .back-to-top {
+      position: fixed;
+      right: 24px; bottom: 100px;
+      width: 44px; height: 44px;
+      background: var(--grad-primary);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px;
+      box-shadow: var(--shadow-md);
+      z-index: 800;
+      opacity: 0; transform: translateY(20px);
+      pointer-events: none;
+      transition: all var(--transition-base);
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+
+    /* ── Error shake animation ── */
+    @keyframes error-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    .error-shake { animation: error-shake 0.4s ease; border-color: var(--color-danger) !important; }
+
+    /* ── Solution page extra styles ── */
+    .solution-content-area {
+      min-width: 0;
+    }
+
+    /* Section intro card */
+    .section-intro-card {
+      background: var(--grad-card);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .section-intro-card { grid-template-columns: 1fr; }
+    }
+    .section-intro-label {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wider);
+      color: var(--color-primary-light);
+      margin-bottom: var(--space-2);
+    }
+    .section-intro-heading {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--color-text-primary);
+      line-height: var(--lh-snug);
+      margin-bottom: var(--space-3);
+    }
+    .section-intro-desc {
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--lh-relaxed);
+    }
+    .demand-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .demand-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+    }
+    .demand-item-icon {
+      width: 28px; height: 28px;
+      background: rgba(30,111,255,0.12);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Device group cards */
+    .device-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .device-group-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      transition: all var(--transition-base);
+    }
+    .device-group-card:hover {
+      border-color: rgba(30,111,255,0.3);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .device-group-icon {
+      font-size: 24px;
+      margin-bottom: var(--space-2);
+    }
+    .device-group-name {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semi);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-1);
+    }
+    .device-group-count {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* Partner brand tags */
+    .partner-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-8);
+    }
+    .partner-tag {
+      padding: var(--space-2) var(--space-4);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      color: var(--color-text-secondary);
+      letter-spacing: 0.03em;
+      transition: all var(--transition-fast);
+    }
+    .partner-tag:hover {
+      background: var(--color-primary-glow);
+      border-color: var(--color-primary);
+      color: var(--color-primary-light);
+    }
+
+    /* Outcomes grid */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .outcome-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: rgba(16,185,129,0.05);
+      border: 1px solid rgba(16,185,129,0.15);
+      border-radius: var(--radius-md);
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+    }
+    .outcome-check {
+      width: 20px; height: 20px;
+      background: var(--color-success);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: white;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Project cards inline */
+    .project-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .project-mini-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+    .project-mini-card:hover {
+      border-color: rgba(30,111,255,0.3);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .project-mini-img {
+      aspect-ratio: 16/9;
+    }
+    .project-mini-body {
+      padding: var(--space-4);
+    }
+    .project-mini-cat {
+      font-size: var(--fs-xs);
+      color: var(--color-primary-light);
+      font-weight: var(--fw-semi);
+      margin-bottom: var(--space-1);
+    }
+    .project-mini-name {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semi);
+      color: var(--color-text-primary);
+      line-height: 1.4;
+      margin-bottom: var(--space-2);
+    }
+    .project-mini-meta {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* Sub-section tabs (Semiconductor) */
+    .semi-tab-nav {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .semi-tab-btn {
+      padding: var(--space-3) var(--space-5);
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semi);
+      color: var(--color-accent);
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+    .semi-tab-btn:hover,
+    .semi-tab-btn.active {
+      background: rgba(245,158,11,0.18);
+      border-color: var(--color-accent);
+      color: var(--color-accent-light);
+      box-shadow: 0 0 16px rgba(245,158,11,0.2);
+    }
+    .semi-tab-panel { display: none; }
+    .semi-tab-panel.active { display: block; }
+
+    /* Semiconductor special highlight */
+    .semi-highlight-banner {
+      background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(30,111,255,0.08) 100%);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-8);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .semi-highlight-icon {
+      font-size: 48px;
+      flex-shrink: 0;
+    }
+    .semi-highlight-text h3 {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .semi-highlight-text p {
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--lh-relaxed);
+      max-width: 600px;
+    }
+
+    /* VR iframe placeholder */
+    .vr-iframe-wrapper {
+      position: relative;
+      background: rgba(7,17,31,0.8);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      margin-bottom: var(--space-8);
+    }
+    .vr-iframe-wrapper iframe {
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .vr-iframe-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      background: linear-gradient(135deg, rgba(7,17,31,0.95) 0%, rgba(17,34,64,0.9) 100%);
+    }
+    .vr-icon { font-size: 64px; }
+    .vr-title {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      color: var(--color-text-primary);
+    }
+    .vr-subtitle {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      text-align: center;
+      max-width: 480px;
+    }
+    .vr-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.4);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      color: var(--color-accent-light);
+    }
+    .vr-dot {
+      width: 8px; height: 8px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    /* Lead magnet form inline */
+    .lead-form-inline {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .lead-form-inline .form-group {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 0;
+    }
+
+    /* Section sub-heading */
+    .sub-heading {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semi);
+      color: var(--color-text-primary);
+      margin: var(--space-8) 0 var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .sub-heading::before {
+      content: '';
+      display: block;
+      width: 4px; height: 18px;
+      background: var(--grad-primary);
+      border-radius: 2px;
+    }
+
+    /* Section separator */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--color-divider);
+      margin: var(--space-10) 0;
+    }
+
+    /* Sidebar progress indicator */
+    .sidebar-progress {
+      height: 3px;
+      background: var(--color-divider);
+      border-radius: 2px;
+      margin: var(--space-4) var(--space-3) var(--space-2);
+      overflow: hidden;
+    }
+    .sidebar-progress-bar {
+      height: 100%;
+      background: var(--grad-primary);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Page hero specific for solution page */
+    .page-hero--solution {
+      background: linear-gradient(135deg, #07111F 0%, #0D1B2E 50%, #112240 100%);
+      padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-12);
+    }
+    .page-hero--solution::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(30,111,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,111,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-breadcrumb-bar {
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--space-6);
+    }
+
+    /* Solution page layout padding */
+    .solution-page-body {
+      padding: var(--space-16) 0;
+      background: var(--color-bg-dark);
+    }
+
+    /* Img placeholder enhanced */
+    .img-placeholder {
+      background: linear-gradient(135deg, var(--color-bg-elevated) 0%, var(--color-bg-card) 100%);
+      border-radius: inherit;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: var(--space-2);
+      color: var(--color-text-muted);
+      font-size: var(--fs-xs);
+      text-align: center;
+      padding: var(--space-4);
+    }
+    .img-placeholder svg {
+      width: 32px; height: 32px;
+      opacity: 0.4;
+    }
+
+    /* Accordion enhancements */
+    .accordion-modules {
+      margin-bottom: var(--space-8);
+    }
+    .accordion-item--module .accordion-btn {
+      background: linear-gradient(135deg, rgba(30,111,255,0.05) 0%, var(--color-bg-card) 100%);
+    }
+    .accordion-item--module .accordion-btn.open {
+      background: linear-gradient(135deg, rgba(30,111,255,0.1) 0%, var(--color-bg-elevated) 100%);
+    }
+    .module-meta {
+      display: flex;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .module-meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+    }
+    .module-topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .module-topic {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+    }
+    .module-topic::before {
+      content: '▸';
+      color: var(--color-primary-light);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* CTA section within solution */
+    .solution-cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      padding: var(--space-6) var(--space-8);
+      background: linear-gradient(135deg, rgba(30,111,255,0.08) 0%, rgba(30,111,255,0.04) 100%);
+      border: 1px solid rgba(30,111,255,0.2);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-12);
+    }
+    .solution-cta-bar-text {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semi);
+      color: var(--color-text-primary);
+    }
+    .solution-cta-bar-sub {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+    .solution-cta-bar-actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    /* Semiconductor sub-section heading */
+    .semi-sub-title {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .semi-sub-title .badge {
+      font-size: var(--fs-xs);
+    }
+
+    /* Lab model visual */
+    .lab-model-visual {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    .lab-model-zones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+    @media (max-width: 640px) {
+      .lab-model-zones { grid-template-columns: 1fr 1fr; }
+    }
+    .lab-zone {
+      background: rgba(30,111,255,0.06);
+      border: 1px solid rgba(30,111,255,0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      text-align: center;
+    }
+    .lab-zone-icon { font-size: 28px; margin-bottom: var(--space-2); }
+    .lab-zone-name {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      color: var(--color-text-primary);
+    }
+    .lab-zone-desc {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body data-page="solution">
+
+<!-- ================================================================
+     HEADER & NAVIGATION
+     ================================================================ -->
+<header class="site-header at-top" id="site-header">
+  <div class="container container--wide">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="header-logo">
+        <div class="logo-mark">T</div>
+        <div class="logo-text">
+          <span class="logo-name">TEST</span>
+          <span class="logo-tagline">Technical Training</span>
+        </div>
+      </a>
+
+      <!-- Main Nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        <!-- Trang chủ -->
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span data-i18n="nav_home">Trang chủ</span>
+          </a>
+        </div>
+
+        <!-- Giải pháp -->
+        <div class="nav-item">
+          <a href="giai-phap.html" class="nav-link active">
+            <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <div class="mega-section-title" data-i18n="nav_solutions">Giải pháp đào tạo</div>
+              <a href="#mechatronics" class="dropdown-link">
+                <div class="dropdown-link__icon">⚙️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_mechatronics">Cơ điện tử</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_mechatronics_sub">Robot công nghiệp, PLC/SCADA</span>
+                </div>
+              </a>
+              <a href="#cnc" class="dropdown-link">
+                <div class="dropdown-link__icon">🔩</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_cnc">Gia công CNC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_cnc_sub">Tiện, Phay, EDM, CAD/CAM</span>
+                </div>
+              </a>
+              <a href="#auto" class="dropdown-link">
+                <div class="dropdown-link__icon">🚗</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_auto">Ô tô & Xe điện</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_auto_sub">Chẩn đoán, Động cơ điện, EV</span>
+                </div>
+              </a>
+              <a href="#semiconductor" class="dropdown-link">
+                <div class="dropdown-link__icon">🔬</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_semi">Bán dẫn - Vi mạch</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_semi_sub">IC Design, Đóng gói, VR/XR</span>
+                </div>
+              </a>
+              <a href="#welding" class="dropdown-link">
+                <div class="dropdown-link__icon">🔥</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_weld">Hàn công nghiệp</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_weld_sub">MIG/MAG, TIG, Hàn robot</span>
+                </div>
+              </a>
+              <a href="#hvac" class="dropdown-link">
+                <div class="dropdown-link__icon">❄️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_hvac">Điện lạnh & HVAC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_hvac_sub">Điều hòa, Lạnh công nghiệp</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sản phẩm -->
+        <div class="nav-item">
+          <a href="san-pham.html" class="nav-link">
+            <span data-i18n="nav_products">Sản phẩm</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <a href="san-pham.html?cat=equipment" class="dropdown-link">
+                <div class="dropdown-link__icon">🖥️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_equip">Thiết bị đào tạo</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_equip_sub">Mô hình, Bench, Panel</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=software" class="dropdown-link">
+                <div class="dropdown-link__icon">💻</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_software">Phần mềm mô phỏng</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_software_sub">CAD/CAM/CAE, EDA, VR</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=materials" class="dropdown-link">
+                <div class="dropdown-link__icon">🔧</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_materials">Vật tư thực hành</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_materials_sub">Linh kiện, PCB, mẫu thử</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="khoa-hoc.html" class="nav-link">
+            <span data-i18n="nav_courses">Khóa học</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="du-an.html" class="nav-link">
+            <span data-i18n="nav_projects">Dự án tiêu biểu</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="lien-he.html" class="nav-link">
+            <span data-i18n="nav_contact">Liên hệ</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Search -->
+        <button class="btn-search" data-search-open aria-label="Tìm kiếm" id="btn-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <!-- Language -->
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="vn" id="lang-vn">VN</button>
+          <button class="lang-btn" data-lang="en" id="lang-en">EN</button>
+        </div>
+        <!-- CTA -->
+        <a href="#" class="btn-header-cta" data-modal-open="modal-consult" id="header-cta">
+          <span data-i18n="btn_consult">Nhận tư vấn</span>
+        </a>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-item">
+    <a href="index.html" class="mobile-nav-link">
+      <span data-i18n="nav_home">Trang chủ</span>
+    </a>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-solutions">
+      <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="mobile-sub" id="mob-solutions">
+      <a href="#mechatronics" class="mobile-sub-link">⚙️ Cơ điện tử</a>
+      <a href="#cnc" class="mobile-sub-link">🔩 Gia công CNC</a>
+      <a href="#auto" class="mobile-sub-link">🚗 Ô tô & Xe điện</a>
+      <a href="#semiconductor" class="mobile-sub-link">🔬 Bán dẫn - Vi mạch</a>
+      <a href="#welding" class="mobile-sub-link">🔥 Hàn công nghiệp</a>
+      <a href="#hvac" class="mobile-sub-link">❄️ Điện lạnh & HVAC</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="san-pham.html" class="mobile-nav-link"><span data-i18n="nav_products">Sản phẩm</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="khoa-hoc.html" class="mobile-nav-link"><span data-i18n="nav_courses">Khóa học</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="du-an.html" class="mobile-nav-link"><span data-i18n="nav_projects">Dự án tiêu biểu</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="lien-he.html" class="mobile-nav-link"><span data-i18n="nav_contact">Liên hệ</span></a>
+  </div>
+  <div class="mobile-nav-footer">
+    <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-consult" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_consult">Nhận tư vấn</span>
+    </a>
+    <a href="#" class="btn btn--outline btn--lg" data-modal-open="modal-quote" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_quote">Yêu cầu báo giá</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ================================================================
+     SEARCH OVERLAY
+     ================================================================ -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-inner">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="search" class="search-input" id="search-input" data-i18n-ph="nav_search_placeholder" placeholder="Tìm kiếm giải pháp, sản phẩm...">
+      <button class="search-close" data-search-close aria-label="Đóng tìm kiếm">✕</button>
+    </div>
+    <div class="search-hints">
+      <span style="font-size:0.75rem;color:var(--color-text-muted)" data-i18n="nav_search_hints">Gợi ý:</span>
+      <span class="search-hint" data-i18n="nav_hint_semi">Bán dẫn vi mạch</span>
+      <span class="search-hint" data-i18n="nav_hint_cnc">Thiết bị CNC</span>
+      <span class="search-hint" data-i18n="nav_hint_lab">Thiết kế phòng lab</span>
+      <span class="search-hint" data-i18n="nav_hint_train">Đào tạo giảng viên</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PAGE HERO
+     ================================================================ -->
+<section class="page-hero page-hero--solution" id="page-hero">
+  <div class="page-hero-radial"></div>
+  <div class="container container--wide">
+    <!-- Breadcrumb -->
+    <div class="hero-breadcrumb-bar">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Trang chủ</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Giải pháp đào tạo</span>
+      </nav>
+    </div>
+
+    <div class="page-hero-content" data-aos="fade-up">
+      <div class="section-label" style="margin-bottom:var(--space-3);">6 lĩnh vực chuyên sâu</div>
+      <h1 class="page-hero-title" data-i18n="solutions_hero_title">
+        Giải pháp Đào tạo Kỹ thuật
+        <span class="accent"> Toàn diện</span>
+      </h1>
+      <p class="page-hero-desc" data-i18n="solutions_hero_desc">
+        TEST thiết kế và triển khai phòng lab thực hành chuẩn quốc tế cho 6 lĩnh vực mũi nhọn của công nghiệp Việt Nam — từ tư vấn nhu cầu, lựa chọn thiết bị, xây dựng chương trình đào tạo đến bảo hành hậu mãi.
+      </p>
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+        <a href="#mechatronics" class="btn btn--primary btn--lg" id="sol-hero-explore">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Khám phá ngay
+        </a>
+        <a href="#" class="btn btn--ghost btn--lg" data-modal-open="modal-consult" id="sol-hero-consult">
+          💬 Tư vấn miễn phí
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick nav pills -->
+    <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-10);position:relative;z-index:1;" data-aos="fade-up" data-aos-delay="100">
+      <a href="#mechatronics" class="partner-tag">⚙️ Cơ điện tử</a>
+      <a href="#cnc" class="partner-tag">🔩 CNC</a>
+      <a href="#auto" class="partner-tag">🚗 Ô tô & EV</a>
+      <a href="#semiconductor" class="partner-tag" style="border-color:rgba(245,158,11,0.3);color:var(--color-accent);">🔬 Bán dẫn 🌟</a>
+      <a href="#welding" class="partner-tag">🔥 Hàn</a>
+      <a href="#hvac" class="partner-tag">❄️ HVAC</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     MAIN SOLUTION LAYOUT
+     ================================================================ -->
+<div class="solution-page-body">
+  <div class="container container--wide">
+    <div class="solution-layout">
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="solution-sidebar" id="solution-sidebar" aria-label="Solution navigation">
+        <div class="sidebar-nav">
+          <div class="sidebar-nav-title">Lĩnh vực đào tạo</div>
+
+          <div class="sidebar-progress">
+            <div class="sidebar-progress-bar" id="sidebar-progress-bar"></div>
+          </div>
+
+          <a href="#mechatronics" class="sidebar-nav-link active" id="sbnav-mechatronics" data-i18n="nav_sol_mechatronics">
+            <span>⚙️</span> Cơ điện tử
+          </a>
+          <a href="#cnc" class="sidebar-nav-link" id="sbnav-cnc" data-i18n="nav_sol_cnc">
+            <span>🔩</span> Gia công CNC
+          </a>
+          <a href="#auto" class="sidebar-nav-link" id="sbnav-auto" data-i18n="nav_sol_auto">
+            <span>🚗</span> Ô tô & Xe điện
+          </a>
+          <a href="#semiconductor" class="sidebar-nav-link" id="sbnav-semiconductor" data-i18n="nav_sol_semi" style="color:var(--color-accent);">
+            <span>🔬</span> Bán dẫn - Vi mạch
+            <span class="badge badge--accent" style="margin-left:auto;font-size:0.65rem;padding:2px 6px;">Mũi nhọn</span>
+          </a>
+          <a href="#welding" class="sidebar-nav-link" id="sbnav-welding" data-i18n="nav_sol_weld">
+            <span>🔥</span> Hàn công nghiệp
+          </a>
+          <a href="#hvac" class="sidebar-nav-link" id="sbnav-hvac" data-i18n="nav_sol_hvac">
+            <span>❄️</span> Điện lạnh & HVAC
+          </a>
+
+          <div style="border-top:1px solid var(--color-divider);margin:var(--space-4) 0;"></div>
+
+          <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;font-size:var(--fs-sm);" data-modal-open="modal-consult" id="sidebar-consult-btn">
+            💬 Tư vấn cấu hình
+          </a>
+          <a href="#" class="btn btn--outline" style="width:100%;justify-content:center;font-size:var(--fs-sm);margin-top:var(--space-2);" data-modal-open="modal-quote" id="sidebar-quote-btn">
+            📋 Yêu cầu báo giá
+          </a>
+        </div>
+      </aside>
+
+      <!-- ── MAIN CONTENT ── -->
+      <main class="solution-content-area">
+
+        <!-- ============================================================
+             SECTION 1: CƠ ĐIỆN TỬ (MECHATRONICS)
+             ============================================================ -->
+        <section class="solution-section" id="mechatronics" data-i18n-section="mechatronics">
+
+          <h2 class="solution-section-title">
+            <span class="num">01</span>
+            ⚙️ Cơ điện tử & Tự động hóa
+          </h2>
+
+          <!-- Intro card: Nhu cầu ngành -->
+          <div class="section-intro-card">
+            <div>
+              <div class="section-intro-label">Nhu cầu ngành</div>
+              <h3 class="section-intro-heading">Tại sao cơ điện tử là ưu tiên hàng đầu?</h3>
+              <p class="section-intro-desc">
+                Việt Nam đang bước vào làn sóng Công nghiệp 4.0. Các nhà máy sản xuất điện tử, FDI và khu công nghiệp đang chuyển đổi mạnh mẽ sang tự động hóa, robot công nghiệp. Tuy nhiên, nguồn nhân lực về PLC, SCADA, robot ABB/KUKA vẫn thiếu hụt trầm trọng.
+              </p>
+              <div style="margin-top:var(--space-4);">
+                <span class="badge badge--primary" style="margin-right:var(--space-2);">200,000+ việc làm dự báo đến 2030</span>
+                <span class="badge badge--success">Lương trung bình 25–60 triệu/tháng</span>
+              </div>
+            </div>
+            <div class="demand-list">
+              <div class="demand-item">
+                <div class="demand-item-icon">🏭</div>
+                <div>Samsung, LG, Intel đang tuyển kỹ sư tự động hóa với yêu cầu thực hành cao</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">🤖</div>
+                <div>Robot cộng tác (cobot) dự báo tăng 35%/năm tại Đông Nam Á</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">📡</div>
+                <div>IIoT & Industry 4.0 đòi hỏi kỹ năng tích hợp PLC–SCADA–Cloud</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">🎓</div>
+                <div>80% sinh viên kỹ thuật cần bổ sung kỹ năng thực hành thực tế</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mô hình lab -->
+          <div class="sub-heading">Mô hình phòng lab đề xuất</div>
+          <div class="lab-model-visual">
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);margin-bottom:var(--space-5);">Phòng Lab Cơ điện tử tiêu chuẩn — Diện tích đề xuất: 120–200 m²</p>
+            <div class="lab-model-zones">
+              <div class="lab-zone">
+                <div class="lab-zone-icon">🤖</div>
+                <div class="lab-zone-name">Khu Robot</div>
+                <div class="lab-zone-desc">Robot 6 trục, cobot, AGV</div>
+              </div>
+              <div class="lab-zone">
+                <div class="lab-zone-icon">⚡</div>
+                <div class="lab-zone-name">Khu PLC/SCADA</div>
+                <div class="lab-zone-desc">Siemens, Mitsubishi, Allen-Bradley</div>
+              </div>
+              <div class="lab-zone">
+                <div class="lab-zone-icon">🔄</div>
+                <div class="lab-zone-name">Khu Băng tải</div>
+                <div class="lab-zone-desc">Hệ thống phân loại, cấp phôi</div>
+              </div>
+              <div class="lab-zone">
+                <div class="lab-zone-icon">📡</div>
+                <div class="lab-zone-name">Khu IoT/IIoT</div>
+                <div class="lab-zone-desc">Cảm biến, gateway, cloud</div>
+              </div>
+              <div class="lab-zone">
+                <div class="lab-zone-icon">🖥️</div>
+                <div class="lab-zone-name">Khu SCADA/HMI</div>
+                <div class="lab-zone-desc">Màn hình điều khiển trung tâm</div>
+              </div>
+              <div class="lab-zone">
+                <div class="lab-zone-icon">🔧</div>
+                <div class="lab-zone-name">Khu Bảo trì</div>
+                <div class="lab-zone-desc">Điện khí nén, thủy lực</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nhóm thiết bị -->
+          <div class="sub-heading">Nhóm thiết bị chính</div>
+          <div class="device-groups">
+            <div class="device-group-card">
+              <div class="device-group-icon">🤖</div>
+              <div class="device-group-name">Robot công nghiệp</div>
+              <div class="device-group-count">12 model · ABB, FANUC, KUKA</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">⚡</div>
+              <div class="device-group-name">PLC & Biến tần</div>
+              <div class="device-group-count">8 dòng · Siemens, Mitsubishi</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">📡</div>
+              <div class="device-group-name">HMI & SCADA</div>
+              <div class="device-group-count">Wonderware, WinCC, iFIX</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">💨</div>
+              <div class="device-group-name">Khí nén & Thủy lực</div>
+              <div class="device-group-count">Festo, Parker, Bosch Rexroth</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔍</div>
+              <div class="device-group-name">Cảm biến & Vision</div>
+              <div class="device-group-count">SICK, Keyence, Cognex</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🌐</div>
+              <div class="device-group-name">IIoT Gateway</div>
+              <div class="device-group-count">MQTT, OPC-UA, Modbus</div>
+            </div>
+          </div>
+
+          <!-- Spec table -->
+          <div class="sub-heading">Thông số kỹ thuật phòng lab tiêu chuẩn</div>
+          <div style="overflow-x:auto;margin-bottom:var(--space-8);">
+            <table class="spec-table" aria-label="Thông số phòng lab Cơ điện tử">
+              <thead>
+                <tr>
+                  <th>Hạng mục</th>
+                  <th>Gói Cơ bản</th>
+                  <th>Gói Nâng cao</th>
+                  <th>Gói Chuyên sâu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Số trạm thực hành</td><td>6–8 trạm</td><td>10–15 trạm</td><td>20+ trạm</td></tr>
+                <tr><td>Robot công nghiệp</td><td>1 robot 6 trục</td><td>2–3 robot + cobot</td><td>5+ robot đa chủng</td></tr>
+                <tr><td>Hệ thống PLC</td><td>Siemens S7-1200</td><td>S7-1200 + 1500</td><td>Đa hãng + Allen-Bradley</td></tr>
+                <tr><td>Băng tải MPS</td><td>1 dây chuyền đơn</td><td>2–3 module</td><td>Dây chuyền tích hợp đầy đủ</td></tr>
+                <tr><td>Diện tích tối thiểu</td><td>80 m²</td><td>120 m²</td><td>200 m²</td></tr>
+                <tr><td>Số học viên đồng thời</td><td>20–25</td><td>30–40</td><td>50+</td></tr>
+                <tr><td>Thời gian lắp đặt</td><td>4–6 tuần</td><td>6–10 tuần</td><td>12–16 tuần</td></tr>
+                <tr><td>Bảo hành thiết bị</td><td>12 tháng</td><td>24 tháng</td><td>36 tháng + SLA</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Accordion học phần -->
+          <div class="sub-heading">Học phần đào tạo đề xuất</div>
+          <div class="accordion-modules">
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-mecha-1" aria-expanded="true" aria-controls="acc-mecha-1-body">
+                <span>📚 Module 1: Lập trình PLC cơ bản đến nâng cao</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-mecha-1-body" style="display:block;">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 60 giờ lý thuyết + 90 giờ thực hành</span>
+                  <span class="module-meta-item">👥 Sinh viên năm 3+, Kỹ thuật viên</span>
+                  <span class="module-meta-item">🏆 Chứng nhận Siemens TIA Portal</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Cấu trúc PLC, chu kỳ quét, vào/ra số và tương tự</div>
+                  <div class="module-topic">Lập trình LAD, FBD, STL, SCL và SFC</div>
+                  <div class="module-topic">Lập trình function block, data block nâng cao</div>
+                  <div class="module-topic">Kết nối HMI Siemens WinCC Basic / Comfort</div>
+                  <div class="module-topic">Truyền thông PROFINET, PROFIBUS, Modbus</div>
+                  <div class="module-topic">Chẩn đoán lỗi và bảo trì hệ thống</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-mecha-2" aria-expanded="false" aria-controls="acc-mecha-2-body">
+                <span>🤖 Module 2: Lập trình và vận hành Robot công nghiệp</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-mecha-2-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 40 giờ lý thuyết + 80 giờ thực hành</span>
+                  <span class="module-meta-item">👥 Kỹ sư, Kỹ thuật viên</span>
+                  <span class="module-meta-item">🏆 Chứng nhận FANUC/ABB Robot</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Cấu tạo robot 6 trục, động học thuận và nghịch</div>
+                  <div class="module-topic">Dạy robot (Jogging), lập trình điểm, lập trình quỹ đạo</div>
+                  <div class="module-topic">Ngôn ngữ lập trình RAPID (ABB) / TP (FANUC)</div>
+                  <div class="module-topic">Lập trình robot hàn, sơn, lắp ráp, phân loại</div>
+                  <div class="module-topic">Tích hợp robot với PLC, băng tải, camera vision</div>
+                  <div class="module-topic">An toàn lao động khi vận hành robot</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-mecha-3" aria-expanded="false" aria-controls="acc-mecha-3-body">
+                <span>📡 Module 3: SCADA & IIoT trong sản xuất thông minh</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-mecha-3-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 30 giờ lý thuyết + 50 giờ thực hành</span>
+                  <span class="module-meta-item">👥 Kỹ sư tự động hóa, IT kỹ thuật</span>
+                  <span class="module-meta-item">🏆 Chứng nhận Wonderware/WinCC</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Thiết kế màn hình SCADA: mimic diagram, trending, alarms</div>
+                  <div class="module-topic">OPC-UA server/client, MQTT broker</div>
+                  <div class="module-topic">Kết nối cloud AWS IoT / Azure IoT Hub</div>
+                  <div class="module-topic">Dashboard giám sát OEE, báo cáo thời gian thực</div>
+                  <div class="module-topic">Dự đoán hỏng hóc (Predictive Maintenance) với ML</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-mecha-4" aria-expanded="false" aria-controls="acc-mecha-4-body">
+                <span>💨 Module 4: Khí nén và Thủy lực công nghiệp</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-mecha-4-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 30 giờ lý thuyết + 60 giờ thực hành</span>
+                  <span class="module-meta-item">👥 Sinh viên, Kỹ thuật viên bảo trì</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Nguyên lý khí nén, thủy lực: áp suất, lưu lượng, công suất</div>
+                  <div class="module-topic">Van khí nén điện từ, xi lanh, van tỷ lệ</div>
+                  <div class="module-topic">Thiết kế mạch khí nén bằng FluidSIM</div>
+                  <div class="module-topic">Bảo dưỡng máy nén khí, phát hiện rò rỉ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chuẩn đầu ra -->
+          <div class="sub-heading">Chuẩn đầu ra học viên</div>
+          <div class="outcomes-grid">
+            <div class="outcome-item"><span class="outcome-check">✓</span>Lập trình PLC Siemens/Mitsubishi level Professional</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Vận hành và lập trình robot công nghiệp ABB, FANUC</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Xây dựng hệ thống SCADA giám sát sản xuất</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Tích hợp IIoT và kết nối cloud platforms</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Đọc và thiết kế bản vẽ điện tự động hóa</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Bảo trì và sửa chữa thiết bị tự động hóa</div>
+          </div>
+
+          <!-- Đối tác hãng -->
+          <div class="sub-heading">Đối tác thiết bị hãng</div>
+          <div class="partner-tags">
+            <span class="partner-tag">Siemens</span>
+            <span class="partner-tag">ABB Robotics</span>
+            <span class="partner-tag">FANUC</span>
+            <span class="partner-tag">KUKA</span>
+            <span class="partner-tag">Yaskawa</span>
+            <span class="partner-tag">Mitsubishi Electric</span>
+            <span class="partner-tag">Festo</span>
+            <span class="partner-tag">Bosch Rexroth</span>
+            <span class="partner-tag">SICK</span>
+            <span class="partner-tag">Keyence</span>
+            <span class="partner-tag">Wonderware</span>
+          </div>
+
+          <!-- Dự án thực tế -->
+          <div class="sub-heading">Dự án tiêu biểu đã triển khai</div>
+          <div class="project-mini-grid">
+            <div class="project-mini-card">
+              <div class="img-placeholder" style="aspect-ratio:16/9; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-mini-body">
+                <div class="project-mini-cat">Cơ điện tử</div>
+                <div class="project-mini-name">Phòng Lab Robot & Tự động hóa — Đại học Bách Khoa HN</div>
+                <div class="project-mini-meta">Hà Nội • 2024 • 180 m² • 30 trạm</div>
+              </div>
+            </div>
+            <div class="project-mini-card">
+              <div class="img-placeholder" style="aspect-ratio:16/9; background-image: url('assets/images/hero-visual.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-mini-body">
+                <div class="project-mini-cat">Industry 4.0</div>
+                <div class="project-mini-name">Smart Factory Demo Lab — Khu CN Thăng Long</div>
+                <div class="project-mini-meta">Hà Nội • 2023 • 240 m² • Doanh nghiệp FDI</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA bar -->
+          <div class="solution-cta-bar">
+            <div>
+              <div class="solution-cta-bar-text">Cần tư vấn cấu hình phòng lab Cơ điện tử?</div>
+              <div class="solution-cta-bar-sub">Đội ngũ kỹ sư TEST sẽ khảo sát và tư vấn miễn phí trong 24h</div>
+            </div>
+            <div class="solution-cta-bar-actions">
+              <a href="#" class="btn btn--primary" data-modal-open="modal-consult" id="mecha-cta-consult">💬 Tư vấn cấu hình</a>
+              <a href="#" class="btn btn--outline" data-modal-open="modal-quote" id="mecha-cta-quote">📋 Báo giá</a>
+            </div>
+          </div>
+
+          <!-- Catalogue CTA -->
+          <div class="catalogue-cta" id="catalogue-mechatronics">
+            <div class="catalogue-cta-text">
+              <h3 data-i18n="catalogue_mecha_title">📄 Tải Catalogue Phòng Lab Cơ điện tử</h3>
+              <p>Danh mục thiết bị đầy đủ, báo giá tham khảo và layout phòng lab mẫu — miễn phí khi cung cấp email.</p>
+            </div>
+            <div class="catalogue-cta-actions">
+              <form id="form-cat-mecha" style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;" novalidate>
+                <div class="form-group" style="margin:0;min-width:220px;">
+                  <label class="form-label" for="cat-mecha-email">Email của bạn <span class="required">*</span></label>
+                  <input class="form-control" id="cat-mecha-email" type="email" required placeholder="example@truong.edu.vn">
+                  <span class="form-error">Email không hợp lệ</span>
+                </div>
+                <button type="submit" class="btn btn--accent" id="cat-mecha-submit">⬇ Tải ngay</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ============================================================
+             SECTION 2: GIA CÔNG CNC
+             ============================================================ -->
+        <section class="solution-section" id="cnc" data-i18n-section="cnc">
+
+          <h2 class="solution-section-title">
+            <span class="num">02</span>
+            🔩 Gia công CNC & CAD/CAM
+          </h2>
+
+          <!-- Intro card -->
+          <div class="section-intro-card">
+            <div>
+              <div class="section-intro-label">Nhu cầu ngành</div>
+              <h3 class="section-intro-heading">Thách thức trong đào tạo gia công CNC</h3>
+              <p class="section-intro-desc">
+                Chi phí máy CNC thực tế rất cao (từ 1–5 tỷ/máy). Học viên thiếu giờ thực hành do không đủ máy. Mô hình đào tạo kết hợp máy CNC đào tạo chuyên dụng + phần mềm mô phỏng giúp giải quyết bài toán chi phí và hiệu quả.
+              </p>
+            </div>
+            <div class="demand-list">
+              <div class="demand-item">
+                <div class="demand-item-icon">🏭</div>
+                <div>50,000+ máy CNC đang vận hành tại VN cần thợ lành nghề</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">💰</div>
+                <div>Kỹ thuật viên CNC 5-axis thu nhập 20–45 triệu/tháng</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">📐</div>
+                <div>CAD/CAM: Mastercam, SolidWorks, CATIA ngày càng phổ biến</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nhóm thiết bị -->
+          <div class="sub-heading">Nhóm thiết bị & phần mềm</div>
+          <div class="device-groups">
+            <div class="device-group-card">
+              <div class="device-group-icon">🔄</div>
+              <div class="device-group-name">Máy tiện CNC</div>
+              <div class="device-group-count">2–3 trục · Fanuc/Siemens</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔩</div>
+              <div class="device-group-name">Máy phay CNC</div>
+              <div class="device-group-count">3–5 trục · DMG Mori, Haas</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">⚡</div>
+              <div class="device-group-name">Máy EDM / Tia lửa điện</div>
+              <div class="device-group-count">Gia công điện cực</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">💻</div>
+              <div class="device-group-name">CAD/CAM Software</div>
+              <div class="device-group-count">Mastercam, CATIA, NX</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🖥️</div>
+              <div class="device-group-name">Phần mềm mô phỏng</div>
+              <div class="device-group-count">CIMCO, VERICUT, NCSimul</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">📏</div>
+              <div class="device-group-name">Đo lường & CMM</div>
+              <div class="device-group-count">Máy đo CMM, dụng cụ đo</div>
+            </div>
+          </div>
+
+          <!-- Spec table -->
+          <div class="sub-heading">Bảng thông số gói phòng lab CNC</div>
+          <div style="overflow-x:auto;margin-bottom:var(--space-8);">
+            <table class="spec-table" aria-label="Thông số phòng lab CNC">
+              <thead>
+                <tr>
+                  <th>Hạng mục</th>
+                  <th>Gói Cơ bản</th>
+                  <th>Gói Chuyên sâu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Máy tiện CNC</td><td>2 máy 2 trục</td><td>3 máy 3 trục</td></tr>
+                <tr><td>Máy phay CNC</td><td>2 máy 3 trục</td><td>2 máy 3 trục + 1 máy 5 trục</td></tr>
+                <tr><td>Bộ điều khiển</td><td>Fanuc 0i-TF/MF</td><td>Fanuc 31i + Siemens 840D</td></tr>
+                <tr><td>Phần mềm CAD/CAM</td><td>Mastercam 10 license</td><td>Mastercam + NX 20 license</td></tr>
+                <tr><td>Mô phỏng CNC</td><td>CIMCO Edit</td><td>VERICUT full</td></tr>
+                <tr><td>Số trạm máy tính</td><td>15 PC</td><td>25 PC</td></tr>
+                <tr><td>Diện tích</td><td>100 m²</td><td>160 m²</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Accordion học phần CNC -->
+          <div class="sub-heading">Học phần CNC đề xuất</div>
+          <div class="accordion-modules">
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-cnc-1" aria-expanded="true" aria-controls="acc-cnc-1-body">
+                <span>📐 Module 1: Vẽ kỹ thuật & CAD 3D với SolidWorks/CATIA</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-cnc-1-body" style="display:block;">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 45 giờ lý thuyết + 75 giờ thực hành</span>
+                  <span class="module-meta-item">🏆 Chứng nhận SolidWorks CSWA</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Vẽ 2D: AutoCAD, DraftSight — bản vẽ chi tiết, lắp ráp</div>
+                  <div class="module-topic">Mô hình 3D: sketch, extrude, loft, sweep, shell</div>
+                  <div class="module-topic">Assembly: ràng buộc, collision detection, BOM</div>
+                  <div class="module-topic">Drawing: tạo bản vẽ chế tạo từ mô hình 3D</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-cnc-2" aria-expanded="false" aria-controls="acc-cnc-2-body">
+                <span>💻 Module 2: Lập trình CAM và tạo G-code với Mastercam</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-cnc-2-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 50 giờ lý thuyết + 80 giờ thực hành</span>
+                  <span class="module-meta-item">🏆 Chứng nhận Mastercam Certified</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Thiết lập phôi, dao cụ, chế độ cắt (Vc, fz, ap)</div>
+                  <div class="module-topic">Lập trình tiện: contour, threading, grooving</div>
+                  <div class="module-topic">Lập trình phay: pocket, contour, drilling, 3D surface</div>
+                  <div class="module-topic">Mô phỏng và kiểm tra G-code với CIMCO/VERICUT</div>
+                  <div class="module-topic">Post-processor cho máy Fanuc, Siemens, Haas</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-cnc-3" aria-expanded="false" aria-controls="acc-cnc-3-body">
+                <span>🔩 Module 3: Vận hành máy CNC và đo lường chất lượng</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-cnc-3-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 20 giờ lý thuyết + 60 giờ thực hành trực tiếp trên máy</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Vận hành panel điều khiển Fanuc 0i, Siemens 840D</div>
+                  <div class="module-topic">Cài đặt dao cụ, offset, đo phôi (work offset)</div>
+                  <div class="module-topic">Chạy thử (dry run, single block, feed override)</div>
+                  <div class="module-topic">Đo lường với thước cặp, panme, đồng hồ so, CMM</div>
+                  <div class="module-topic">An toàn lao động trong phòng gia công</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chuẩn đầu ra -->
+          <div class="outcomes-grid">
+            <div class="outcome-item"><span class="outcome-check">✓</span>Vẽ và lập trình CAD/CAM thành thạo</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Vận hành máy tiện, phay CNC an toàn</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Kiểm tra chất lượng chi tiết gia công</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Tối ưu thông số cắt để đạt Ra, Rz yêu cầu</div>
+          </div>
+
+          <!-- Partner tags -->
+          <div class="partner-tags">
+            <span class="partner-tag">DMG Mori</span>
+            <span class="partner-tag">Haas Automation</span>
+            <span class="partner-tag">Fanuc CNC</span>
+            <span class="partner-tag">Siemens 840D</span>
+            <span class="partner-tag">Mastercam</span>
+            <span class="partner-tag">SolidWorks</span>
+            <span class="partner-tag">VERICUT</span>
+            <span class="partner-tag">Sandvik Coromant</span>
+          </div>
+
+          <!-- CTA Bar -->
+          <div class="solution-cta-bar">
+            <div>
+              <div class="solution-cta-bar-text">Tư vấn cấu hình phòng lab CNC cho trường của bạn</div>
+              <div class="solution-cta-bar-sub">Chúng tôi đã triển khai 40+ phòng lab CNC trên toàn quốc</div>
+            </div>
+            <div class="solution-cta-bar-actions">
+              <a href="#" class="btn btn--primary" data-modal-open="modal-consult" id="cnc-cta-consult">💬 Tư vấn cấu hình</a>
+            </div>
+          </div>
+
+          <!-- Catalogue CTA -->
+          <div class="catalogue-cta" id="catalogue-cnc">
+            <div class="catalogue-cta-text">
+              <h3>📄 Tải Catalogue Phòng Lab CNC & CAD/CAM</h3>
+              <p>Danh mục máy CNC đào tạo, phần mềm mô phỏng và layout phòng thực hành mẫu.</p>
+            </div>
+            <div class="catalogue-cta-actions">
+              <form id="form-cat-cnc" style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;" novalidate>
+                <div class="form-group" style="margin:0;min-width:220px;">
+                  <label class="form-label" for="cat-cnc-email">Email của bạn <span class="required">*</span></label>
+                  <input class="form-control" id="cat-cnc-email" type="email" required placeholder="example@truong.edu.vn">
+                  <span class="form-error">Email không hợp lệ</span>
+                </div>
+                <button type="submit" class="btn btn--accent" id="cat-cnc-submit">⬇ Tải ngay</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ============================================================
+             SECTION 3: Ô TÔ & XE ĐIỆN
+             ============================================================ -->
+        <section class="solution-section" id="auto" data-i18n-section="auto">
+
+          <h2 class="solution-section-title">
+            <span class="num">03</span>
+            🚗 Ô tô & Xe điện (EV)
+          </h2>
+
+          <!-- Intro card -->
+          <div class="section-intro-card">
+            <div>
+              <div class="section-intro-label">Nhu cầu ngành</div>
+              <h3 class="section-intro-heading">Cuộc cách mạng xe điện đang đến</h3>
+              <p class="section-intro-desc">
+                VinFast, BYD và các hãng xe điện toàn cầu đang đầu tư mạnh vào Việt Nam. Xe điện yêu cầu kỹ năng hoàn toàn khác biệt: pin lithium, inverter, motor PMSM, OBD-II. Cơ sở đào tạo cần cập nhật công nghệ ngay bây giờ.
+              </p>
+            </div>
+            <div class="demand-list">
+              <div class="demand-item">
+                <div class="demand-item-icon">⚡</div>
+                <div>30% xe mới tại VN sẽ là xe điện vào 2030 (dự báo Bộ GTVT)</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">🔧</div>
+                <div>Kỹ thuật viên EV: thiếu hụt nghiêm trọng 2024–2028</div>
+              </div>
+              <div class="demand-item">
+                <div class="demand-item-icon">🏭</div>
+                <div>VinFast cần 5,000+ kỹ thuật viên mảng EV trong 3 năm tới</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Device groups -->
+          <div class="sub-heading">Hệ thống thiết bị đào tạo Ô tô & EV</div>
+          <div class="device-groups">
+            <div class="device-group-card">
+              <div class="device-group-icon">🚗</div>
+              <div class="device-group-name">Xe thực hành cắt bổ</div>
+              <div class="device-group-count">Xe xăng, xe hybrid, xe EV</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔌</div>
+              <div class="device-group-name">Hệ thống pin EV</div>
+              <div class="device-group-count">BMS, Cell, Module demo</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">⚡</div>
+              <div class="device-group-name">Inverter & Motor PMSM</div>
+              <div class="device-group-count">Motor điện 3 pha, inverter</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">💻</div>
+              <div class="device-group-name">Thiết bị chẩn đoán OBD</div>
+              <div class="device-group-count">LAUNCH, Bosch, Autel</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔧</div>
+              <div class="device-group-name">Hộp số CVT, DCT</div>
+              <div class="device-group-count">Mô hình cắt bổ chi tiết</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">📡</div>
+              <div class="device-group-name">Hệ thống ADAS</div>
+              <div class="device-group-count">Camera, radar, lidar demo</div>
+            </div>
+          </div>
+
+          <!-- Spec table -->
+          <div style="overflow-x:auto;margin-bottom:var(--space-8);">
+            <table class="spec-table" aria-label="Thông số phòng lab Ô tô">
+              <thead>
+                <tr><th>Hạng mục</th><th>Gói Truyền thống</th><th>Gói EV & Hybrid</th><th>Gói Toàn diện</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Xe thực hành</td><td>2 xe xăng cắt bổ</td><td>1 xe xăng + 1 xe EV</td><td>2 xe xăng + 1 EV + 1 Hybrid</td></tr>
+                <tr><td>Thiết bị EV</td><td>Không</td><td>BMS + Motor PMSM</td><td>Full EV system + charging station</td></tr>
+                <tr><td>Máy chẩn đoán</td><td>OBD-II cơ bản</td><td>OBD + EV diagnostic</td><td>Bosch ESI[tronic] + EV full</td></tr>
+                <tr><td>Băng thử động cơ</td><td>Không</td><td>Engine test bench</td><td>Engine + E-motor test bench</td></tr>
+                <tr><td>Số học viên</td><td>20–24</td><td>25–30</td><td>35–45</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Accordion học phần -->
+          <div class="sub-heading">Học phần đào tạo</div>
+          <div class="accordion-modules">
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-auto-1" aria-expanded="true" aria-controls="acc-auto-1-body">
+                <span>🔌 Module 1: Công nghệ xe điện & Hệ thống pin (BMS)</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-auto-1-body" style="display:block;">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 50 giờ lý thuyết + 70 giờ thực hành</span>
+                  <span class="module-meta-item">🏆 Chứng nhận EV Technician</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Nguyên lý xe điện BEV, PHEV, HEV: kiến trúc hệ thống</div>
+                  <div class="module-topic">Pin lithium-ion: cấu tạo cell, module, pack; SOC, SOH</div>
+                  <div class="module-topic">BMS: bảo vệ quá sạc, cân bằng cell, giao tiếp CAN</div>
+                  <div class="module-topic">Sạc AC (Level 1, 2) và DC Fast Charging (CHAdeMO, CCS)</div>
+                  <div class="module-topic">An toàn điện áp cao HV: PPE, lockout/tagout</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-auto-2" aria-expanded="false" aria-controls="acc-auto-2-body">
+                <span>⚙️ Module 2: Động cơ điện PMSM & Inverter</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-auto-2-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 40 giờ lý thuyết + 60 giờ thực hành</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Motor PMSM, BLDC, Induction Motor: nguyên lý, đặc tính</div>
+                  <div class="module-topic">Inverter 3 pha: PWM, SVPWM, FOC control</div>
+                  <div class="module-topic">Regenerative braking: thu hồi năng lượng phanh</div>
+                  <div class="module-topic">Chẩn đoán lỗi motor và inverter bằng oscilloscope</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-auto-3" aria-expanded="false" aria-controls="acc-auto-3-body">
+                <span>🔧 Module 3: Chẩn đoán OBD-II & Sửa chữa động cơ xăng hiện đại</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-auto-3-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 30 giờ lý thuyết + 60 giờ thực hành</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">OBD-II protocol: CAN, K-line, đọc DTC, freeze frame</div>
+                  <div class="module-topic">Hệ thống phun xăng trực tiếp GDI, Common Rail Diesel</div>
+                  <div class="module-topic">Hệ thống đánh lửa điện tử, camless engine</div>
+                  <div class="module-topic">Sử dụng máy chẩn đoán LAUNCH, Bosch KTS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outcomes -->
+          <div class="outcomes-grid">
+            <div class="outcome-item"><span class="outcome-check">✓</span>Chẩn đoán và sửa chữa xe điện an toàn với HV</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Kiểm tra, thay thế pin BEV và BMS</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Lập trình và cập nhật ECU, firmware OTA</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Sử dụng thành thạo thiết bị chẩn đoán OBD</div>
+          </div>
+
+          <div class="partner-tags">
+            <span class="partner-tag">Bosch Automotive</span>
+            <span class="partner-tag">LAUNCH Tech</span>
+            <span class="partner-tag">VinFast Training</span>
+            <span class="partner-tag">Toyota Technical</span>
+            <span class="partner-tag">Autel</span>
+            <span class="partner-tag">AVL</span>
+          </div>
+
+          <div class="solution-cta-bar">
+            <div>
+              <div class="solution-cta-bar-text">Tư vấn giải pháp đào tạo Ô tô & Xe điện</div>
+              <div class="solution-cta-bar-sub">Cập nhật công nghệ EV mới nhất cho chương trình đào tạo của bạn</div>
+            </div>
+            <div class="solution-cta-bar-actions">
+              <a href="#" class="btn btn--primary" data-modal-open="modal-consult" id="auto-cta-consult">💬 Tư vấn cấu hình</a>
+            </div>
+          </div>
+
+          <div class="catalogue-cta" id="catalogue-auto">
+            <div class="catalogue-cta-text">
+              <h3>📄 Tải Catalogue Phòng Lab Ô tô & EV</h3>
+              <p>Danh mục thiết bị EV Training đầy đủ, bao gồm xe cắt bổ, hệ thống pin, inverter và thiết bị chẩn đoán.</p>
+            </div>
+            <div class="catalogue-cta-actions">
+              <form id="form-cat-auto" style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;" novalidate>
+                <div class="form-group" style="margin:0;min-width:220px;">
+                  <label class="form-label" for="cat-auto-email">Email của bạn <span class="required">*</span></label>
+                  <input class="form-control" id="cat-auto-email" type="email" required placeholder="example@truong.edu.vn">
+                  <span class="form-error">Email không hợp lệ</span>
+                </div>
+                <button type="submit" class="btn btn--accent" id="cat-auto-submit">⬇ Tải ngay</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ============================================================
+             SECTION 4: BÁN DẪN - VI MẠCH (SPECIAL FEATURED)
+             ============================================================ -->
+        <section class="solution-section" id="semiconductor" data-i18n-section="semiconductor">
+
+          <h2 class="solution-section-title" style="border-color:rgba(245,158,11,0.3);">
+            <span class="num" style="background:var(--grad-accent);">04</span>
+            🔬 Bán dẫn - Vi mạch
+            <span class="badge badge--accent" style="margin-left:var(--space-2);">🌟 Mũi nhọn Quốc gia</span>
+          </h2>
+
+          <!-- Special highlight banner -->
+          <div class="semi-highlight-banner">
+            <div class="semi-highlight-icon">🔬</div>
+            <div class="semi-highlight-text">
+              <h3>Lĩnh vực ưu tiên hàng đầu của Việt Nam đến 2030</h3>
+              <p>
+                Nghị quyết 52 và Chiến lược Phát triển Bán dẫn Quốc gia xác định vi mạch là ngành công nghiệp mũi nhọn. TEST cung cấp giải pháp đào tạo hoàn chỉnh cho 3 mảng: <strong>Thiết kế vi mạch</strong>, <strong>Đóng gói & Kiểm thử</strong>, và <strong>Đào tạo giảng viên</strong> — bao gồm cả phòng sạch VR/XR công nghệ mới nhất.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sub-landing tabs -->
+          <div class="semi-tab-nav" role="tablist" aria-label="Semiconductor sub-sections">
+            <button class="semi-tab-btn active" role="tab" aria-selected="true" aria-controls="semi-panel-design" id="semi-tab-design" onclick="switchSemiTab('design', event)">
+              🖥️ Thiết kế vi mạch
+            </button>
+            <button class="semi-tab-btn" role="tab" aria-selected="false" aria-controls="semi-panel-packaging" id="semi-tab-packaging" onclick="switchSemiTab('packaging', event)">
+              🏭 Đóng gói & Kiểm thử
+            </button>
+            <button class="semi-tab-btn" role="tab" aria-selected="false" aria-controls="semi-panel-trainer" id="semi-tab-trainer" onclick="switchSemiTab('trainer', event)">
+              🎓 Đào tạo giảng viên
+            </button>
+          </div>
+
+          <!-- TAB PANEL: Thiết kế vi mạch -->
+          <div class="semi-tab-panel active" id="semi-panel-design" role="tabpanel" aria-labelledby="semi-tab-design">
+            <div class="semi-sub-title">
+              🖥️ Thiết kế Vi mạch (IC Design)
+              <span class="badge badge--primary">Full-custom & Digital</span>
+            </div>
+
+            <div class="section-intro-card">
+              <div>
+                <p class="section-intro-desc">
+                  Việt Nam đang cần gấp hàng chục nghìn kỹ sư thiết kế vi mạch. TEST cung cấp giải pháp phòng lab EDA đầy đủ với Cadence Virtuoso, Synopsys Design Compiler và giấy phép học thuật cho các trường ĐH, CĐ.
+                </p>
+                <div style="margin-top:var(--space-4);">
+                  <span class="badge badge--accent">50,000 kỹ sư IC Design cần đến 2030</span>
+                </div>
+              </div>
+              <div class="demand-list">
+                <div class="demand-item"><div class="demand-item-icon">🔬</div><div>EDA tools: Cadence, Synopsys, Mentor Graphics</div></div>
+                <div class="demand-item"><div class="demand-item-icon">⚙️</div><div>Quy trình RTL → Synthesis → Layout → Tape-out</div></div>
+                <div class="demand-item"><div class="demand-item-icon">💰</div><div>Lương kỹ sư IC Design: 40–150 triệu/tháng</div></div>
+              </div>
+            </div>
+
+            <div class="sub-heading">Nhóm thiết bị & phần mềm EDA</div>
+            <div class="device-groups">
+              <div class="device-group-card" style="border-color:rgba(245,158,11,0.2);">
+                <div class="device-group-icon">🖥️</div>
+                <div class="device-group-name">Cadence Virtuoso</div>
+                <div class="device-group-count">Schematic + Layout + DRC/LVS</div>
+              </div>
+              <div class="device-group-card" style="border-color:rgba(245,158,11,0.2);">
+                <div class="device-group-icon">⚡</div>
+                <div class="device-group-name">Synopsys Design Compiler</div>
+                <div class="device-group-count">RTL Synthesis + STA</div>
+              </div>
+              <div class="device-group-card" style="border-color:rgba(245,158,11,0.2);">
+                <div class="device-group-icon">🔬</div>
+                <div class="device-group-name">Cadence Innovus</div>
+                <div class="device-group-count">Place & Route, DRC, LVS</div>
+              </div>
+              <div class="device-group-card" style="border-color:rgba(245,158,11,0.2);">
+                <div class="device-group-icon">📐</div>
+                <div class="device-group-name">ModelSim / Questa</div>
+                <div class="device-group-count">VHDL/Verilog Simulation</div>
+              </div>
+              <div class="device-group-card" style="border-color:rgba(245,158,11,0.2);">
+                <div class="device-group-icon">🖱️</div>
+                <div class="device-group-name">Mentor Xpedition</div>
+                <div class="device-group-count">PCB Design & Simulation</div>
+              </div>
+              <div class="device-group-card" style="border-color:rgba(245,158,11,0.2);">
+                <div class="device-group-icon">🔭</div>
+                <div class="device-group-name">FPGA Boards</div>
+                <div class="device-group-count">Xilinx Vivado, Intel Quartus</div>
+              </div>
+            </div>
+
+            <div style="overflow-x:auto;margin-bottom:var(--space-8);">
+              <table class="spec-table" aria-label="Thông số phòng lab IC Design" style="border-color:rgba(245,158,11,0.2);">
+                <thead><tr><th>Hạng mục</th><th>Gói Cơ bản (Digital)</th><th>Gói Chuyên sâu (Full-custom Analog)</th></tr></thead>
+                <tbody>
+                  <tr><td>Số workstation</td><td>20 PC cấu hình cao</td><td>30 Workstation Linux</td></tr>
+                  <tr><td>EDA Software</td><td>Cadence Academic + ModelSim</td><td>Cadence + Synopsys + Mentor đầy đủ</td></tr>
+                  <tr><td>PDK (Process Design Kit)</td><td>TSMC 180nm Open-source</td><td>TSMC 65nm Licensed</td></tr>
+                  <tr><td>FPGA Boards</td><td>10 board Xilinx Artix-7</td><td>20 board Xilinx Kintex + Zynq</td></tr>
+                  <tr><td>License server</td><td>FlexLM on-prem</td><td>Cloud license server</td></tr>
+                  <tr><td>Diện tích</td><td>80 m² (phòng máy tính)</td><td>120 m² (phòng máy tính + không gian làm việc)</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Học phần thiết kế vi mạch -->
+            <div class="sub-heading">Học phần thiết kế vi mạch</div>
+            <div class="accordion-modules">
+              <div class="accordion-item accordion-item--module">
+                <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-semi-d-1" aria-expanded="true" aria-controls="acc-semi-d-1-body">
+                  <span>📐 Module 1: Thiết kế mạch số (Digital IC Design) với VHDL/Verilog</span>
+                  <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-body" id="acc-semi-d-1-body" style="display:block;">
+                  <div class="module-meta">
+                    <span class="module-meta-item">⏱️ 60 giờ lý thuyết + 90 giờ thực hành EDA</span>
+                    <span class="module-meta-item">🏆 Chứng nhận Cadence Academic</span>
+                  </div>
+                  <div class="module-topic-list">
+                    <div class="module-topic">Cơ sở thiết kế số: boolean, timing, setup/hold time</div>
+                    <div class="module-topic">Ngôn ngữ HDL: Verilog RTL, SystemVerilog</div>
+                    <div class="module-topic">Mô phỏng chức năng với ModelSim, UVM testbench</div>
+                    <div class="module-topic">Logic synthesis với Synopsys DC, timing constraints (SDC)</div>
+                    <div class="module-topic">Place & Route với Cadence Innovus, DRC/LVS sign-off</div>
+                    <div class="module-topic">Hiện thực hóa trên FPGA: Xilinx Vivado, constraint</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item accordion-item--module">
+                <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-semi-d-2" aria-expanded="false" aria-controls="acc-semi-d-2-body">
+                  <span>🔬 Module 2: Thiết kế mạch tương tự (Analog IC) với Cadence Virtuoso</span>
+                  <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-body" id="acc-semi-d-2-body">
+                  <div class="module-meta">
+                    <span class="module-meta-item">⏱️ 80 giờ lý thuyết + 100 giờ thực hành</span>
+                    <span class="module-meta-item">Yêu cầu: nền tảng điện tử tương tự</span>
+                  </div>
+                  <div class="module-topic-list">
+                    <div class="module-topic">CMOS transistor: biased, small-signal, noise model</div>
+                    <div class="module-topic">Thiết kế các khối analog: OTA, opamp, comparator, ADC, DAC</div>
+                    <div class="module-topic">Schematic capture và simulation SPICE trong Cadence Virtuoso</div>
+                    <div class="module-topic">Layout tương tự: matching, shielding, guard ring</div>
+                    <div class="module-topic">DRC, LVS, PEX ký duyệt thiết kế</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="outcomes-grid">
+              <div class="outcome-item" style="border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.05);"><span class="outcome-check" style="background:var(--color-accent);">✓</span>Thiết kế RTL logic đến layout hoàn chỉnh</div>
+              <div class="outcome-item" style="border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.05);"><span class="outcome-check" style="background:var(--color-accent);">✓</span>Mô phỏng và verify IC bằng UVM testbench</div>
+              <div class="outcome-item" style="border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.05);"><span class="outcome-check" style="background:var(--color-accent);">✓</span>Thực hiện DRC/LVS sign-off cho tape-out</div>
+              <div class="outcome-item" style="border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.05);"><span class="outcome-check" style="background:var(--color-accent);">✓</span>Sử dụng đầy đủ EDA tools Cadence & Synopsys</div>
+            </div>
+          </div>
+
+          <!-- TAB PANEL: Đóng gói & Kiểm thử -->
+          <div class="semi-tab-panel" id="semi-panel-packaging" role="tabpanel" aria-labelledby="semi-tab-packaging">
+            <div class="semi-sub-title">
+              🏭 Đóng gói & Kiểm thử (Packaging & Testing)
+              <span class="badge badge--success">OSAT Industry</span>
+            </div>
+
+            <div class="section-intro-card">
+              <div>
+                <p class="section-intro-desc">
+                  Với các nhà máy OSAT (Outsourced Semiconductor Assembly and Test) của Intel, Amkor, ASE đang đặt tại Việt Nam, nhu cầu nhân lực đóng gói và kiểm thử vi mạch đang tăng đột biến. TEST cung cấp thiết bị đào tạo sát với dây chuyền sản xuất thực tế.
+                </p>
+              </div>
+              <div class="demand-list">
+                <div class="demand-item"><div class="demand-item-icon">🏭</div><div>Intel Việt Nam cần 4,000+ kỹ thuật viên OSAT đến 2026</div></div>
+                <div class="demand-item"><div class="demand-item-icon">🔬</div><div>Amkor, ASE đang mở rộng nhà máy tại Bắc Ninh, Hà Nội</div></div>
+                <div class="demand-item"><div class="demand-item-icon">📦</div><div>Các package: BGA, QFN, FC-BGA, Fan-out WLP</div></div>
+              </div>
+            </div>
+
+            <div class="sub-heading">Hệ thống thiết bị đóng gói & kiểm thử đào tạo</div>
+            <div class="device-groups">
+              <div class="device-group-card">
+                <div class="device-group-icon">🔬</div>
+                <div class="device-group-name">Kính hiển vi điện tử SEM</div>
+                <div class="device-group-count">Quan sát cấu trúc vi mạch</div>
+              </div>
+              <div class="device-group-card">
+                <div class="device-group-icon">🔗</div>
+                <div class="device-group-name">Wire Bonding Machine</div>
+                <div class="device-group-count">Gold wire, copper wire</div>
+              </div>
+              <div class="device-group-card">
+                <div class="device-group-icon">🏗️</div>
+                <div class="device-group-name">Die Attach Demo</div>
+                <div class="device-group-count">Epoxy, eutectic, solder</div>
+              </div>
+              <div class="device-group-card">
+                <div class="device-group-icon">📡</div>
+                <div class="device-group-name">ATE Test System</div>
+                <div class="device-group-count">Teradyne, Advantest</div>
+              </div>
+              <div class="device-group-card">
+                <div class="device-group-icon">🧊</div>
+                <div class="device-group-name">Environmental Chamber</div>
+                <div class="device-group-count">HTOL, HAST, burn-in</div>
+              </div>
+              <div class="device-group-card">
+                <div class="device-group-icon">💧</div>
+                <div class="device-group-name">Cleanroom Demo (Class 10k)</div>
+                <div class="device-group-count">Phòng sạch mini cho đào tạo</div>
+              </div>
+            </div>
+
+            <!-- VR/XR Cleanroom iframe placeholder -->
+            <div class="sub-heading">VR/XR Cleanroom Simulation — Trải nghiệm phòng sạch ảo</div>
+            <div class="vr-iframe-wrapper" id="vr-cleanroom-wrapper">
+              <!-- Khi có URL thực: thay thế overlay bằng iframe src="URL_VR_CLEANROOM" -->
+              <div class="vr-iframe-overlay" id="vr-cleanroom-overlay">
+                <div class="vr-icon">🥽</div>
+                <div class="vr-title">VR Cleanroom Simulation</div>
+                <div class="vr-subtitle">
+                  Trải nghiệm phòng sạch bán dẫn Class 10 trong môi trường thực tế ảo — Học quy trình wafer fab, lithography và đóng gói mà không cần chi phí phòng sạch thực tế.
+                </div>
+                <div class="vr-badge">
+                  <span class="vr-dot"></span>
+                  Demo sắp ra mắt — Đăng ký trải nghiệm sớm
+                </div>
+                <a href="#" class="btn btn--accent" data-modal-open="modal-consult" id="vr-demo-btn" style="margin-top:8px;">
+                  🥽 Đăng ký Demo VR/XR
+                </a>
+              </div>
+            </div>
+
+            <div class="outcomes-grid">
+              <div class="outcome-item"><span class="outcome-check">✓</span>Hiểu quy trình đóng gói IC từ die đến package</div>
+              <div class="outcome-item"><span class="outcome-check">✓</span>Vận hành wire bonder và die attach cơ bản</div>
+              <div class="outcome-item"><span class="outcome-check">✓</span>Đọc và thực hiện test plan ATE cơ bản</div>
+              <div class="outcome-item"><span class="outcome-check">✓</span>Hiểu và tuân thủ quy trình phòng sạch ISO</div>
+            </div>
+          </div>
+
+          <!-- TAB PANEL: Đào tạo giảng viên -->
+          <div class="semi-tab-panel" id="semi-panel-trainer" role="tabpanel" aria-labelledby="semi-tab-trainer">
+            <div class="semi-sub-title">
+              🎓 Đào tạo Giảng viên Bán dẫn (Train the Trainer)
+              <span class="badge badge--success">ToT Program</span>
+            </div>
+
+            <div class="section-intro-card">
+              <div>
+                <p class="section-intro-desc">
+                  Thiếu giảng viên có kinh nghiệm thực tế về bán dẫn là rào cản lớn nhất. TEST phối hợp với Cadence, Synopsys và các chuyên gia hàng đầu tổ chức chương trình Đào tạo Giảng viên (ToT) chuyên sâu, được cấp chứng nhận quốc tế.
+                </p>
+              </div>
+              <div class="demand-list">
+                <div class="demand-item"><div class="demand-item-icon">🎓</div><div>Cần 3,000+ giảng viên bán dẫn được đào tạo bài bản đến 2030</div></div>
+                <div class="demand-item"><div class="demand-item-icon">🏆</div><div>Chứng nhận Cadence Curriculum Developer & Instructor</div></div>
+                <div class="demand-item"><div class="demand-item-icon">🌐</div><div>Học tại Singapore, Đài Loan hoặc online intensive</div></div>
+              </div>
+            </div>
+
+            <div class="sub-heading">Chương trình ToT Bán dẫn</div>
+            <div class="accordion-modules">
+              <div class="accordion-item accordion-item--module">
+                <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-semi-t-1" aria-expanded="true" aria-controls="acc-semi-t-1-body">
+                  <span>🎓 Chương trình 1: ToT IC Design — 3 tháng intensive</span>
+                  <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-body" id="acc-semi-t-1-body" style="display:block;">
+                  <div class="module-meta">
+                    <span class="module-meta-item">⏱️ 3 tháng (120 giờ)</span>
+                    <span class="module-meta-item">🏆 Cadence Certified Instructor</span>
+                    <span class="module-meta-item">📍 Online + Offline</span>
+                  </div>
+                  <div class="module-topic-list">
+                    <div class="module-topic">Nội dung chuyên môn: Digital IC, Analog IC, Mixed-Signal</div>
+                    <div class="module-topic">Sử dụng và quản trị EDA tools trong môi trường học thuật</div>
+                    <div class="module-topic">Phương pháp giảng dạy thực hành (hands-on pedagogy)</div>
+                    <div class="module-topic">Xây dựng bài tập và dự án cuối khóa cho sinh viên</div>
+                    <div class="module-topic">Kết nối cộng đồng giảng viên vi mạch toàn quốc</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item accordion-item--module">
+                <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-semi-t-2" aria-expanded="false" aria-controls="acc-semi-t-2-body">
+                  <span>🏭 Chương trình 2: ToT OSAT Process — Tham quan & thực hành nhà máy</span>
+                  <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-body" id="acc-semi-t-2-body">
+                  <div class="module-meta">
+                    <span class="module-meta-item">⏱️ 2 tuần tập trung</span>
+                    <span class="module-meta-item">📍 Nhà máy Intel/Amkor Việt Nam</span>
+                  </div>
+                  <div class="module-topic-list">
+                    <div class="module-topic">Tham quan dây chuyền đóng gói IC thực tế tại nhà máy</div>
+                    <div class="module-topic">Quy trình vào phòng sạch, an toàn, ESD</div>
+                    <div class="module-topic">Thực hành wire bonding, die attach dưới hướng dẫn chuyên gia</div>
+                    <div class="module-topic">Xây dựng tài liệu giảng dạy dựa trên trải nghiệm thực tế</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="outcomes-grid">
+              <div class="outcome-item"><span class="outcome-check">✓</span>Chứng nhận giảng viên vi mạch quốc tế (Cadence/Synopsys)</div>
+              <div class="outcome-item"><span class="outcome-check">✓</span>Bộ tài liệu giảng dạy đầy đủ sẵn sàng sử dụng</div>
+              <div class="outcome-item"><span class="outcome-check">✓</span>Quyền truy cập tài nguyên cộng đồng giảng viên</div>
+              <div class="outcome-item"><span class="outcome-check">✓</span>Hỗ trợ kỹ thuật liên tục từ đội ngũ TEST</div>
+            </div>
+          </div>
+
+          <!-- Common to all semi tabs -->
+          <div style="margin-top:var(--space-8);">
+            <div class="partner-tags">
+              <span class="partner-tag" style="border-color:rgba(245,158,11,0.3);color:var(--color-accent);">Cadence Design Systems</span>
+              <span class="partner-tag" style="border-color:rgba(245,158,11,0.3);color:var(--color-accent);">Synopsys</span>
+              <span class="partner-tag" style="border-color:rgba(245,158,11,0.3);color:var(--color-accent);">Siemens EDA (Mentor)</span>
+              <span class="partner-tag">Intel Vietnam</span>
+              <span class="partner-tag">Amkor Technology</span>
+              <span class="partner-tag">Xilinx / AMD</span>
+              <span class="partner-tag">TSMC Academic</span>
+              <span class="partner-tag">Marvell</span>
+              <span class="partner-tag">Renesas</span>
+            </div>
+
+            <div class="solution-cta-bar" style="border-color:rgba(245,158,11,0.3);background:linear-gradient(135deg,rgba(245,158,11,0.1) 0%,rgba(30,111,255,0.06) 100%);">
+              <div>
+                <div class="solution-cta-bar-text">Tư vấn giải pháp đào tạo Bán dẫn - Vi mạch</div>
+                <div class="solution-cta-bar-sub">Chuyên gia TEST sẽ tư vấn lộ trình xây dựng chương trình vi mạch phù hợp với từng trường</div>
+              </div>
+              <div class="solution-cta-bar-actions">
+                <a href="#" class="btn btn--accent" data-modal-open="modal-consult" id="semi-cta-consult">💬 Tư vấn cấu hình</a>
+                <a href="#" class="btn btn--ghost" data-modal-open="modal-consult" id="semi-cta-vr">🥽 Demo VR Cleanroom</a>
+              </div>
+            </div>
+
+            <div class="catalogue-cta" id="catalogue-semiconductor" style="border-color:rgba(245,158,11,0.35);background:linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(30,111,255,0.06) 100%);">
+              <div class="catalogue-cta-text">
+                <h3>📄 Tải Bộ Tài liệu Giải pháp Bán dẫn Vi mạch</h3>
+                <p>Trọn bộ: Danh mục EDA tools, Kế hoạch xây dựng phòng lab bán dẫn, Lộ trình ToT và đề xuất hợp tác Cadence Academic.</p>
+              </div>
+              <div class="catalogue-cta-actions">
+                <form id="form-cat-semi" style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;" novalidate>
+                  <div class="form-group" style="margin:0;min-width:220px;">
+                    <label class="form-label" for="cat-semi-email">Email công ty/trường <span class="required">*</span></label>
+                    <input class="form-control" id="cat-semi-email" type="email" required placeholder="example@truong.edu.vn">
+                    <span class="form-error">Email không hợp lệ</span>
+                  </div>
+                  <button type="submit" class="btn btn--accent" id="cat-semi-submit">⬇ Tải ngay</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ============================================================
+             SECTION 5: HÀN CÔNG NGHIỆP
+             ============================================================ -->
+        <section class="solution-section" id="welding" data-i18n-section="welding">
+
+          <h2 class="solution-section-title">
+            <span class="num">05</span>
+            🔥 Hàn công nghiệp
+          </h2>
+
+          <!-- Intro card -->
+          <div class="section-intro-card">
+            <div>
+              <div class="section-intro-label">Nhu cầu ngành</div>
+              <h3 class="section-intro-heading">Từ hàn tay đến hàn robot tự động</h3>
+              <p class="section-intro-desc">
+                Ngành hàn đang trải qua chuyển đổi mạnh: từ hàn tay truyền thống sang hàn robot, hàn tự động cho năng suất cao. Kỹ thuật viên hàn lành nghề đang thiếu hụt, trong khi yêu cầu chất lượng mối hàn ngày càng khắt khe theo tiêu chuẩn AWS, ISO.
+              </p>
+            </div>
+            <div class="demand-list">
+              <div class="demand-item"><div class="demand-item-icon">🔥</div><div>Hàn robot MIG/MAG tăng 40%/năm trong công nghiệp VN</div></div>
+              <div class="demand-item"><div class="demand-item-icon">🏆</div><div>Thợ hàn có chứng chỉ AWS/ISO: lương 20–50 triệu/tháng</div></div>
+              <div class="demand-item"><div class="demand-item-icon">⚙️</div><div>Đóng tàu, kết cấu thép, ô tô: nhu cầu hàn robot tăng vọt</div></div>
+            </div>
+          </div>
+
+          <div class="sub-heading">Nhóm thiết bị hàn công nghiệp</div>
+          <div class="device-groups">
+            <div class="device-group-card">
+              <div class="device-group-icon">🔥</div>
+              <div class="device-group-name">Máy hàn MIG/MAG</div>
+              <div class="device-group-count">Fronius, Lincoln, ESAB</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">⚡</div>
+              <div class="device-group-name">Máy hàn TIG</div>
+              <div class="device-group-count">AC/DC TIG, thép + nhôm</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔦</div>
+              <div class="device-group-name">Máy hàn điện cực (SMAW)</div>
+              <div class="device-group-count">Inverter welding, 200–400A</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🤖</div>
+              <div class="device-group-name">Robot hàn</div>
+              <div class="device-group-count">ABB IRB 1520, FANUC ARC</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🥽</div>
+              <div class="device-group-name">Mũ hàn VR mô phỏng</div>
+              <div class="device-group-count">Lincoln Vrtex, Fronius WeldU</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔬</div>
+              <div class="device-group-name">Thiết bị NDT kiểm tra</div>
+              <div class="device-group-count">UT, PT, MT, VT cơ bản</div>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto;margin-bottom:var(--space-8);">
+            <table class="spec-table" aria-label="Thông số phòng lab Hàn">
+              <thead><tr><th>Hạng mục</th><th>Gói Cơ bản</th><th>Gói Toàn diện</th></tr></thead>
+              <tbody>
+                <tr><td>Trạm hàn MIG/MAG</td><td>8 trạm</td><td>15 trạm</td></tr>
+                <tr><td>Trạm hàn TIG</td><td>6 trạm</td><td>10 trạm</td></tr>
+                <tr><td>Trạm hàn SMAW</td><td>8 trạm</td><td>12 trạm</td></tr>
+                <tr><td>Robot hàn</td><td>Không</td><td>1 cell robot ABB/FANUC</td></tr>
+                <tr><td>VR Welding Simulator</td><td>2 bộ</td><td>5 bộ</td></tr>
+                <tr><td>Hệ thống hút khói</td><td>Cục bộ từng trạm</td><td>Tập trung toàn phòng</td></tr>
+                <tr><td>Diện tích</td><td>150 m²</td><td>250 m²</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Accordion học phần hàn -->
+          <div class="sub-heading">Học phần hàn công nghiệp</div>
+          <div class="accordion-modules">
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-weld-1" aria-expanded="true" aria-controls="acc-weld-1-body">
+                <span>🔥 Module 1: Hàn MIG/MAG nâng cao & chứng nhận AWS D1.1</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-weld-1-body" style="display:block;">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 40 giờ lý thuyết + 120 giờ thực hành</span>
+                  <span class="module-meta-item">🏆 Chuẩn bị thi AWS Certified Welder</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Nguyên lý hàn MIG/MAG, thông số welding procedure (WPS)</div>
+                  <div class="module-topic">Hàn các tư thế: 1G, 2G, 3G, 4G, 6G (ống)</div>
+                  <div class="module-topic">Hàn vật liệu: thép thường, thép không gỉ, nhôm</div>
+                  <div class="module-topic">Kiểm tra chất lượng mối hàn: VT, dye-check PT</div>
+                  <div class="module-topic">Chuẩn bị và thực hiện bài thi AWS/ISO 9606</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-weld-2" aria-expanded="false" aria-controls="acc-weld-2-body">
+                <span>🤖 Module 2: Lập trình và vận hành Robot hàn</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-weld-2-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 30 giờ lý thuyết + 60 giờ thực hành robot</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Cấu tạo cell robot hàn: robot, welding source, fixtures, positioner</div>
+                  <div class="module-topic">Dạy robot (teaching), lập trình quỹ đạo hàn</div>
+                  <div class="module-topic">Tối ưu thông số hàn robot: WFS, voltage, travel speed</div>
+                  <div class="module-topic">Xử lý lỗi hàn robot: arc failure, underfill, spatter</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="outcomes-grid">
+            <div class="outcome-item"><span class="outcome-check">✓</span>Hàn thành thạo MIG/MAG, TIG, SMAW đa tư thế</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Đạt chứng chỉ AWS Certified Welder hoặc ISO 9606</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Lập trình và vận hành robot hàn cơ bản</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Kiểm tra chất lượng mối hàn theo tiêu chuẩn AWS</div>
+          </div>
+
+          <div class="partner-tags">
+            <span class="partner-tag">Fronius International</span>
+            <span class="partner-tag">Lincoln Electric</span>
+            <span class="partner-tag">ESAB</span>
+            <span class="partner-tag">ABB Welding</span>
+            <span class="partner-tag">FANUC Arc Welding</span>
+            <span class="partner-tag">Miller Electric</span>
+            <span class="partner-tag">AWS</span>
+          </div>
+
+          <div class="solution-cta-bar">
+            <div>
+              <div class="solution-cta-bar-text">Xây dựng phòng thực hành hàn chuẩn AWS cho trường của bạn</div>
+              <div class="solution-cta-bar-sub">TEST đã triển khai 25+ phòng hàn từ Hà Nội đến TP.HCM</div>
+            </div>
+            <div class="solution-cta-bar-actions">
+              <a href="#" class="btn btn--primary" data-modal-open="modal-consult" id="weld-cta-consult">💬 Tư vấn cấu hình</a>
+            </div>
+          </div>
+
+          <div class="catalogue-cta" id="catalogue-welding">
+            <div class="catalogue-cta-text">
+              <h3>📄 Tải Catalogue Phòng Lab Hàn công nghiệp</h3>
+              <p>Danh mục máy hàn đào tạo, robot hàn, VR simulator hàn và thiết bị kiểm tra NDT.</p>
+            </div>
+            <div class="catalogue-cta-actions">
+              <form id="form-cat-weld" style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;" novalidate>
+                <div class="form-group" style="margin:0;min-width:220px;">
+                  <label class="form-label" for="cat-weld-email">Email của bạn <span class="required">*</span></label>
+                  <input class="form-control" id="cat-weld-email" type="email" required placeholder="example@truong.edu.vn">
+                  <span class="form-error">Email không hợp lệ</span>
+                </div>
+                <button type="submit" class="btn btn--accent" id="cat-weld-submit">⬇ Tải ngay</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ============================================================
+             SECTION 6: ĐIỆN LẠNH & HVAC
+             ============================================================ -->
+        <section class="solution-section" id="hvac" data-i18n-section="hvac">
+
+          <h2 class="solution-section-title">
+            <span class="num">06</span>
+            ❄️ Điện lạnh & HVAC
+          </h2>
+
+          <!-- Intro card -->
+          <div class="section-intro-card">
+            <div>
+              <div class="section-intro-label">Nhu cầu ngành</div>
+              <h3 class="section-intro-heading">Điện lạnh & HVAC trong thời đại xanh</h3>
+              <p class="section-intro-desc">
+                Thị trường điều hòa không khí, lạnh công nghiệp và HVAC Việt Nam tăng trưởng 12%/năm. Quy định môi trường (F-gas, HFO refrigerants) và xây dựng xanh (LEED, LOTUS) đòi hỏi kỹ sư HVAC hiện đại am hiểu cả kỹ thuật lẫn năng lượng.
+              </p>
+            </div>
+            <div class="demand-list">
+              <div class="demand-item"><div class="demand-item-icon">❄️</div><div>Thị trường HVAC VN đạt 2.5 tỷ USD năm 2025</div></div>
+              <div class="demand-item"><div class="demand-item-icon">🌿</div><div>Tiêu chuẩn xanh LEED, LOTUS yêu cầu chuyên gia HVAC</div></div>
+              <div class="demand-item"><div class="demand-item-icon">🏭</div><div>Kho lạnh, data center, bệnh viện: nhu cầu tăng mạnh</div></div>
+            </div>
+          </div>
+
+          <div class="sub-heading">Hệ thống thiết bị đào tạo HVAC</div>
+          <div class="device-groups">
+            <div class="device-group-card">
+              <div class="device-group-icon">❄️</div>
+              <div class="device-group-name">Mô hình hệ thống lạnh</div>
+              <div class="device-group-count">Máy nén, dàn nóng, dàn lạnh</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🌡️</div>
+              <div class="device-group-name">VRF/VRV System</div>
+              <div class="device-group-count">Daikin, Mitsubishi, Panasonic</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🏗️</div>
+              <div class="device-group-name">Chiller & Cooling Tower</div>
+              <div class="device-group-count">Mô hình chiller demo</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">💨</div>
+              <div class="device-group-name">AHU & FCU Training</div>
+              <div class="device-group-count">Air handling unit thực</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">🔧</div>
+              <div class="device-group-name">Thiết bị đo & nạp gas</div>
+              <div class="device-group-count">Manifold, recovery machine</div>
+            </div>
+            <div class="device-group-card">
+              <div class="device-group-icon">💻</div>
+              <div class="device-group-name">BAS/BMS Control</div>
+              <div class="device-group-count">Honeywell, Siemens Desigo</div>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto;margin-bottom:var(--space-8);">
+            <table class="spec-table" aria-label="Thông số phòng lab HVAC">
+              <thead><tr><th>Hạng mục</th><th>Gói Điện lạnh cơ bản</th><th>Gói HVAC toàn diện</th></tr></thead>
+              <tbody>
+                <tr><td>Mô hình hệ thống lạnh</td><td>4 mô hình mini</td><td>6 mô hình + 1 hệ thống lạnh thương mại</td></tr>
+                <tr><td>VRF/VRV</td><td>1 hệ thống 2 cục trong nhà</td><td>3 hệ thống VRF đa chiều</td></tr>
+                <tr><td>Chiller</td><td>Không</td><td>1 chiller demo (5 RT)</td></tr>
+                <tr><td>Phần mềm BIM/MEP</td><td>AutoCAD MEP</td><td>Revit MEP + HAP (Carrier)</td></tr>
+                <tr><td>BAS/BMS Panel</td><td>Không</td><td>Hệ thống BACnet demo</td></tr>
+                <tr><td>Diện tích</td><td>120 m²</td><td>200 m²</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Accordion học phần HVAC -->
+          <div class="sub-heading">Học phần Điện lạnh & HVAC</div>
+          <div class="accordion-modules">
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn open" onclick="this.classList.toggle('open')" id="acc-hvac-1" aria-expanded="true" aria-controls="acc-hvac-1-body">
+                <span>❄️ Module 1: Nguyên lý máy lạnh & kỹ thuật lắp đặt điều hòa</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-hvac-1-body" style="display:block;">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 45 giờ lý thuyết + 90 giờ thực hành</span>
+                  <span class="module-meta-item">🏆 Chứng nhận kỹ thuật lạnh cơ bản</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Chu trình lạnh 4 bước: bay hơi, nén, ngưng tụ, tiết lưu</div>
+                  <div class="module-topic">Môi chất lạnh mới: R32, R410A, HFO R1234yf (quy định F-gas)</div>
+                  <div class="module-topic">Lắp đặt điều hòa split, multi-split, VRF/VRV</div>
+                  <div class="module-topic">Nạp gas, hút chân không, kiểm tra rò rỉ</div>
+                  <div class="module-topic">Chẩn đoán lỗi điều hòa bằng đồng hồ áp và thiết bị đo</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-hvac-2" aria-expanded="false" aria-controls="acc-hvac-2-body">
+                <span>🏗️ Module 2: Thiết kế hệ thống HVAC tòa nhà với Revit MEP & HAP</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-hvac-2-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 40 giờ lý thuyết + 60 giờ thực hành phần mềm</span>
+                  <span class="module-meta-item">🏆 Chứng nhận Autodesk Revit MEP</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Tính toán tải nhiệt với HAP (Hourly Analysis Program)</div>
+                  <div class="module-topic">Thiết kế hệ thống AHU, FCU, duct layout trong Revit</div>
+                  <div class="module-topic">Phối hợp MEP: cơ, điện, plumbing trong BIM</div>
+                  <div class="module-topic">Tiêu chuẩn ASHRAE 62.1 (thông gió), 90.1 (năng lượng)</div>
+                  <div class="module-topic">Hồ sơ thiết kế HVAC cho dự án thực tế</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item--module">
+              <button class="accordion-btn" onclick="this.classList.toggle('open')" id="acc-hvac-3" aria-expanded="false" aria-controls="acc-hvac-3-body">
+                <span>💻 Module 3: BAS/BMS — Hệ thống quản lý tòa nhà thông minh</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-body" id="acc-hvac-3-body">
+                <div class="module-meta">
+                  <span class="module-meta-item">⏱️ 30 giờ lý thuyết + 50 giờ thực hành</span>
+                </div>
+                <div class="module-topic-list">
+                  <div class="module-topic">Giao thức BACnet, Modbus, LonWorks trong HVAC</div>
+                  <div class="module-topic">Lập trình DDC controller cho AHU, chiller plant</div>
+                  <div class="module-topic">SCADA/BMS: giám sát và điều khiển tập trung</div>
+                  <div class="module-topic">Tối ưu năng lượng: demand control, economizer, VFD pump</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="outcomes-grid">
+            <div class="outcome-item"><span class="outcome-check">✓</span>Lắp đặt và bảo dưỡng điều hòa, hệ thống lạnh</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Thiết kế HVAC tòa nhà với Revit MEP & HAP</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Vận hành hệ thống BAS/BMS quản lý năng lượng</div>
+            <div class="outcome-item"><span class="outcome-check">✓</span>Chứng chỉ kỹ thuật lạnh và HVAC quốc tế (ASHRAE)</div>
+          </div>
+
+          <div class="partner-tags">
+            <span class="partner-tag">Daikin</span>
+            <span class="partner-tag">Mitsubishi Electric</span>
+            <span class="partner-tag">Carrier</span>
+            <span class="partner-tag">Trane</span>
+            <span class="partner-tag">Honeywell</span>
+            <span class="partner-tag">Siemens Desigo</span>
+            <span class="partner-tag">Emerson</span>
+            <span class="partner-tag">Danfoss</span>
+          </div>
+
+          <div class="solution-cta-bar">
+            <div>
+              <div class="solution-cta-bar-text">Tư vấn phòng thực hành Điện lạnh & HVAC hiện đại</div>
+              <div class="solution-cta-bar-sub">Từ điều hòa dân dụng đến HVAC tòa nhà thương mại</div>
+            </div>
+            <div class="solution-cta-bar-actions">
+              <a href="#" class="btn btn--primary" data-modal-open="modal-consult" id="hvac-cta-consult">💬 Tư vấn cấu hình</a>
+            </div>
+          </div>
+
+          <div class="catalogue-cta" id="catalogue-hvac">
+            <div class="catalogue-cta-text">
+              <h3>📄 Tải Catalogue Phòng Lab Điện lạnh & HVAC</h3>
+              <p>Danh mục thiết bị lạnh, hệ thống VRF, chiller demo và phần mềm thiết kế HVAC cho trường đào tạo.</p>
+            </div>
+            <div class="catalogue-cta-actions">
+              <form id="form-cat-hvac" style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;" novalidate>
+                <div class="form-group" style="margin:0;min-width:220px;">
+                  <label class="form-label" for="cat-hvac-email">Email của bạn <span class="required">*</span></label>
+                  <input class="form-control" id="cat-hvac-email" type="email" required placeholder="example@truong.edu.vn">
+                  <span class="form-error">Email không hợp lệ</span>
+                </div>
+                <button type="submit" class="btn btn--accent" id="cat-hvac-submit">⬇ Tải ngay</button>
+              </form>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================================================================
+             GLOBAL CTA SECTION
+             ================================================================ -->
+        <section style="padding:var(--space-16) 0;background:linear-gradient(135deg,#0A1628 0%,#0D1B2E 50%,#112240 100%);border-radius:var(--radius-xl);position:relative;overflow:hidden;margin-top:var(--space-8);">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(30,111,255,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;text-align:center;padding:0 var(--space-8);">
+            <div class="section-label" style="justify-content:center;margin-bottom:var(--space-4);" data-aos="fade-up">Bắt đầu ngay hôm nay</div>
+            <h2 class="section-title" style="margin-bottom:var(--space-4);" data-aos="fade-up" data-aos-delay="100">
+              Sẵn sàng xây dựng phòng lab đẳng cấp quốc tế?
+            </h2>
+            <p class="section-desc" style="margin:0 auto var(--space-8);" data-aos="fade-up" data-aos-delay="200">
+              Đội ngũ kỹ sư và chuyên gia TEST sẵn sàng tư vấn miễn phí và đồng hành cùng bạn trong toàn bộ hành trình — từ thiết kế đến triển khai và hậu mãi.
+            </p>
+            <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;" data-aos="fade-up" data-aos-delay="300">
+              <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-consult" id="global-cta-consult">
+                💬 Nhận tư vấn miễn phí
+              </a>
+              <a href="du-an.html" class="btn btn--ghost btn--lg" id="global-cta-projects">
+                📁 Xem dự án tiêu biểu
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <!-- end solution-content-area -->
+
+    </div>
+    <!-- end solution-layout -->
+  </div>
+</div>
+<!-- end solution-page-body -->
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="header-logo" style="display:inline-flex;margin-bottom:var(--space-4);">
+          <div class="logo-mark">T</div>
+          <div class="logo-text">
+            <span class="logo-name">TEST</span>
+            <span class="logo-tagline">Technical Training</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc" data-i18n="footer_desc">Chuyên gia hàng đầu về thiết bị đào tạo kỹ thuật và giải pháp phòng lab thực hành tại Việt Nam.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">💼</a>
+          <a href="#" class="footer-social" aria-label="YouTube">▶️</a>
+          <a href="#" class="footer-social" aria-label="Zalo">💬</a>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_solutions">Giải pháp</div>
+        <div class="footer-links">
+          <a href="#mechatronics" class="footer-link">⚙️ Cơ điện tử</a>
+          <a href="#cnc" class="footer-link">🔩 Gia công CNC</a>
+          <a href="#auto" class="footer-link">🚗 Ô tô & Xe điện</a>
+          <a href="#semiconductor" class="footer-link">🔬 Bán dẫn - Vi mạch</a>
+          <a href="#welding" class="footer-link">🔥 Hàn công nghiệp</a>
+          <a href="#hvac" class="footer-link">❄️ Điện lạnh & HVAC</a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_products">Sản phẩm</div>
+        <div class="footer-links">
+          <a href="san-pham.html?cat=equipment" class="footer-link">🖥️ Thiết bị đào tạo</a>
+          <a href="san-pham.html?cat=software" class="footer-link">💻 Phần mềm mô phỏng</a>
+          <a href="san-pham.html?cat=materials" class="footer-link">🔧 Vật tư thực hành</a>
+          <a href="khoa-hoc.html" class="footer-link">📚 Khóa học</a>
+          <a href="du-an.html" class="footer-link">🏆 Dự án tiêu biểu</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title" data-i18n="nav_contact">Liên hệ</div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="footer_address">Hà Nội, Việt Nam</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72..."/></svg>
+          <span>1800 TEST (Miễn phí)</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@test.com.vn</span>
+        </div>
+        <div style="margin-top:var(--space-4);">
+          <a href="#" class="btn btn--accent btn--sm" data-modal-open="modal-consult" id="footer-consult-btn">💬 Nhận tư vấn ngay</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <span data-i18n="footer_copyright">© 2025 TEST Corporation. Tất cả quyền được bảo lưu.</span>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link" data-i18n="footer_privacy">Chính sách bảo mật</a>
+        <a href="#" class="footer-bottom-link" data-i18n="footer_terms">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+     STICKY CTA
+     ================================================================ -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-quick-contacts">
+    <a href="tel:1800TEST" class="quick-contact-btn quick-contact-btn--phone" title="Gọi ngay" aria-label="Gọi điện">📞</a>
+    <a href="#" class="quick-contact-btn quick-contact-btn--zalo" title="Zalo" aria-label="Zalo">💬</a>
+  </div>
+  <a href="#" class="sticky-cta-btn" data-modal-open="modal-consult" id="sticky-consult-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span data-i18n="btn_consult">Nhận tư vấn</span>
+  </a>
+</div>
+
+<!-- ================================================================
+     BACK TO TOP
+     ================================================================ -->
+<button class="back-to-top" id="back-to-top" aria-label="Về đầu trang">↑</button>
+
+<!-- ================================================================
+     MODAL: CONSULT
+     ================================================================ -->
+<div class="overlay-backdrop" id="overlay-backdrop"></div>
+<div class="modal" id="modal-consult" role="dialog" aria-modal="true" aria-labelledby="modal-consult-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-consult-title" data-i18n="popup_consult_title">Đăng ký nhận tư vấn</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-consult" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="consult-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="consult-name" type="text" required data-i18n-ph="form_name_placeholder" placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="consult-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="consult-phone" type="tel" required data-phone data-i18n-ph="form_phone_placeholder" placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-email" data-i18n="form_email">Email công ty <span class="required">*</span></label>
+        <input class="form-control" id="consult-email" type="email" required data-i18n-ph="form_email_placeholder" placeholder="example@truong.edu.vn">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-org" data-i18n="form_org">Đơn vị / Trường học</label>
+        <input class="form-control" id="consult-org" type="text" data-i18n-ph="form_org_placeholder" placeholder="Trường ĐH Bách Khoa...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-solution">Giải pháp quan tâm</label>
+        <select class="form-control" id="consult-solution">
+          <option value="">-- Chọn giải pháp --</option>
+          <option value="mechatronics">⚙️ Cơ điện tử & Tự động hóa</option>
+          <option value="cnc">🔩 Gia công CNC & CAD/CAM</option>
+          <option value="auto">🚗 Ô tô & Xe điện</option>
+          <option value="semiconductor">🔬 Bán dẫn - Vi mạch</option>
+          <option value="welding">🔥 Hàn công nghiệp</option>
+          <option value="hvac">❄️ Điện lạnh & HVAC</option>
+          <option value="multiple">Nhiều giải pháp</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-need" data-i18n="form_need">Nhu cầu cụ thể</label>
+        <textarea class="form-control" id="consult-need" rows="3" data-i18n-ph="form_need_placeholder" placeholder="Mô tả yêu cầu của bạn..."></textarea>
+      </div>
+      <!-- Captcha -->
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false" aria-label="Xác nhận tôi không phải robot"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <p class="form-hint" data-i18n="form_privacy">Thông tin của bạn được bảo mật tuyệt đối.</p>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" data-i18n="form_submit_consult">Gửi yêu cầu tư vấn</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: QUOTE -->
+<div class="modal" id="modal-quote" role="dialog" aria-modal="true" aria-labelledby="modal-quote-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-quote-title" data-i18n="popup_quote_title">Yêu cầu báo giá</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-quote" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="quote-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="quote-name" type="text" required placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="quote-phone" type="tel" required data-phone placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-email" data-i18n="form_email">Email <span class="required">*</span></label>
+        <input class="form-control" id="quote-email" type="email" required placeholder="example@company.com">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-product" data-i18n="form_product">Sản phẩm / Giải pháp quan tâm</label>
+        <input class="form-control" id="quote-product" type="text" data-product-field placeholder="Tên sản phẩm hoặc giải pháp...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-need" data-i18n="form_need">Yêu cầu cụ thể</label>
+        <textarea class="form-control" id="quote-need" rows="3" placeholder="Số lượng, cấu hình, thời gian cần..."></textarea>
+      </div>
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--accent btn--lg" style="width:100%;" data-i18n="form_submit_quote">Gửi yêu cầu báo giá</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================================================================
+     SCRIPTS
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/header.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+/* ── Semiconductor sub-tab switcher ── */
+function switchSemiTab(tab, event) {
+  // Deactivate all tabs and panels
+  document.querySelectorAll('.semi-tab-btn').forEach(function(btn) {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.semi-tab-panel').forEach(function(panel) {
+    panel.classList.remove('active');
+  });
+  // Activate selected
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+    event.currentTarget.setAttribute('aria-selected', 'true');
+  }
+  var panel = document.getElementById('semi-panel-' + tab);
+  if (panel) panel.classList.add('active');
+}
+
+/* ── Sidebar active state on scroll ── */
+(function() {
+  var sections = ['mechatronics', 'cnc', 'auto', 'semiconductor', 'welding', 'hvac'];
+  var navLinks = {};
+  sections.forEach(function(id) {
+    navLinks[id] = document.getElementById('sbnav-' + id);
+  });
+
+  function onScroll() {
+    var scrollY = window.scrollY;
+    var windowH = window.innerHeight;
+    var docH = document.documentElement.scrollHeight;
+
+    // Progress bar
+    var progress = (scrollY / (docH - windowH)) * 100;
+    var bar = document.getElementById('sidebar-progress-bar');
+    if (bar) bar.style.width = Math.min(progress, 100) + '%';
+
+    // Active section
+    var currentSection = sections[0];
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      if (rect.top <= 120) currentSection = id;
+    });
+
+    sections.forEach(function(id) {
+      if (navLinks[id]) {
+        navLinks[id].classList.toggle('active', id === currentSection);
+      }
+    });
+
+    // Back-to-top visibility
+    var btn = document.getElementById('back-to-top');
+    if (btn) {
+      btn.classList.toggle('visible', scrollY > 500);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Back-to-top click
+  var backBtn = document.getElementById('back-to-top');
+  if (backBtn) {
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ── Catalogue form inline handlers ── */
+  var catalogueForms = [
+    'form-cat-mecha', 'form-cat-cnc', 'form-cat-auto',
+    'form-cat-semi', 'form-cat-weld', 'form-cat-hvac'
+  ];
+  catalogueForms.forEach(function(formId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var emailInput = form.querySelector('input[type="email"]');
+      var group = emailInput ? emailInput.closest('.form-group') : null;
+      if (emailInput && !emailInput.value.includes('@')) {
+        if (group) group.classList.add('has-error');
+        emailInput.classList.add('error-shake');
+        setTimeout(function() { emailInput.classList.remove('error-shake'); }, 500);
+        return;
+      }
+      if (group) group.classList.remove('has-error');
+      // Show toast (reuse showToast from main.js if available, else fallback)
+      var submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) {
+        var original = submitBtn.innerHTML;
+        submitBtn.innerHTML = '✓ Đã gửi!';
+        submitBtn.disabled = true;
+        setTimeout(function() {
+          submitBtn.innerHTML = original;
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+      if (emailInput) emailInput.value = '';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

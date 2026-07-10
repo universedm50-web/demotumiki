@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST – Giải pháp Phòng Lab & Thiết bị Đào tạo Kỹ thuật Hàng đầu</title>
+  <meta name="description" content="TEST cung cấp giải pháp toàn diện về thiết bị đào tạo kỹ thuật, thiết kế phòng lab thực hành cho Cơ điện tử, CNC, Bán dẫn, Ô tô cho trường ĐH, CĐ và doanh nghiệp.">
+  <meta name="keywords" content="thiết bị đào tạo kỹ thuật, phòng lab, cơ điện tử, CNC, bán dẫn, vi mạch, ô tô">
+  <meta property="og:title" content="TEST – Giải pháp Phòng Lab Kỹ thuật">
+  <meta property="og:description" content="Chuyên gia số 1 về thiết bị đào tạo kỹ thuật và phòng lab thực hành tại Việt Nam">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Back-to-top ── */
+    .back-to-top {
+      position: fixed;
+      right: 24px; bottom: 100px;
+      width: 44px; height: 44px;
+      background: var(--grad-primary);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px;
+      box-shadow: var(--shadow-md);
+      z-index: 800;
+      opacity: 0; transform: translateY(20px);
+      pointer-events: none;
+      transition: all var(--transition-base);
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+
+    /* ── Error shake animation ── */
+    @keyframes error-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    .error-shake { animation: error-shake 0.4s ease; border-color: var(--color-danger) !important; }
+  </style>
+</head>
+<body data-page="home">
+
+<!-- ================================================================
+     HEADER & NAVIGATION
+     ================================================================ -->
+<header class="site-header at-top" id="site-header">
+  <div class="container container--wide">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="header-logo">
+        <div class="logo-mark">T</div>
+        <div class="logo-text">
+          <span class="logo-name">TEST</span>
+          <span class="logo-tagline">Technical Training</span>
+        </div>
+      </a>
+
+      <!-- Main Nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        <!-- Trang chủ -->
+        <div class="nav-item">
+          <a href="index.html" class="nav-link active">
+            <span data-i18n="nav_home">Trang chủ</span>
+          </a>
+        </div>
+
+        <!-- Giải pháp -->
+        <div class="nav-item">
+          <a href="giai-phap.html" class="nav-link">
+            <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <div class="mega-section-title" data-i18n="nav_solutions">Giải pháp đào tạo</div>
+              <a href="giai-phap.html#mechatronics" class="dropdown-link">
+                <div class="dropdown-link__icon">⚙️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_mechatronics">Cơ điện tử</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_mechatronics_sub">Robot công nghiệp, PLC/SCADA</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#cnc" class="dropdown-link">
+                <div class="dropdown-link__icon">🔩</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_cnc">Gia công CNC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_cnc_sub">Tiện, Phay, EDM, CAD/CAM</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#auto" class="dropdown-link">
+                <div class="dropdown-link__icon">🚗</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_auto">Ô tô & Xe điện</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_auto_sub">Chẩn đoán, Động cơ điện, EV</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#semiconductor" class="dropdown-link">
+                <div class="dropdown-link__icon">🔬</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_semi">Bán dẫn - Vi mạch</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_semi_sub">IC Design, Đóng gói, VR/XR</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#welding" class="dropdown-link">
+                <div class="dropdown-link__icon">🔥</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_weld">Hàn công nghiệp</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_weld_sub">MIG/MAG, TIG, Hàn robot</span>
+                </div>
+              </a>
+              <a href="giai-phap.html#hvac" class="dropdown-link">
+                <div class="dropdown-link__icon">❄️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_sol_hvac">Điện lạnh & HVAC</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_sol_hvac_sub">Điều hòa, Lạnh công nghiệp</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sản phẩm -->
+        <div class="nav-item">
+          <a href="san-pham.html" class="nav-link">
+            <span data-i18n="nav_products">Sản phẩm</span>
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </a>
+          <div class="nav-dropdown nav-dropdown--mega">
+            <div class="mega-grid">
+              <a href="san-pham.html?cat=equipment" class="dropdown-link">
+                <div class="dropdown-link__icon">🖥️</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_equip">Thiết bị đào tạo</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_equip_sub">Mô hình, Bench, Panel</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=software" class="dropdown-link">
+                <div class="dropdown-link__icon">💻</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_software">Phần mềm mô phỏng</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_software_sub">CAD/CAM/CAE, EDA, VR</span>
+                </div>
+              </a>
+              <a href="san-pham.html?cat=materials" class="dropdown-link">
+                <div class="dropdown-link__icon">🔧</div>
+                <div class="dropdown-link__text">
+                  <span class="dropdown-link__title" data-i18n="nav_prod_materials">Vật tư thực hành</span>
+                  <span class="dropdown-link__sub" data-i18n="nav_prod_materials_sub">Linh kiện, PCB, mẫu thử</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="khoa-hoc.html" class="nav-link">
+            <span data-i18n="nav_courses">Khóa học</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="du-an.html" class="nav-link">
+            <span data-i18n="nav_projects">Dự án tiêu biểu</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="lien-he.html" class="nav-link">
+            <span data-i18n="nav_contact">Liên hệ</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Search -->
+        <button class="btn-search" data-search-open aria-label="Tìm kiếm" id="btn-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <!-- Language -->
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="vn" id="lang-vn">VN</button>
+          <button class="lang-btn" data-lang="en" id="lang-en">EN</button>
+        </div>
+        <!-- CTA -->
+        <a href="#" class="btn-header-cta" data-modal-open="modal-consult" id="header-cta">
+          <span data-i18n="btn_consult">Nhận tư vấn</span>
+        </a>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-item">
+    <a href="index.html" class="mobile-nav-link">
+      <span data-i18n="nav_home">Trang chủ</span>
+    </a>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-solutions">
+      <span data-i18n="nav_solutions">Giải pháp đào tạo</span>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="mobile-sub" id="mob-solutions">
+      <a href="giai-phap.html#mechatronics" class="mobile-sub-link">⚙️ Cơ điện tử</a>
+      <a href="giai-phap.html#cnc" class="mobile-sub-link">🔩 Gia công CNC</a>
+      <a href="giai-phap.html#auto" class="mobile-sub-link">🚗 Ô tô & Xe điện</a>
+      <a href="giai-phap.html#semiconductor" class="mobile-sub-link">🔬 Bán dẫn - Vi mạch</a>
+      <a href="giai-phap.html#welding" class="mobile-sub-link">🔥 Hàn công nghiệp</a>
+      <a href="giai-phap.html#hvac" class="mobile-sub-link">❄️ Điện lạnh & HVAC</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="san-pham.html" class="mobile-nav-link"><span data-i18n="nav_products">Sản phẩm</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="khoa-hoc.html" class="mobile-nav-link"><span data-i18n="nav_courses">Khóa học</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="du-an.html" class="mobile-nav-link"><span data-i18n="nav_projects">Dự án tiêu biểu</span></a>
+  </div>
+  <div class="mobile-nav-item">
+    <a href="lien-he.html" class="mobile-nav-link"><span data-i18n="nav_contact">Liên hệ</span></a>
+  </div>
+  <div class="mobile-nav-footer">
+    <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-consult" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_consult">Nhận tư vấn</span>
+    </a>
+    <a href="#" class="btn btn--outline btn--lg" data-modal-open="modal-quote" style="width:100%;justify-content:center;">
+      <span data-i18n="btn_quote">Yêu cầu báo giá</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ================================================================
+     SEARCH OVERLAY
+     ================================================================ -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-inner">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="search" class="search-input" id="search-input" data-i18n-ph="nav_search_placeholder" placeholder="Tìm kiếm giải pháp, sản phẩm...">
+      <button class="search-close" data-search-close aria-label="Đóng tìm kiếm">✕</button>
+    </div>
+    <div class="search-hints">
+      <span style="font-size:0.75rem;color:var(--color-text-muted)" data-i18n="nav_search_hints">Gợi ý:</span>
+      <span class="search-hint" data-i18n="nav_hint_semi">Bán dẫn vi mạch</span>
+      <span class="search-hint" data-i18n="nav_hint_cnc">Thiết bị CNC</span>
+      <span class="search-hint" data-i18n="nav_hint_lab">Thiết kế phòng lab</span>
+      <span class="search-hint" data-i18n="nav_hint_train">Đào tạo giảng viên</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     HERO SECTION
+     ================================================================ -->
+<section class="hero" id="hero">
+  <!-- Background layers -->
+  <div class="hero-bg">
+    <div class="hero-bg-layer"></div>
+    <div class="hero-bg-img"></div>
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-radial"></div>
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+  </div>
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="container container--wide">
+      <div class="hero-inner">
+        <!-- Text side -->
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span data-i18n="hero_badge">Chuyên gia số 1 về thiết bị đào tạo kỹ thuật</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="line line--primary" data-i18n="hero_title_1">Xây dựng</span>
+            <span class="line line--gradient" data-i18n="hero_title_2">Phòng Lab Kỹ thuật</span>
+            <span class="line" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span data-i18n="hero_title_3" style="color:var(--color-text-primary)">Đẳng cấp</span>
+              <span class="line--accent">
+                <span id="typewriter-text" class="typewriter"></span><span class="typewriter-cursor"></span>
+              </span>
+            </span>
+          </h1>
+          <p class="hero-desc" data-i18n="hero_desc">TEST cung cấp giải pháp tổng thể từ tư vấn thiết kế phòng lab, thiết bị đào tạo đến triển khai chương trình đào tạo chuẩn quốc tế cho các trường ĐH, CĐ và doanh nghiệp.</p>
+          <div class="hero-actions">
+            <a href="giai-phap.html" class="btn btn--primary btn--lg" id="hero-cta-solutions">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span data-i18n="hero_cta_solutions">Xem giải pháp</span>
+            </a>
+            <a href="#" class="btn btn--ghost btn--lg" data-modal-open="modal-consult" id="hero-cta-consult">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span data-i18n="hero_cta_consult">Nhận tư vấn ngay</span>
+            </a>
+          </div>
+          <!-- Stats -->
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="200" data-suffix="+">200+</span>
+              <span class="hero-stat-label" data-i18n="hero_stat_projects">Dự án</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="80" data-suffix="+">80+</span>
+              <span class="hero-stat-label" data-i18n="hero_stat_schools">Trường học</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="15" data-suffix="+">15+</span>
+              <span class="hero-stat-label" data-i18n="hero_stat_years">Năm kinh nghiệm</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual side -->
+        <div class="hero-visual">
+          <div class="hero-visual-card">
+            <div class="img-placeholder" style="aspect-ratio:4/3; background-image: url('assets/images/hero-visual.jpg'); background-size: cover; background-position: center; border: none;"></div>
+            <!-- Float badges -->
+            <div class="hero-float-badge hero-float-badge--tl" style="top:24px;left:-20px;">
+              <div class="hero-float-icon">🏭</div>
+              <div class="hero-float-text">
+                <span class="hero-float-title" data-i18n="hero_float_lab">Phòng Lab</span>
+                <span class="hero-float-sub" data-i18n="hero_float_lab_sub">Chuẩn quốc tế</span>
+              </div>
+            </div>
+            <div class="hero-float-badge hero-float-badge--br" style="bottom:24px;right:-20px;">
+              <div class="hero-float-icon">🔬</div>
+              <div class="hero-float-text">
+                <span class="hero-float-title" data-i18n="hero_float_semi">Bán dẫn</span>
+                <span class="hero-float-sub" data-i18n="hero_float_semi_sub">VR/XR Cleanroom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" aria-label="Cuộn xuống">
+    <div class="hero-scroll-wheel"></div>
+    <span data-i18n="hero_scroll">Cuộn xuống</span>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION: PAIN POINTS & FIELDS
+     ================================================================ -->
+<section class="section fields-section" id="fields">
+  <div class="container">
+    <div class="pain-intro" data-aos="fade-up">
+      <div class="section-label" data-i18n="pain_label">Vấn đề cần giải quyết</div>
+      <h2 class="pain-title">
+        <span data-i18n="pain_title_1">TEST giải quyết </span>
+        <span class="highlight" data-i18n="pain_title_2">vấn đề gì</span>
+        <span data-i18n="pain_title_3"> cho bạn?</span>
+      </h2>
+      <p class="section-desc" style="margin:0 auto;" data-i18n="pain_desc">Chúng tôi hiểu những thách thức mà các cơ sở giáo dục và doanh nghiệp đang đối mặt trong việc xây dựng năng lực đào tạo kỹ thuật chất lượng cao.</p>
+    </div>
+
+    <div class="grid grid-3" style="gap: var(--space-5);">
+      <!-- Field 1: Cơ điện tử -->
+      <a href="giai-phap.html#mechatronics" class="field-card" data-aos="fade-up" data-aos-delay="0"
+         style="--field-color:rgba(30,111,255,0.12);--field-glow:rgba(30,111,255,0.2);">
+        <div class="field-icon">⚙️</div>
+        <div>
+          <div class="field-name" data-i18n="field_mechatronics">Cơ điện tử</div>
+          <div class="field-desc" data-i18n="field_mechatronics_desc">Thiếu mô hình thực hành robot công nghiệp, PLC, hệ thống SCADA hiện đại đáp ứng nhu cầu doanh nghiệp.</div>
+        </div>
+        <div class="field-link">
+          <span data-i18n="field_cta">Xem giải pháp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Field 2: CNC -->
+      <a href="giai-phap.html#cnc" class="field-card" data-aos="fade-up" data-aos-delay="80"
+         style="--field-color:rgba(139,92,246,0.12);--field-glow:rgba(139,92,246,0.2);">
+        <div class="field-icon">🔩</div>
+        <div>
+          <div class="field-name" data-i18n="field_cnc">Gia công CNC</div>
+          <div class="field-desc" data-i18n="field_cnc_desc">Chi phí máy CNC thực cao, học viên thiếu cơ hội thực hành đủ giờ trên thiết bị đắt tiền.</div>
+        </div>
+        <div class="field-link">
+          <span data-i18n="field_cta">Xem giải pháp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Field 3: Ô tô -->
+      <a href="giai-phap.html#auto" class="field-card" data-aos="fade-up" data-aos-delay="160"
+         style="--field-color:rgba(16,185,129,0.12);--field-glow:rgba(16,185,129,0.2);">
+        <div class="field-icon">🚗</div>
+        <div>
+          <div class="field-name" data-i18n="field_auto">Ô tô & Xe điện</div>
+          <div class="field-desc" data-i18n="field_auto_desc">Công nghệ EV thay đổi nhanh, cơ sở vật chất cũ không đáp ứng được yêu cầu đào tạo xe điện.</div>
+        </div>
+        <div class="field-link">
+          <span data-i18n="field_cta">Xem giải pháp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Field 4: Bán dẫn (HIGHLIGHTED) -->
+      <a href="giai-phap.html#semiconductor" class="field-card" data-aos="fade-up" data-aos-delay="240"
+         style="--field-color:rgba(245,158,11,0.15);--field-glow:rgba(245,158,11,0.25);border-color:rgba(245,158,11,0.2);">
+        <div class="badge badge--accent" style="align-self:flex-start;">🌟 Mũi nhọn</div>
+        <div class="field-icon" style="background:rgba(245,158,11,0.15);">🔬</div>
+        <div>
+          <div class="field-name" data-i18n="field_semi">Bán dẫn - Vi mạch</div>
+          <div class="field-desc" data-i18n="field_semi_desc">Phòng sạch, EDA tools đắt đỏ; thiếu nhân lực thiết kế vi mạch trầm trọng tại Việt Nam.</div>
+        </div>
+        <div class="field-link" style="color:var(--color-accent);">
+          <span data-i18n="field_cta">Xem giải pháp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Field 5: Hàn -->
+      <a href="giai-phap.html#welding" class="field-card" data-aos="fade-up" data-aos-delay="320"
+         style="--field-color:rgba(239,68,68,0.1);--field-glow:rgba(239,68,68,0.15);">
+        <div class="field-icon">🔥</div>
+        <div>
+          <div class="field-name" data-i18n="field_weld">Hàn công nghiệp</div>
+          <div class="field-desc" data-i18n="field_weld_desc">Hàn robot, hàn tự động ngày càng phổ biến nhưng thiết bị đào tạo bài bản còn thiếu hụt.</div>
+        </div>
+        <div class="field-link">
+          <span data-i18n="field_cta">Xem giải pháp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Field 6: HVAC -->
+      <a href="giai-phap.html#hvac" class="field-card" data-aos="fade-up" data-aos-delay="400"
+         style="--field-color:rgba(6,182,212,0.12);--field-glow:rgba(6,182,212,0.2);">
+        <div class="field-icon">❄️</div>
+        <div>
+          <div class="field-name" data-i18n="field_hvac">Điện lạnh & HVAC</div>
+          <div class="field-desc" data-i18n="field_hvac_desc">Thiếu mô hình đào tạo điện lạnh công nghiệp, máy lạnh thương mại sát với thực tế sản xuất.</div>
+        </div>
+        <div class="field-link">
+          <span data-i18n="field_cta">Xem giải pháp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION: HIGHLIGHT & TRUST BUILDER
+     ================================================================ -->
+<section class="section trust-section" id="trust">
+  <div class="container">
+    <!-- Section heading -->
+    <div class="section-header section-header--center" data-aos="fade-up">
+      <div class="section-label" data-i18n="trust_label">Tại sao chọn TEST?</div>
+      <h2 class="section-title">
+        <span data-i18n="trust_title">Điểm khác biệt tạo nên </span>
+        <span class="accent" data-i18n="trust_title_accent">uy tín vượt trội</span>
+      </h2>
+    </div>
+
+    <!-- USP Counter Grid -->
+    <div class="usp-grid" data-aos="zoom-in">
+      <div class="usp-item">
+        <div class="usp-num"><span data-count="200" data-suffix="+">200+</span></div>
+        <div class="usp-label" data-i18n="usp_projects_label">Dự án phòng lab
+          <span class="usp-sub" data-i18n="usp_projects_sub">Đã triển khai thành công</span>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-num"><span data-count="80" data-suffix="+">80+</span></div>
+        <div class="usp-label" data-i18n="usp_schools_label">Trường & Doanh nghiệp
+          <span class="usp-sub" data-i18n="usp_schools_sub">Tin tưởng hợp tác</span>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-num"><span data-count="15" data-suffix="+">15+</span></div>
+        <div class="usp-label" data-i18n="usp_years_label">Năm kinh nghiệm
+          <span class="usp-sub" data-i18n="usp_years_sub">Trong lĩnh vực đào tạo kỹ thuật</span>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-num"><span data-count="50" data-suffix="+">50+</span></div>
+        <div class="usp-label" data-i18n="usp_experts_label">Chuyên gia kỹ thuật
+          <span class="usp-sub" data-i18n="usp_experts_sub">Kinh nghiệm quốc tế</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Projects Slider -->
+    <div class="project-slider-section" data-aos="fade-up">
+      <div class="section-header flex-between" style="margin-bottom:var(--space-8);">
+        <div>
+          <div class="section-label" data-i18n="projects_label">Dự án tiêu biểu</div>
+          <h3 class="section-title" style="margin-bottom:0;">
+            <span data-i18n="projects_title">Những công trình </span>
+            <span class="accent" data-i18n="projects_title_accent">phòng lab tiêu biểu</span>
+          </h3>
+        </div>
+        <a href="du-an.html" class="btn btn--outline hidden-mobile" data-i18n="btn_all_projects">Xem tất cả dự án</a>
+      </div>
+
+      <div class="swiper projects-swiper">
+        <div class="swiper-wrapper">
+          <!-- Project slides (5 placeholder projects) -->
+          <div class="swiper-slide">
+            <a href="du-an.html" class="project-slide">
+              <div class="img-placeholder" style="height:280px; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-slide-overlay">
+                <span class="project-slide-cat">Cơ điện tử</span>
+                <h4 class="project-slide-title">Phòng Lab Robot & Tự động hóa — Đại học Bách Khoa</h4>
+                <span class="project-slide-meta">Hà Nội • 2024</span>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="du-an.html" class="project-slide">
+              <div class="img-placeholder" style="height:280px; background-image: url('assets/images/lab-semiconductor.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-slide-overlay">
+                <span class="project-slide-cat">Bán dẫn - Vi mạch</span>
+                <h4 class="project-slide-title">VR/XR Semiconductor Lab — Đại học Quốc gia TP.HCM</h4>
+                <span class="project-slide-meta">TP. Hồ Chí Minh • 2024</span>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="du-an.html" class="project-slide">
+              <div class="img-placeholder" style="height:280px; background-image: url('assets/images/lab-cnc.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-slide-overlay">
+                <span class="project-slide-cat">CNC & Gia công</span>
+                <h4 class="project-slide-title">Phòng Thực hành CNC 5-Axis — Cao đẳng Công nghệ</h4>
+                <span class="project-slide-meta">Đà Nẵng • 2023</span>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="du-an.html" class="project-slide">
+              <div class="img-placeholder" style="height:280px; background-image: url('assets/images/lab-auto.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-slide-overlay">
+                <span class="project-slide-cat">Ô tô & Xe điện</span>
+                <h4 class="project-slide-title">EV Training Lab — Trường CĐ Nghề Công nghệ cao</h4>
+                <span class="project-slide-meta">Bình Dương • 2023</span>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="du-an.html" class="project-slide">
+              <div class="img-placeholder" style="height:280px; background-image: url('assets/images/lab-welding.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              <div class="project-slide-overlay">
+                <span class="project-slide-cat">Hàn công nghiệp</span>
+                <h4 class="project-slide-title">Robot Welding Training Center — Khu CN Thăng Long</h4>
+                <span class="project-slide-meta">Hà Nội • 2022</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div style="text-align:center;margin-top:var(--space-6);" class="show-mobile">
+        <a href="du-an.html" class="btn btn--outline" data-i18n="btn_all_projects">Xem tất cả dự án</a>
+      </div>
+    </div>
+
+    <!-- Featured Courses -->
+    <div class="courses-grid" data-aos="fade-up">
+      <div class="section-header flex-between" style="margin-bottom:var(--space-8);">
+        <div>
+          <div class="section-label" data-i18n="courses_label">Khóa học nổi bật</div>
+          <h3 class="section-title" style="margin-bottom:0;">
+            <span data-i18n="courses_title">Chương trình đào tạo </span>
+            <span class="accent" data-i18n="courses_title_accent">chuyên sâu & thực tiễn</span>
+          </h3>
+        </div>
+        <a href="khoa-hoc.html" class="btn btn--outline hidden-mobile" data-i18n="btn_all_courses">Xem tất cả</a>
+      </div>
+
+      <div class="swiper courses-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="course-card">
+              <div class="course-card-img">
+                <div class="img-placeholder" style="height:180px; background-image: url('assets/images/lab-semiconductor.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              </div>
+              <div class="course-card-body">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <span class="badge badge--accent">🌟 Mũi nhọn</span>
+                  <span class="badge badge--primary">Mới 2025</span>
+                </div>
+                <h4 class="course-name">Thiết kế vi mạch IC với Cadence Virtuoso</h4>
+                <p class="course-desc">Khóa học chuyên sâu về thiết kế mạch tích hợp tương tự và số, từ schematic đến layout và DRC/LVS.</p>
+                <div class="course-meta">
+                  <span class="course-meta-item">📅 60 giờ</span>
+                  <span class="course-meta-item">👥 Kỹ sư, Sinh viên</span>
+                  <span class="course-meta-item">🏆 Chứng nhận</span>
+                </div>
+                <div class="course-footer">
+                  <a href="khoa-hoc.html" class="btn btn--primary btn--sm">Xem chi tiết</a>
+                  <a href="#" class="btn btn--ghost btn--sm" data-modal-open="modal-consult">Đăng ký</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="course-card">
+              <div class="course-card-img">
+                <div class="img-placeholder" style="height:180px; background-image: url('assets/images/lab-mechatronics.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              </div>
+              <div class="course-card-body">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <span class="badge badge--primary">Phổ biến</span>
+                </div>
+                <h4 class="course-name">Lập trình PLC Siemens S7-1200/1500</h4>
+                <p class="course-desc">Từ cơ bản đến nâng cao: Lập trình LAD, FBD, SCL, giao tiếp HMI, mạng truyền thông PROFINET.</p>
+                <div class="course-meta">
+                  <span class="course-meta-item">📅 40 giờ</span>
+                  <span class="course-meta-item">👥 Kỹ thuật viên</span>
+                  <span class="course-meta-item">🏆 Chứng nhận</span>
+                </div>
+                <div class="course-footer">
+                  <a href="khoa-hoc.html" class="btn btn--primary btn--sm">Xem chi tiết</a>
+                  <a href="#" class="btn btn--ghost btn--sm" data-modal-open="modal-consult">Đăng ký</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="course-card">
+              <div class="course-card-img">
+                <div class="img-placeholder" style="height:180px; background-image: url('assets/images/lab-auto.jpg'); background-size: cover; background-position: center; border: none;"></div>
+              </div>
+              <div class="course-card-body">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <span class="badge badge--success">Train the Trainer</span>
+                </div>
+                <h4 class="course-name">Đào tạo giảng viên Công nghệ Ô tô Điện (EV)</h4>
+                <p class="course-desc">Chương trình đặc biệt dành cho giảng viên các trường dạy nghề, cập nhật kiến thức xe điện mới nhất.</p>
+                <div class="course-meta">
+                  <span class="course-meta-item">📅 80 giờ</span>
+                  <span class="course-meta-item">👥 Giảng viên</span>
+                  <span class="course-meta-item">🏆 Chứng nhận</span>
+                </div>
+                <div class="course-footer">
+                  <a href="khoa-hoc.html" class="btn btn--primary btn--sm">Xem chi tiết</a>
+                  <a href="#" class="btn btn--ghost btn--sm" data-modal-open="modal-consult">Đăng ký</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PARTNER MARQUEE
+     ================================================================ -->
+<div class="partner-marquee-section" id="partners">
+  <div class="partner-marquee-label" data-i18n="partners_title">Hệ sinh thái đối tác</div>
+  <div style="overflow:hidden;">
+    <div class="marquee-track" id="marquee-track">
+      <div class="partner-logo">Siemens</div>
+      <div class="partner-logo">FANUC</div>
+      <div class="partner-logo">Yaskawa</div>
+      <div class="partner-logo">Festo</div>
+      <div class="partner-logo">Mitsubishi</div>
+      <div class="partner-logo">Bosch Rexroth</div>
+      <div class="partner-logo">ABB</div>
+      <div class="partner-logo">Cadence</div>
+      <div class="partner-logo">Synopsys</div>
+      <div class="partner-logo">KUKA</div>
+      <div class="partner-logo">DMG Mori</div>
+      <div class="partner-logo">Haas</div>
+      <div class="partner-logo">Lincoln Electric</div>
+      <div class="partner-logo">Fronius</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     SECTION: CTA BANNER
+     ================================================================ -->
+<section style="padding:var(--space-20) 0;background:linear-gradient(135deg,#0A1628 0%,#0D1B2E 50%,#112240 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(30,111,255,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <div class="section-label" style="justify-content:center;" data-aos="fade-up">Bắt đầu ngay hôm nay</div>
+    <h2 class="section-title" style="margin-bottom:var(--space-4);" data-aos="fade-up" data-aos-delay="100">
+      Sẵn sàng nâng tầm cơ sở đào tạo của bạn?
+    </h2>
+    <p class="section-desc" style="margin:0 auto var(--space-8);" data-aos="fade-up" data-aos-delay="200">
+      Đội ngũ chuyên gia TEST luôn sẵn sàng tư vấn và đồng hành cùng bạn trong hành trình xây dựng phòng lab đẳng cấp quốc tế.
+    </p>
+    <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;" data-aos="fade-up" data-aos-delay="300">
+      <a href="#" class="btn btn--primary btn--lg" data-modal-open="modal-consult" id="cta-section-consult">
+        💬 Nhận tư vấn miễn phí
+      </a>
+      <a href="du-an.html" class="btn btn--ghost btn--lg">
+        📁 Xem dự án tiêu biểu
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="header-logo" style="display:inline-flex;margin-bottom:var(--space-4);">
+          <div class="logo-mark">T</div>
+          <div class="logo-text">
+            <span class="logo-name">TEST</span>
+            <span class="logo-tagline">Technical Training</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc" data-i18n="footer_desc">Chuyên gia hàng đầu về thiết bị đào tạo kỹ thuật và giải pháp phòng lab thực hành tại Việt Nam.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">💼</a>
+          <a href="#" class="footer-social" aria-label="YouTube">▶️</a>
+          <a href="#" class="footer-social" aria-label="Zalo">💬</a>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_solutions">Giải pháp</div>
+        <div class="footer-links">
+          <a href="giai-phap.html#mechatronics" class="footer-link">⚙️ Cơ điện tử</a>
+          <a href="giai-phap.html#cnc" class="footer-link">🔩 Gia công CNC</a>
+          <a href="giai-phap.html#auto" class="footer-link">🚗 Ô tô & Xe điện</a>
+          <a href="giai-phap.html#semiconductor" class="footer-link">🔬 Bán dẫn - Vi mạch</a>
+          <a href="giai-phap.html#welding" class="footer-link">🔥 Hàn công nghiệp</a>
+          <a href="giai-phap.html#hvac" class="footer-link">❄️ Điện lạnh & HVAC</a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_products">Sản phẩm</div>
+        <div class="footer-links">
+          <a href="san-pham.html?cat=equipment" class="footer-link">🖥️ Thiết bị đào tạo</a>
+          <a href="san-pham.html?cat=software" class="footer-link">💻 Phần mềm mô phỏng</a>
+          <a href="san-pham.html?cat=materials" class="footer-link">🔧 Vật tư thực hành</a>
+          <a href="khoa-hoc.html" class="footer-link">📚 Khóa học</a>
+          <a href="du-an.html" class="footer-link">🏆 Dự án tiêu biểu</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title" data-i18n="nav_contact">Liên hệ</div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="footer_address">Hà Nội, Việt Nam</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72..."/></svg>
+          <span>1800 TEST (Miễn phí)</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@test.com.vn</span>
+        </div>
+        <div style="margin-top:var(--space-4);">
+          <a href="#" class="btn btn--accent btn--sm" data-modal-open="modal-consult">💬 Nhận tư vấn ngay</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <span data-i18n="footer_copyright">© 2025 TEST Corporation. Tất cả quyền được bảo lưu.</span>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link" data-i18n="footer_privacy">Chính sách bảo mật</a>
+        <a href="#" class="footer-bottom-link" data-i18n="footer_terms">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+     STICKY CTA
+     ================================================================ -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-quick-contacts">
+    <a href="tel:1800TEST" class="quick-contact-btn quick-contact-btn--phone" title="Gọi ngay" aria-label="Gọi điện">📞</a>
+    <a href="#" class="quick-contact-btn quick-contact-btn--zalo" title="Zalo" aria-label="Zalo">💬</a>
+  </div>
+  <a href="#" class="sticky-cta-btn" data-modal-open="modal-consult" id="sticky-consult-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span data-i18n="btn_consult">Nhận tư vấn</span>
+  </a>
+</div>
+
+<!-- ================================================================
+     BACK TO TOP
+     ================================================================ -->
+<button class="back-to-top" id="back-to-top" aria-label="Về đầu trang">↑</button>
+
+<!-- ================================================================
+     MODAL: CONSULT
+     ================================================================ -->
+<div class="overlay-backdrop" id="overlay-backdrop"></div>
+<div class="modal" id="modal-consult" role="dialog" aria-modal="true" aria-labelledby="modal-consult-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-consult-title" data-i18n="popup_consult_title">Đăng ký nhận tư vấn</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-consult" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="consult-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="consult-name" type="text" required data-i18n-ph="form_name_placeholder" placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="consult-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="consult-phone" type="tel" required data-phone data-i18n-ph="form_phone_placeholder" placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-email" data-i18n="form_email">Email công ty <span class="required">*</span></label>
+        <input class="form-control" id="consult-email" type="email" required data-i18n-ph="form_email_placeholder" placeholder="example@truong.edu.vn">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-org" data-i18n="form_org">Đơn vị / Trường học</label>
+        <input class="form-control" id="consult-org" type="text" data-i18n-ph="form_org_placeholder" placeholder="Trường ĐH Bách Khoa...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="consult-need" data-i18n="form_need">Nhu cầu cụ thể</label>
+        <textarea class="form-control" id="consult-need" rows="3" data-i18n-ph="form_need_placeholder" placeholder="Mô tả yêu cầu của bạn..."></textarea>
+      </div>
+      <!-- Captcha -->
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false" aria-label="Xác nhận tôi không phải robot"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <p class="form-hint" data-i18n="form_privacy">Thông tin của bạn được bảo mật tuyệt đối.</p>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" data-i18n="form_submit_consult">Gửi yêu cầu tư vấn</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: QUOTE -->
+<div class="modal" id="modal-quote" role="dialog" aria-modal="true" aria-labelledby="modal-quote-title">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-quote-title" data-i18n="popup_quote_title">Yêu cầu báo giá</h3>
+    <button class="modal-close" data-modal-close aria-label="Đóng">✕</button>
+  </div>
+  <div class="modal-body">
+    <form data-form id="form-quote" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="quote-name" data-i18n="form_name">Họ và tên <span class="required">*</span></label>
+          <input class="form-control" id="quote-name" type="text" required placeholder="Nguyễn Văn A">
+          <span class="form-error">Vui lòng nhập họ tên</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-phone" data-i18n="form_phone">Số điện thoại <span class="required">*</span></label>
+          <input class="form-control" id="quote-phone" type="tel" required data-phone placeholder="0912 345 678">
+          <span class="form-error">Số điện thoại không hợp lệ</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-email" data-i18n="form_email">Email <span class="required">*</span></label>
+        <input class="form-control" id="quote-email" type="email" required placeholder="example@company.com">
+        <span class="form-error">Email không hợp lệ</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-product" data-i18n="form_product">Sản phẩm quan tâm</label>
+        <input class="form-control" id="quote-product" type="text" data-product-field placeholder="Tên sản phẩm...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quote-need" data-i18n="form_need">Yêu cầu cụ thể</label>
+        <textarea class="form-control" id="quote-need" rows="3" placeholder="Số lượng, cấu hình, thời gian cần..."></textarea>
+      </div>
+      <div class="form-group">
+        <div class="captcha-placeholder">
+          <div class="captcha-checkbox" tabindex="0" role="checkbox" aria-checked="false"></div>
+          <span data-i18n="captcha_label">Tôi không phải robot</span>
+          <div class="captcha-logo">🔒<br>TEST<br>CAPTCHA</div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-4);">
+        <button type="submit" class="btn btn--accent btn--lg" style="width:100%;" data-i18n="form_submit_quote">Gửi yêu cầu báo giá</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================================================================
+     SCRIPTS
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/header.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
